@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-SEC Community — AI Security & AI for Security Meetups in Bangalore</title>
+  <meta name="description" content="AI-SEC Community is a practitioner-led network covering AI security and AI for security — workshops, CTFs, meetups, and talks." />
+  <link rel="canonical" href="https://aisec.community/" />
+
+  <!-- Open Graph / social cards — replace url & image with production values at deploy -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI-SEC Community — AI Security & AI for Security" />
+  <meta property="og:description" content="A practitioner-led network covering AI security and AI for security — workshops, CTFs, meetups, and talks." />
+  <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:url" content="https://aisec.community/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI-SEC Community — AI Security & AI for Security" />
+  <meta name="twitter:description" content="A practitioner-led network covering AI security and AI for security — workshops, CTFs, meetups, and talks." />
+  <meta name="twitter:image" content="assets/images/logo.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles, in cascade order -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="32" height="32" />
+        <span class="navbar__wordmark">AI-SEC</span>
+      </a>
+
+      <nav class="navbar__links" id="primary-nav" aria-label="Primary">
+        <a href="index.html" class="is-active" aria-current="page">Home</a>
+        <a href="events.html">Events</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="#" class="btn btn-primary navbar__cta">Register Now</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between dark and light mode" aria-pressed="false">
+          <span aria-hidden="true">&#9680;</span>
+        </button>
+        <button type="button" class="navbar__toggle" data-nav-toggle aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__photo" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__network-animation" data-network-animation aria-hidden="true"></div>
+      <div class="hero__fade" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <h1 id="hero-title">We talk about AI Security & AI for Security</h1>
+        <p class="hero__subtitle">Securing the age of AI, together.</p>
+
+        <div class="hero__cta-group">
+          <a href="https://luma.com/ihwkjic3" class="btn btn-primary">Register for Next Event</a>
+          <a href="https://www.linkedin.com/company/ai-sec-community/?viewAsMember=true" class="btn btn-secondary">Join on LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="hero__stats-wrapper">
+        <div class="stats-bar" aria-label="Community stats">
+          <div class="stat-item">
+            <span class="stat-item__number" data-count-to="250" data-suffix="+">0</span>
+            <span class="stat-item__label">Monthly Attendees</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-item__number" data-count-to="60" data-suffix="+">0</span>
+            <span class="stat-item__label">Workshop Capacity</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-item__number" data-count-to="4000" data-suffix="+">0</span>
+            <span class="stat-item__label">LinkedIn Members</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#what-we-do-title" class="hero__scroll-cue">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        <span class="visually-hidden">Scroll down to see what we do</span>
+      </a>
+    </section>
+
+    <!-- What we do -->
+    <section class="section" aria-labelledby="what-we-do-title">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title" id="what-we-do-title">What We Do</h2>
+          <p class="section__subtitle">Five ways we bring practitioners together, from first meetup to boardroom.</p>
+        </div>
+
+        <div class="grid grid-3" data-animate="fade-up">
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Meetups</h3>
+              <p class="card__text">Regular in-person gatherings where practitioners share what they're seeing in the field — no slides required.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Workshops</h3>
+              <p class="card__text">Hands-on sessions on red teaming, LLM security, and defensive tooling — build the skill, not just watch it.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">CTF Challenges</h3>
+              <p class="card__text">Capture-the-flag events built around real AI attack surfaces — prompt injection, model extraction, and more.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Boardroom Discussions</h3>
+              <p class="card__text">Closed-door sessions for security leaders to talk candidly about AI risk, governance, and adoption trade-offs.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Flash Mentorship</h3>
+              <p class="card__text">Short, focused mentorship pairings connecting newcomers with practitioners already working the problem.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next event -->
+    <section class="section section--tint" aria-labelledby="next-event-title">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title" id="next-event-title">Next Event</h2>
+          <p class="section__subtitle">Save your seat — capacity is limited.</p>
+        </div>
+
+        <article class="card event-card" data-animate="fade-up">
+          <img class="card__image" src="Images/l 2.png" alt="Placeholder photo from a past AI-SEC Community workshop" />
+          <div class="card__body">
+            <div class="card__tags">
+              <span class="badge badge--accent">Workshop</span>
+              <span class="badge">In-person</span>
+            </div>
+            <h3 class="card__title">AI-SEC COMMUNITY July Monthly Meetup</h3>
+            <p class="card__meta">
+              <time datetime="2026-08-15">July 25th, 2026</time>
+              <span aria-hidden="true">&middot;</span>
+              <span>Bangalore</span>
+            </p>
+            <p class="card__text">Venue : PayPal</p>
+            <a href="https://luma.com/ihwkjic3" class="btn btn-primary" target="_blank" rel="noopener">RSVP on Luma</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Past events -->
+    <section class="section" aria-labelledby="past-events-title">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title" id="past-events-title">Past Event Highlights</h2>
+          <p class="section__subtitle">A few sessions from the community archive.</p>
+        </div>
+
+        <div class="grid grid-3" data-animate="fade-up">
+          <article class="card">
+            <img class="card__image" src="Images/AI-SEC Community ( Jun 2026 ).jpg" alt="Placeholder photo of attendees at an AI-SEC Community meetup" />
+            <div class="card__body">
+              <h3 class="card__title">AI-SEC COMMUNITY June 2026</h3>
+              <p class="card__text">Venue : Flipkart</p>
+              <a href="#" class="btn btn-tertiary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 0 0 .502 6.186 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 0 0 2.107-2.117A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z"/></svg>Watch Recording</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__image" src="Images/NP 1.jpeg" alt="Placeholder photo of a speaker presenting at an AI-SEC Community event" />
+            <div class="card__body">
+              <h3 class="card__title">Networking Sessions</h3>
+              <p class="card__text">A concrete checklist for locking down retrieval-augmented generation in production.</p>
+              <a href="#" class="btn btn-tertiary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 0 0 .502 6.186 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 0 0 2.107-2.117A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z"/></svg>Watch Recording</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__image" src="Images/NP 2.jpeg" alt="Placeholder photo of a panel discussion at an AI-SEC Community event" />
+            <div class="card__body">
+              <h3 class="card__title">Our Powerful Volunteers</h3>
+              <p class="card__text">Winning teams broke down the exact payloads that got past the filters.</p>
+              <a href="#" class="btn btn-tertiary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 0 0 .502 6.186 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 0 0 2.107-2.117A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z"/></svg>Watch Recording</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section--alt" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title" id="testimonials-title">Recording Sessions</h2>
+          <p class="section__subtitle">Short clips, straight from the room.</p>
+        </div>
+
+        <div class="grid grid-3" data-animate="fade-up">
+          <figure class="card video-embed">
+            <div class="video-embed__frame">
+              <iframe
+  src="https://www.youtube.com/embed/videoseries?list=PLSjnU4Ajjwhg"
+  title="AI-SEC Community Playlist"
+  width="100%"
+  height="315"
+  loading="lazy"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+            </div>
+            <figcaption class="card__body card__text">AI-SEC COMMUNITY ( JUNE MEETUP )</figcaption>
+          </figure>
+
+          <figure class="card video-embed">
+            <div class="video-embed__frame">
+              <iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/videoseries?list=PLEx7cvusmN9hCDCHddscucMXZn5bDt2Oq"
+  title="Member Feedback Clip 2 - AI-SEC Community"
+  loading="lazy"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+</iframe>
+            </div>
+            <figcaption class="card__body card__text">"AI-SEC COMMUNITY ( MAY MEETUP)"</figcaption>
+          </figure>
+
+          <figure class="card video-embed">
+            <div class="video-embed__frame">
+              <iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/videoseries?list=PLEx7cvusmN9hgwWOim8IAUB-MkWTXkwSq"
+  title="Member Feedback Clip 3 - AI-SEC Community"
+  loading="lazy"
+  frameborder="0"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+            </div>
+            <figcaption class="card__body card__text">"AI-SEC COMMUNITY (APRIL MEETUP)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speaker wall -->
+    <section class="section" aria-labelledby="speakers-title">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title" id="speakers-title">Speakers & Mentors</h2>
+          <p class="section__subtitle">Practitioners who've shared their work with the community.</p>
+        </div>
+
+        <div class="grid grid-3" data-animate="fade-up">
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="Images/s 1.png" alt="Portrait placeholder for speaker 1" />
+            <div class="card__body">
+              <h3 class="card__title">Pranav Raghuram</h3>
+              <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;Vice President</span>
+              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="Images/2nd speaker.jpeg" alt="Portrait placeholder for speaker 2" />
+            <div class="card__body">
+              <h3 class="card__title">Ankit Gupta</h3>
+              <span class="badge">Product Security</span>
+              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="Images/modera.jpeg" alt="Portrait placeholder for speaker 3" />
+            <div class="card__body">
+              <h3 class="card__title">Vandana Verma Sehgal</h3>
+              <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Security Leader</span>
+              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="Images/PS 1.png" alt="Portrait placeholder for speaker 4" />
+            <div class="card__body">
+              <h3 class="card__title">Vishal Kalro</h3>
+              <span class="badge">&nbsp;CISO & DPO</span>
+              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="Images/PS 2.jpg" alt="Portrait placeholder for speaker 5" />
+            <div class="card__body">
+              <h3 class="card__title">Mayank Satnalika</h3>
+              <span class="badge">Co-Founder & Director</span>
+              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="Images/Ps -3.jpg" alt="Portrait placeholder for speaker 6" />
+            <div class="card__body">
+              <h3 class="card__title">Nageshwaran C</h3>
+              <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CISO</span>
+              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Security Q of the Week -->
+    <section class="section section--tint" aria-labelledby="qotw-title" id="qotw" data-qotw-source="data/q-of-the-week.json">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title" id="qotw-title">AI Security Q of the Week</h2>
+        </div>
+
+        <article class="card" data-qotw-card data-animate="fade-up">
+          <div class="card__body">
+            <span class="badge badge--accent">Q of the Week</span>
+            <h3 class="card__title" data-qotw-question>Can you fully patch a large language model against prompt injection?</h3>
+            <p class="card__text" data-qotw-answer>Short answer: not yet. Placeholder answer — treat prompt injection as an unsolved class of bug and layer defenses (input handling, output filtering, least-privilege tool access) rather than expecting one fix.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Newsletter signup -->
+    <section class="section" aria-labelledby="newsletter-title">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title" id="newsletter-title">Stay in the Loop</h2>
+          <p class="section__subtitle">One email, whenever there's something worth telling you about.</p>
+        </div>
+
+        <form class="newsletter-form" data-newsletter-form novalidate>
+          <div class="form-group">
+            <label class="form-label" for="newsletter-email">Email address</label>
+            <input class="form-input" type="email" id="newsletter-email" name="email" placeholder="you@example.com" required />
+          </div>
+          <!-- CAPTCHA placeholder — wire up per host at deploy, see /deploy -->
+          <div class="form-captcha" data-captcha-placeholder aria-hidden="true"></div>
+          <button class="btn btn-primary form-submit" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Coming to your city -->
+    <section class="section section--alt" aria-labelledby="your-city-title">
+      <div class="container section__header" data-animate="fade-up">
+        <h2 class="section__title" id="your-city-title">Coming to Your City?</h2>
+        <p class="section__subtitle">Bangalore is live. Tell us where we should show up next.</p>
+        <a href="get-involved.html#bring-to-your-city" class="btn btn-primary">Bring AI-Sec to Your City</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="28" height="28" />
+            AI-SEC Community
+          </a>
+          <p class="footer__tagline">Securing the age of AI, together.</p>
+        </div>
+
+        <nav aria-label="Footer navigation">
+          <h3 class="footer__heading">Explore</h3>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="get-involved.html">Get Involved</a>
+            <a href="about.html">About</a>
+          </div>
+        </nav>
+
+        <div>
+          <h3 class="footer__heading">Community</h3>
+          <div class="footer__social">
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on YouTube"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 0 0 .502 6.186 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 0 0 2.107-2.117A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z"/></svg></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on WhatsApp"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .16 5.304.157 11.893c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.582 0 11.885-5.304 11.888-11.893a11.821 11.821 0 0 0-3.418-8.452"/></svg></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on X / Twitter"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Newsletter</h3>
+          <form class="newsletter-form" data-newsletter-form novalidate>
+            <div class="form-group">
+              <label class="form-label" for="footer-newsletter-email">Email address</label>
+              <input class="form-input" type="email" id="footer-newsletter-email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-captcha" data-captcha-placeholder aria-hidden="true"></div>
+            <button class="btn btn-primary form-submit" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>Built by the community, for the community.</p>
+        <p>&copy; 2025&ndash;<span data-current-year>2026</span> AI-SEC Community. <a href="get-involved.html#code-of-conduct">Code of Conduct</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/stats-counter.js" defer></script>
+  <script src="js/event-filters.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>

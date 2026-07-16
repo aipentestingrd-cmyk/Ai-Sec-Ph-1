@@ -1,0 +1,34 @@
+[
+  {
+    "id": "team-01",
+    "name": "Kabir Malhotra",
+    "role": "Founder",
+    "imageUrl": "assets/images/team-placeholder-1.jpg",
+    "linkedinUrl": "https://linkedin.com/in/kabir-malhotra-placeholder",
+    "bio": "Started AI-SEC Community in 2025 after one too many hallway conversations about how few rooms bring AI and security people together."
+  },
+  {
+    "id": "team-02",
+    "name": "Simran Kaur",
+    "role": "Community Lead",
+    "imageUrl": "assets/images/team-placeholder-2.jpg",
+    "linkedinUrl": "https://linkedin.com/in/simran-kaur-placeholder",
+    "bio": "Runs the WhatsApp community and newsletter, and makes sure every new member finds their way into a conversation, not just a mailing list."
+  },
+  {
+    "id": "team-03",
+    "name": "Aditya Sharma",
+    "role": "Workshops Lead",
+    "imageUrl": "assets/images/team-placeholder-3.jpg",
+    "linkedinUrl": "https://linkedin.com/in/aditya-sharma-placeholder",
+    "bio": "Designs the hands-on workshop curriculum and recruits practitioners willing to teach the attack techniques they actually use."
+  },
+  {
+    "id": "team-04",
+    "name": "Neha Verma",
+    "role": "Partnerships Lead",
+    "imageUrl": "assets/images/team-placeholder-4.jpg",
+    "linkedinUrl": "https://linkedin.com/in/neha-verma-placeholder",
+    "bio": "Manages sponsor relationships and chapter expansion, and vets every partner against the community's no-vendor-pitch rule."
+  }
+]

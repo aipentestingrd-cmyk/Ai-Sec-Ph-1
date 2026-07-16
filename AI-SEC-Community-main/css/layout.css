@@ -1,0 +1,252 @@
+/* ==========================================================================
+   AI-SEC Community — Layout
+   Requires tokens.css. Breakpoints mirror the values documented in
+   tokens.css (--breakpoint-sm/md/lg/xl) — var() can't be used inside
+   @media conditions, so literals are repeated here by design.
+   ========================================================================== */
+
+/* --- Container --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-xl);
+  }
+}
+
+/* --- Grid utilities --- */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Flex utilities --- */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-xs {
+  gap: var(--space-xs);
+}
+.gap-sm {
+  gap: var(--space-sm);
+}
+.gap-md {
+  gap: var(--space-md);
+}
+.gap-lg {
+  gap: var(--space-lg);
+}
+
+/* --- Section vertical rhythm --- */
+main > section + section {
+  margin-top: var(--space-2xl);
+}
+
+/* --- Hero layout ---
+   Layer stack, back to front:
+     0 .hero__photo               community photo, gradient fallback
+     1 .hero__overlay             dark gradient for text legibility
+     2 .hero__network-animation   canvas, drawn over the photo
+     3 .hero__fade                bottom fade — "content peek" cue
+     4 .hero__content             headline / subhead / CTAs, centered
+     5 .hero__stats-wrapper,      stats bar + scroll cue, pinned to the
+       .hero__scroll-cue          hero's bottom edge, overlapping into
+                                  the section below
+   overflow is intentionally NOT hidden here — the stats bar needs to
+   visually spill past the hero's own bottom edge. Nothing else in the
+   layer stack exceeds the hero's bounds, so nothing else is affected. */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  padding-block: var(--space-2xl);
+  text-align: center;
+}
+
+.hero__photo,
+.hero__overlay,
+.hero__network-animation {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__photo {
+  z-index: 0;
+  background-image: url("../assets/images/community-hero.jpg"),
+    linear-gradient(135deg, var(--color-surface), var(--color-bg-alt));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero__overlay {
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-bg) 82%, transparent) 0%,
+    color-mix(in srgb, var(--color-bg) 45%, transparent) 50%,
+    color-mix(in srgb, var(--color-bg) 75%, transparent) 100%
+  );
+}
+
+.hero__network-animation {
+  z-index: 2;
+}
+
+.hero__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 8rem;
+  background: linear-gradient(to bottom, transparent, var(--color-bg) 90%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.hero__cta-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__stats-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: -3.5rem;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: min(100% - 2 * var(--space-md), 60rem);
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 8rem;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-text);
+  opacity: 0.85;
+  animation: hero-scroll-bounce 2s ease-in-out infinite;
+  transition: opacity var(--transition-fast);
+}
+
+.hero__scroll-cue:hover {
+  opacity: 1;
+}
+
+.hero__scroll-cue svg {
+  width: 22px;
+  height: 22px;
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+/* Below 768px there isn't enough vertical room in a 70vh hero for the
+   overlap trick to coexist with centered text — the absolutely
+   positioned stats box (taller here, three stacked numbers) was
+   covering the subtitle and CTA buttons outright. Falls back to
+   normal document flow instead of visually breaching the hero's
+   bottom edge; the stats card is still a strong enough "more below"
+   signal at this size that the scroll cue is redundant, so it's
+   hidden rather than repositioned. */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero__stats-wrapper {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin-top: var(--space-xl);
+  }
+
+  .hero__scroll-cue {
+    display: none;
+  }
+}

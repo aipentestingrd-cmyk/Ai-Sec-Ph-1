@@ -1,0 +1,56 @@
+[
+  {
+    "id": "spk-01",
+    "name": "Ananya Krishnan",
+    "role": "Principal Security Engineer",
+    "company": "Redshift Labs",
+    "specialty": "AI Red Teaming",
+    "imageUrl": "assets/images/speaker-placeholder-1.jpg",
+    "linkedinUrl": "https://linkedin.com/in/ananya-krishnan-placeholder"
+  },
+  {
+    "id": "spk-02",
+    "name": "Rohan Mehta",
+    "role": "Staff Engineer, Trust & Safety",
+    "company": "Verinet AI",
+    "specialty": "LLM Security",
+    "imageUrl": "assets/images/speaker-placeholder-2.jpg",
+    "linkedinUrl": "https://linkedin.com/in/rohan-mehta-placeholder"
+  },
+  {
+    "id": "spk-03",
+    "name": "Priya Nair",
+    "role": "Cloud Security Architect",
+    "company": "Northgate Systems",
+    "specialty": "Cloud Security",
+    "imageUrl": "assets/images/speaker-placeholder-3.jpg",
+    "linkedinUrl": "https://linkedin.com/in/priya-nair-placeholder"
+  },
+  {
+    "id": "spk-04",
+    "name": "Arjun Desai",
+    "role": "MLOps Lead",
+    "company": "Fractal Point",
+    "specialty": "MLOps",
+    "imageUrl": "assets/images/speaker-placeholder-4.jpg",
+    "linkedinUrl": "https://linkedin.com/in/arjun-desai-placeholder"
+  },
+  {
+    "id": "spk-05",
+    "name": "Meera Iyer",
+    "role": "Threat Intelligence Lead",
+    "company": "Sentra Security",
+    "specialty": "Threat Research",
+    "imageUrl": "assets/images/speaker-placeholder-5.jpg",
+    "linkedinUrl": "https://linkedin.com/in/meera-iyer-placeholder"
+  },
+  {
+    "id": "spk-06",
+    "name": "Vikram Rao",
+    "role": "AppSec Engineering Manager",
+    "company": "Clearline Technologies",
+    "specialty": "Application Security",
+    "imageUrl": "assets/images/speaker-placeholder-6.jpg",
+    "linkedinUrl": "https://linkedin.com/in/vikram-rao-placeholder"
+  }
+]

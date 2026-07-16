@@ -1,0 +1,158 @@
+/* ==========================================================================
+   AI-SEC Community — Design Tokens
+   Dark mode is default. Light mode activates via:
+     - @media (prefers-color-scheme: light)   → system preference
+     - [data-theme="light"]                    → manual toggle override
+     - [data-theme="dark"]                     → manual toggle, forces dark
+   ========================================================================== */
+
+:root {
+  /* --- Raw brand palette (fixed, never flips with theme) --- */
+  --brand-primary: #9930f6;
+  --brand-deep-purple: #6b1fcc;
+  --brand-tint: #f0e4fe;
+  --brand-lavender: #fbf8fe;
+  --brand-ink: #1a1a2e;
+  --brand-slate: #55506b;
+  --brand-white: #ffffff;
+  --brand-whatsapp: #25d366;
+  --brand-whatsapp-hover: #1da851;
+
+  /* --- Semantic color tokens: DARK (default) --- */
+  --color-bg: var(--brand-ink);
+  --color-bg-alt: #22223d;
+  --color-surface: #26264a;
+  --color-section-tint: #2c2c52;
+  --color-border: #3a3a5c;
+  --color-text: #f5f3fa;
+  --color-text-secondary: #ada8c7;
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: #b266f8;
+  --color-on-primary: var(--brand-white);
+  --color-whatsapp: var(--brand-whatsapp);
+  --color-whatsapp-hover: var(--brand-whatsapp-hover);
+  --color-error: #ff6b81;
+
+  /* --- Font families --- */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* --- Font weights --- */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* --- Font size scale --- */
+  --fs-h1: 3rem;       /* 48px */
+  --fs-h2: 2.25rem;    /* 36px */
+  --fs-h3: 1.75rem;    /* 28px */
+  --fs-h4: 1.375rem;   /* 22px */
+  --fs-h5: 1.125rem;   /* 18px */
+  --fs-h6: 1rem;       /* 16px */
+  --fs-body: 1rem;     /* 16px */
+  --fs-small: 0.875rem;/* 14px */
+  --fs-caption: 0.75rem;/* 12px */
+
+  /* --- Spacing scale --- */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2.5rem;   /* 40px */
+  --space-2xl: 4rem;    /* 64px */
+
+  /* --- Border radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* --- Transitions / timing --- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms var(--ease-standard);
+  --transition-base: 250ms var(--ease-standard);
+  --transition-slow: 400ms var(--ease-standard);
+
+  /* --- Z-index scale --- */
+  --z-navbar: 100;
+  --z-modal: 900;
+  --z-tooltip: 1000;
+
+  /* --- Shadows (dark default: black, higher opacity) --- */
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-elevated: 0 12px 32px rgba(0, 0, 0, 0.55);
+
+  /* --- Containers & breakpoints ---
+     Note: custom properties are not usable inside @media conditions
+     (no browser support for var() in media features). These exist as
+     single-source-of-truth reference values — mirror the literal px
+     numbers in responsive.css media queries. */
+  --container-max-width: 1200px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* --- Semantic color tokens: LIGHT (system preference) --- */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: var(--brand-white);
+    --color-bg-alt: var(--brand-lavender);
+    --color-surface: var(--brand-white);
+    --color-section-tint: var(--brand-tint);
+    --color-border: #e3d9f5;
+    --color-text: var(--brand-ink);
+    --color-text-secondary: var(--brand-slate);
+    --color-primary: var(--brand-primary);
+    --color-primary-hover: var(--brand-deep-purple);
+    --color-on-primary: var(--brand-white);
+    --color-error: #d92c48;
+
+    --shadow-subtle: 0 1px 2px rgba(26, 26, 46, 0.08);
+    --shadow-card: 0 4px 12px rgba(26, 26, 46, 0.12);
+    --shadow-elevated: 0 12px 32px rgba(26, 26, 46, 0.2);
+  }
+}
+
+/* --- Semantic color tokens: LIGHT (manual toggle override) --- */
+[data-theme="light"] {
+  --color-bg: var(--brand-white);
+  --color-bg-alt: var(--brand-lavender);
+  --color-surface: var(--brand-white);
+  --color-section-tint: var(--brand-tint);
+  --color-border: #e3d9f5;
+  --color-text: var(--brand-ink);
+  --color-text-secondary: var(--brand-slate);
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: var(--brand-deep-purple);
+  --color-on-primary: var(--brand-white);
+  --color-error: #d92c48;
+
+  --shadow-subtle: 0 1px 2px rgba(26, 26, 46, 0.08);
+  --shadow-card: 0 4px 12px rgba(26, 26, 46, 0.12);
+  --shadow-elevated: 0 12px 32px rgba(26, 26, 46, 0.2);
+}
+
+/* --- Semantic color tokens: DARK (manual toggle override, forces dark
+     even when system prefers light) --- */
+[data-theme="dark"] {
+  --color-bg: var(--brand-ink);
+  --color-bg-alt: #22223d;
+  --color-surface: #26264a;
+  --color-section-tint: #2c2c52;
+  --color-border: #3a3a5c;
+  --color-text: #f5f3fa;
+  --color-text-secondary: #ada8c7;
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: #b266f8;
+  --color-on-primary: var(--brand-white);
+  --color-error: #ff6b81;
+
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-elevated: 0 12px 32px rgba(0, 0, 0, 0.55);
+}

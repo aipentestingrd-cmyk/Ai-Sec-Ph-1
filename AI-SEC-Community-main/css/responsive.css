@@ -1,0 +1,150 @@
+/* ==========================================================================
+   AI-SEC Community — Responsive audit fixes
+   Loads last (after tokens/reset/components/layout/pages) so overrides
+   here reliably win equal-specificity ties in the cascade.
+
+   Breakpoints mirror --breakpoint-sm/md/lg documented in tokens.css
+   (var() can't be used inside @media conditions, so literals repeat here).
+
+   Where a rule here must coexist with an existing single-sided breakpoint
+   in layout.css/components.css (e.g. the 768px mobile collapse), range
+   queries (min-width AND max-width) are used deliberately so the two
+   don't fight over the same viewport widths.
+   ========================================================================== */
+
+/* --- Bugfix: the desktop "Register Now" CTA was never actually hiding
+   on mobile. .navbar__cta { display: none; } lives near the top of
+   components.css (navbar section), but .btn / .btn-primary set
+   display: inline-flex further down the same file — same specificity
+   (0,1,0) each, so the later rule silently won regardless of the media
+   query. Fixed here with a two-class selector (0,2,0) that wins outright. --- */
+@media (max-width: 768px) {
+  .navbar__actions .navbar__cta {
+    display: none;
+  }
+}
+
+/* --- Bugfix (mirror of the above): the mobile-menu "Register Now" CTA
+   that navigation.js injects into #primary-nav was never actually
+   hiding at desktop widths, for the identical reason — its base
+   `.navbar__cta--mobile { display: none; }` rule in components.css
+   loses to the later `.btn { display: inline-flex; }` rule at equal
+   specificity. Result: two visible "Register Now" buttons side by
+   side at desktop widths. Confined to a min-width query so it doesn't
+   fight components.css's existing "show at <=768px" rule. --- */
+@media (min-width: 769px) {
+  .navbar__links .navbar__cta--mobile {
+    display: none;
+  }
+}
+
+/* --- Item 4: navbar logo truncates gracefully — wordmark hides on very
+   small screens, just the mark stays. Requires the wordmark to be
+   wrapped in a span (added to all 4 pages) since CSS can't target a
+   bare text node. --- */
+@media (max-width: 360px) {
+  .navbar__wordmark {
+    display: none;
+  }
+}
+
+/* --- Item 2: hero heading shrinks going into tablet, then phone, so it
+   never dominates the viewport or feels oversized relative to the
+   stats bar below it. Stats bar is forced to stack — it was only
+   wrapping incidentally before (large digits happened to not fit
+   3-across), not by deliberate rule. --- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* --- Item 3 / 7: measured regression — grid-3 (what-we-do, past events,
+   testimonials, speaker wall, workshop catalog, how-to-join, chapter
+   status, timeline's sibling grid-3 team section) stays 3 columns all
+   the way down to 768px, which measured out to ~214-257px per card in
+   the 769-1024px tablet band — below the 280px floor. Confined to a
+   range query so it doesn't fight layout.css's existing 1-col rule at
+   <=768px. --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Item 5: footer columns stack going into tablet/mobile. Measured
+   bug — footer__grid's fixed "2fr 1fr 1fr 1.5fr" never collapsed,
+   causing the Community and Newsletter columns to render off-screen
+   (314px of horizontal overflow on every page at 375px). Social icons
+   already stay in a single row with no changes needed (4 small icons,
+   no wrap set, never overflow). --- */
+@media (max-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* --- Item 6: form inputs already stretch full-width via the
+   .form-group flex-column default stretch, but made explicit here so
+   it doesn't depend on that implicit behavior. Submit buttons switch
+   from auto-width pills to full-width below 480px. --- */
+@media (max-width: 480px) {
+  .form-input,
+  .form-textarea,
+  .form-select {
+    width: 100%;
+  }
+
+  .form-submit {
+    width: 100%;
+  }
+}
+
+/* --- Item 9: YouTube embeds had no sizing rules at all — iframes were
+   rendering at the browser's default intrinsic size (300x150),
+   ignoring their card width entirely at every breakpoint. Classic
+   padding-bottom wrapper keeps a true 16:9 ratio at any width.
+   Requires the .video-embed__frame wrapper div added around each
+   iframe in index.html. --- */
+.video-embed__frame {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.video-embed__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- Item 10: about.html timeline is a grid-2 of cards — already
+   collapses to 1-col at <=768px via the existing shared rule in
+   layout.css, and was verified to have no horizontal overflow at
+   375px. No change needed; kept here as a documented check, not a fix. --- */

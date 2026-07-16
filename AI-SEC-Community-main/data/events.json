@@ -1,0 +1,46 @@
+[
+  {
+    "id": "evt-2026-08-15-red-teaming-llm-apps",
+    "title": "Red Teaming LLM Applications",
+    "date": "2026-08-15",
+    "city": "Bangalore",
+    "type": "workshop",
+    "format": "in-person",
+    "description": "Hands-on session covering prompt injection, jailbreak testing, and defense-in-depth for LLM-backed applications.",
+    "lumaUrl": "https://lu.ma/aisec-red-teaming-llm-apps",
+    "youtubeUrl": null
+  },
+  {
+    "id": "evt-2026-08-22-threat-modeling-ai-systems",
+    "title": "Threat Modeling for AI Systems",
+    "date": "2026-08-22",
+    "city": "Online",
+    "type": "webinar",
+    "format": "online",
+    "description": "A practical framework for threat-modeling AI-backed features before they ship.",
+    "lumaUrl": "https://lu.ma/aisec-threat-modeling-ai-systems",
+    "youtubeUrl": null
+  },
+  {
+    "id": "evt-2026-08-29-monthly-meetup-roundup",
+    "title": "Monthly Meetup — AI Security Roundup",
+    "date": "2026-08-29",
+    "city": "Bangalore",
+    "type": "meetup",
+    "format": "in-person",
+    "description": "Open floor, lightning talks, and networking with the Bangalore chapter.",
+    "lumaUrl": "https://lu.ma/aisec-monthly-roundup-august",
+    "youtubeUrl": null
+  },
+  {
+    "id": "evt-2026-09-05-ctf-jailbreak-the-model",
+    "title": "CTF Night — Jailbreak the Model",
+    "date": "2026-09-05",
+    "city": "Bangalore + Online",
+    "type": "ctf",
+    "format": "hybrid",
+    "description": "Teams compete to break a deliberately vulnerable LLM application. Prizes for the top three.",
+    "lumaUrl": "https://lu.ma/aisec-ctf-jailbreak-the-model",
+    "youtubeUrl": null
+  }
+]

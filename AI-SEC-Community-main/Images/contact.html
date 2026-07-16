@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AI-SEC Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a911afbf7.js" crossorigin="anonymous"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fbfaff;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            background: linear-gradient(rgba(15, 7, 31, 0.88), rgba(15, 7, 31, 0.88)), url('/123.png') center/cover;
+            color: white;
+            padding: 120px 20px 90px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e6def7;
+        }
+
+        /* ---------- Contact section ---------- */
+        .contact-section {
+            max-width: 1200px;
+            margin: -60px auto 60px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-info {
+            padding: 60px 50px;
+            background: #f8f5ff;
+        }
+        .contact-info h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #7c3aed;
+        }
+        .info-item {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: #7c3aed;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+        .info-item div strong {
+            color: #7c3aed;
+        }
+
+        /* Social media cards */
+        .social-cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 40px;
+        }
+        .social-card {
+            background: white;
+            padding: 16px 8px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(124,58,237,0.2);
+        }
+        .social-card a {
+            text-decoration: none;
+            color: #4c1d95;
+            font-size: 26px;
+            display: block;
+        }
+        .social-card small {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #5b5568;
+            font-style: italic;
+            margin-top: 30px;
+            padding: 15px 18px;
+            background: #f0e9ff;
+            border-left: 3px solid #7c3aed;
+            border-radius: 8px;
+        }
+
+        /* ---------- Form ---------- */
+        .form-section {
+            padding: 60px 50px;
+        }
+        .form-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #7c3aed;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #7c3aed;
+            margin-bottom: 6px;
+        }
+        label .req {
+            color: #e0433f;
+            margin-left: 2px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+        }
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+        .send-btn {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 16px 50px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .send-btn:hover {
+            background: #6c2bd9;
+            transform: translateY(-2px);
+        }
+        .send-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .form-status {
+            margin-top: 14px;
+            font-size: 14px;
+            font-weight: 500;
+            min-height: 20px;
+        }
+        .form-status.success { color: #1a7d3a; }
+        .form-status.error { color: #c0392b; }
+
+        /* ---------- Footer ---------- */
+        footer {
+            background: #0f071f;
+            color: #ccc;
+            padding: 80px 40px 40px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-grid h4 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        .footer-brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .newsletter-input {
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 12px;
+        }
+        .newsletter-btn {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .newsletter-btn:hover {
+            background: #6c2bd9;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            font-size: 14px;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 900px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+                margin: -40px 16px 40px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 90px 16px 60px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .contact-section {
+                margin: -30px 12px 30px;
+                border-radius: 12px;
+            }
+            .contact-info, .form-section {
+                padding: 36px 24px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .social-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            footer {
+                padding: 50px 20px 30px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: left;
+            }
+            .send-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Contact Us</h1>
+        <p>AI-SEC Community is ready to help you connect with the future of AI Security & AI for Security.</p>
+    </section>
+
+    <!-- Contact Form -->
+    <div class="contact-section">
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-arrows-to-circle" style="color: rgb(252, 251, 246);"></i>
+</div>
+                <div>
+                    <strong>Community Hub</strong><br>
+                    Bengaluru, India<br>
+                    India
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-envelope" style="color: rgb(252, 251, 246);"></i>
+</div>
+                <div>
+                    <strong>Email Us</strong><br>
+                    hello@ai-sec.org<br>
+                    community@ai-sec.org
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-brands fa-whatsapp" style="color: rgb(252, 251, 246);"></i>
+</div>
+                <div>
+                    <strong>Call / WhatsApp</strong><br>
+                    +91 90034 20330
+                </div>
+            </div>
+
+            <!-- Social Media Link Cards -->
+            <h3 style="margin: 35px 0 15px 0; color:#4c1d95;">Connect With Us</h3>
+            <div class="social-cards">
+                <div class="social-card"><a href="https://www.linkedin.com/company/108771012/admin/dashboard/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" style="color: rgb(93, 117, 228);"></i>
+</a><small>LinkedIn</small></div>
+                <div class="social-card"><a href="https://wa.me/9003420330" target="_blank" rel="noopener"><i class="fa-brands fa-square-whatsapp" style="color: rgb(5, 227, 99);"></i>
+</a><small>WhatsApp</small></div>
+                <div class="social-card"><a href="https://www.youtube.com/@AI-PentestingRD" target="_blank" rel="noopener"><i class="fa-brands fa-youtube" style="color: rgb(227, 5, 5);"></i>
+</a><small>YouTube</small></div>
+                <div class="social-card"><a href="https://www.instagram.com/aiseccommunity" target="_blank" rel="noopener"><i class="fa-brands fa-square-instagram" style="color: rgb(243, 91, 169);"></i>
+</a><small>Instagram</small></div>
+                <div class="social-card"><a href="https://www.facebook.com/profile.php?id=61562946043366" target="_blank" rel="noopener"><i class="fa-brands fa-facebook" style="color: rgb(22, 133, 228);"></i>
+</a><small>Facebook</small></div>
+            </div>
+
+            <div class="note">
+                Note: We do not mention specific venues on this page as sessions are conducted depending upon the venue sponsor.
+            </div>
+        </div>
+
+        <!-- Right: Message Form -->
+        <div class="form-section">
+            <h2>Send us a Message</h2>
+            <form id="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name<span class="req">*</span></label>
+                        <input id="name" name="name" type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="org">Organization<span class="req">*</span></label>
+                        <input id="org" name="organization" type="text" placeholder="Company / Organization" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone<span class="req">*</span></label>
+                        <input id="phone" name="phone" type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email<span class="req">*</span></label>
+                        <input id="email" name="email" type="email" placeholder="Email Address" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject<span class="req">*</span></label>
+                    <input id="subject" name="subject" type="text" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message<span class="req">*</span></label>
+                    <textarea id="message" name="message" placeholder="Your Message (Tell us how we can help you with AI Security)" required></textarea>
+                </div>
+                <button type="submit" class="send-btn" id="submit-btn">Send Message</button>
+                <p id="form-status" class="form-status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">AI-SEC Community</div>
+                <p>Building a secure future for AI.<br>Learn • Network • Secure</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p>Home<br>Meetups<br>Resources<br>About Us</p>
+            </div>
+            <div>
+                <h4>Community</h4>
+                <p>Upcoming Events<br>Blog<br>Join Discord<br>Newsletter</p>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <input class="newsletter-input" type="email" placeholder="Your email" required>
+                <button class="newsletter-btn">Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 AI-SEC Community • Tiruchirappalli, Tamil Nadu
+        </div>
+    </footer>
+
+    <script>
+        // Paste the URL you get after deploying the Apps Script Web App here.
+        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxGTRHRvQsoZbavU6EMSuclIHmIO6i6YRv-HGBUfbf6x0sb-Brwwz3qpGklof5HWsn4Lw/exec";
+
+        const form = document.getElementById('contact-form');
+        const statusEl = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (GAS_WEB_APP_URL.includes('PASTE_YOUR')) {
+                statusEl.textContent = 'Form is not connected yet — add your Apps Script Web App URL in the code.';
+                statusEl.className = 'form-status error';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            statusEl.textContent = '';
+            statusEl.className = 'form-status';
+
+            const formData = new FormData(form);
+
+            // no-cors: Apps Script doesn't return readable CORS headers,
+            // so we can't inspect the response — we treat a resolved fetch as success.
+            fetch(GAS_WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+            .then(function () {
+                statusEl.textContent = 'Thanks! Your message has been sent.';
+                statusEl.className = 'form-status success';
+                form.reset();
+            })
+            .catch(function () {
+                statusEl.textContent = 'Something went wrong. Please try again.';
+                statusEl.className = 'form-status error';
+            })
+            .finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
+        });
+    </script>
+</body>
+</html>
