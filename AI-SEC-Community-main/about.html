@@ -32,6 +32,46 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/pages.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Supplemental styles for the grouped Core Team layout -->
+  <style>
+    .team-group { margin-bottom: 3rem; }
+    .team-group:last-child { margin-bottom: 0; }
+    .team-group__header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    .team-group--center .team-group__header {
+      justify-content: center;
+    }
+    .team-group__title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .badge--muted {
+      opacity: 0.75;
+    }
+    .grid-1 {
+      grid-template-columns: minmax(0, 280px);
+      justify-content: center;
+    }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+    @media (max-width: 1024px) {
+      .grid-4, .grid-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      .grid-1, .grid-4, .grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .grid-1, .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -44,7 +84,7 @@
 
       <nav class="navbar__links" id="primary-nav" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
+        <a href="#">Events</a>
         <a href="get-involved.html">Get Involved</a>
         <a href="about.html" class="is-active" aria-current="page">About</a>
       </nav>
@@ -100,38 +140,247 @@
     <section class="section" aria-labelledby="team-title">
       <div class="container">
         <div class="section__header" data-animate="fade-up">
-          <h2 class="section__title" id="team-title">Core Team</h2>
+          <h2 class="section__title" id="team-title">AI-SEC Community Leadership & Core Team</h2>
           <p class="section__subtitle">The organizers behind the meetups, workshops, and CTFs.</p>
         </div>
 
-        <div class="grid grid-3" data-animate="fade-up">
+        <div class="team-group team-group--center" data-animate="fade-up">
+          <div class="team-group__header">
+            <h3 class="team-group__title" id="team-founder">Founder</h3>
+            <span class="badge badge--muted">1</span>
+          </div>
+          <div class="grid grid-1">
           <article class="card speaker-card">
-            <img class="speaker-card__avatar" src="assets/images/team-placeholder-1.jpg" alt="Portrait placeholder for organizer 1" />
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/Founder.png" alt="Portrait placeholder for founder" />
             <div class="card__body">
-              <h3 class="card__title">Organizer Name</h3>
-              <span class="badge">Founder</span>
+              <h3 class="card__title">Micheal Joshuva</h3>
+              <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder</span>
               <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
             </div>
           </article>
-
-          <article class="card speaker-card">
-            <img class="speaker-card__avatar" src="assets/images/team-placeholder-2.jpg" alt="Portrait placeholder for organizer 2" />
-            <div class="card__body">
-              <h3 class="card__title">Organizer Name</h3>
-              <span class="badge">Community Lead</span>
-              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
-            </div>
-          </article>
-
-          <article class="card speaker-card">
-            <img class="speaker-card__avatar" src="assets/images/team-placeholder-3.jpg" alt="Portrait placeholder for organizer 3" />
-            <div class="card__body">
-              <h3 class="card__title">Organizer Name</h3>
-              <span class="badge">Workshops Lead</span>
-              <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
-            </div>
-          </article>
+          </div>
         </div>
+
+        <div class="team-group" data-animate="fade-up">
+          <div class="team-group__header">
+            <h3 class="team-group__title" id="team-advisory">Community Advisory Board</h3>
+            <span class="badge badge--muted">3</span>
+          </div>
+          <div class="grid grid-3">
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CAB 3.jpg" alt="Portrait placeholder for advisory board" />
+            <div class="card__body">
+              <h3 class="card__title">Sivakumar Dhakshinamoorthy</h3>
+              <span class="badge badge--accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advisory Board</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/dshivaa/?skipRedirect=true" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CAB 2.jpg" alt="Portrait placeholder for advisory board" />
+            <div class="card__body">
+              <h3 class="card__title">Dr.Ram Kumar</h3>
+              <span class="badge badge--accent">&nbsp;Advisory Board</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/gramkumar/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CAB 1.jpg" alt="Portrait placeholder for advisory board" />
+            <div class="card__body">
+              <h3 class="card__title">Venkatesh PS</h3>
+              <span class="badge badge--accent">Advisory Board</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/venkatesh-ps-54962720/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+          </div>
+        </div>
+
+        <div class="team-group" data-animate="fade-up">
+          <div class="team-group__header">
+            <h3 class="team-group__title" id="team-managers">Community Managers</h3>
+            <span class="badge badge--muted">2</span>
+          </div>
+          <div class="grid grid-2">
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/hema.png" alt="Portrait placeholder for community manager" />
+            <div class="card__body">
+              <h3 class="card__title">Hemasundararao T</h3>
+              <span class="badge">&nbsp;&nbsp;Community Manager</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/teppalahemasundararao/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/sai.png" alt="Portrait placeholder for community manager" />
+            <div class="card__body">
+              <h3 class="card__title">Sai Thilak T</h3>
+              <span class="badge">Community Manager</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/saithilak83/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+          </div>
+        </div>
+
+        <div class="team-group" data-animate="fade-up">
+          <div class="team-group__header">
+            <h3 class="team-group__title" id="team-core-members">Core Members</h3>
+            <span class="badge badge--muted">4</span>
+          </div>
+          <div class="grid grid-4">
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CM 3.jpg" alt="Portrait placeholder for core member" />
+            <div class="card__body">
+              <h3 class="card__title">Sandeep Singh</h3>
+              <span class="badge">&nbsp;&nbsp;Core Member</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/sandeep-singh-cissp-ccsp-75101120/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CM 1.jpg" alt="Portrait placeholder for core member" />
+            <div class="card__body">
+              <h3 class="card__title">Paparao G</h3>
+              <span class="badge">Core Member</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/meetatlinkedlin/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CM 4.png" alt="Portrait placeholder for core member" />
+            <div class="card__body">
+              <h3 class="card__title">Nantha Ram Ramalingam</h3>
+              <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Core Member</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/nantharam/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CM 2.png" alt="Portrait placeholder for core member" />
+            <div class="card__body">
+              <h3 class="card__title">Dr.Sharath KV</h3>
+              <span class="badge">&nbsp;Core Member</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/dr-sharath-kv-m-e-ph-d-cism-a41a03a7/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+          </div>
+        </div>
+
+        <div class="team-group team-group--center" data-animate="fade-up">
+          <div class="team-group__header">
+            <h3 class="team-group__title" id="team-tech">Core Technical Member</h3>
+            <span class="badge badge--muted">1</span>
+          </div>
+          <div class="grid grid-1">
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CTM 1.png" alt="Portrait placeholder for technical lead" />
+            <div class="card__body">
+              <h3 class="card__title">Ajay Rathore</h3>
+              <span class="badge badge--accent">Technical Lead</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/ajayr7/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+          </div>
+        </div>
+
+        <div class="team-group" data-animate="fade-up">
+          <div class="team-group__header">
+            <h3 class="team-group__title" id="team-volunteers">Volunteers</h3>
+            <span class="badge badge--muted">10</span>
+          </div>
+          <div class="grid grid-5">
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/swastik.png" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Swastik Mukherjee</h3>
+              <span class="badge badge--muted">&nbsp;&nbsp;&nbsp;&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/swastik-mukherjee/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/kilari.jpg" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Kilari Divisha</h3>
+              <span class="badge badge--muted">&nbsp;&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/kilari-divisha-80a82a142/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/sumanth.png" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Sumanth T R
+              <span class="badge badge--muted">Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/trsumanth0311/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/karthik kumar.png" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">K Karthik kumar Raju</h3>
+              <span class="badge badge--muted">&nbsp;&nbsp;&nbsp;&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/karthikumaraju/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/saran k.png" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Saran Karthik P</h3>
+              <span class="badge badge--muted">&nbsp;&nbsp;&nbsp;&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/saran-karthik-p-167102278/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/harish d.jpg" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Harish D</h3>
+              <span class="badge badge--muted">Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/harish-d2023/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/golla.png" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Golla Arjun</h3>
+              <span class="badge badge--muted">&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/arjun1839699/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/sreeni.png" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Sreenivasulu Thammisetti</h3>
+              <span class="badge badge--muted">&nbsp;&nbsp;&nbsp;&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/sreenivasulu-thammisetti-178b83245/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/bharati.png" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Bharati Byahatti</h3>
+              <span class="badge badge--muted">&nbsp;&nbsp;&nbsp;&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/bharati-byahatti-211a7432/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="card speaker-card">
+            <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/anika.jpg" alt="Portrait placeholder for volunteer" />
+            <div class="card__body">
+              <h3 class="card__title">Anika Ragini Umesh</h3>
+              <span class="badge badge--muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volunteer</span>
+              <p class="card__text"><a href="https://www.linkedin.com/in/anika-ragini-umesh-29000b2a6/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+            </div>
+          </article>
+          </div>
+        </div>
+
       </div>
     </section>
 

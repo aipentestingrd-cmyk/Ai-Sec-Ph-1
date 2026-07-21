@@ -1,16 +1,19 @@
-/* ==========================================================================
-   AI-SEC Community — Page-specific styles
-   Requires tokens.css, reset.css, components.css, layout.css.
-   ========================================================================== */
-
-/* --- Scroll-triggered fade-up reveal (driven by animations.js) --- */
 [data-animate="fade-up"] {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transition: opacity var(--transition-slow),
+              transform var(--transition-slow);
 }
 
 [data-animate="fade-up"].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Note: an earlier version of this file redefined .hero, .hero__overlay,
+   .hero__fade, .hero__content and .hero__scroll-cue with a conflicting
+   `overflow: hidden` on .hero. Since this file loads after layout.css,
+   it was clipping the stat labels that intentionally spill below the
+   hero's bottom edge (see layout.css). Those unused/duplicate rules
+   have been removed — layout.css is the single source of truth for
+   hero layout now. */

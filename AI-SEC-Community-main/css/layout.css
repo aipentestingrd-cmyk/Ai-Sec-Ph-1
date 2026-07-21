@@ -120,18 +120,20 @@ main > section + section {
   min-height: 85vh;
   padding-block: var(--space-2xl);
   text-align: center;
+   background-image: url("/AI-SEC-Community-main/assets/images/hero-bg.jpg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.hero__photo,
-.hero__overlay,
 .hero__network-animation {
-  position: absolute;
-  inset: 0;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .hero__photo {
   z-index: 0;
-  background-image: url("../assets/images/community-hero.jpg"),
+  background-image: url("/assets/images/community-hero.jpg"),
     linear-gradient(135deg, var(--color-surface), var(--color-bg-alt));
   background-size: cover;
   background-position: center;
@@ -139,13 +141,10 @@ main > section + section {
 }
 
 .hero__overlay {
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    color-mix(in srgb, var(--color-bg) 82%, transparent) 0%,
-    color-mix(in srgb, var(--color-bg) 45%, transparent) 50%,
-    color-mix(in srgb, var(--color-bg) 75%, transparent) 100%
-  );
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.55);
 }
 
 .hero__network-animation {
