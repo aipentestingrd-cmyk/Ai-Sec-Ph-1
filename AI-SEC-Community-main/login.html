@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — AI-SEC Community</title>
+  <meta name="description" content="Login to manage your AI-SEC Community meetup registrations, volunteering, and event preferences." />
+
+  <link rel="canonical" href="https://aisec.community/login" />
+
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Login — AI-SEC Community" />
+  <meta property="og:description" content="Sign in to the AI-SEC Community portal." />
+  <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:url" content="https://aisec.community/login" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Login — AI-SEC Community" />
+  <meta name="twitter:description" content="Sign in to the AI-SEC Community portal." />
+  <meta name="twitter:image" content="assets/images/logo.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/Images/logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="32" height="32" />
+        <span class="navbar__wordmark">AI-SEC COMMUNITY</span>
+      </a>
+
+      <nav class="navbar__links" id="primary-nav" aria-label="Primary">
+        <a href="index.html" class="is-active" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="Past_Event.html">Past Events</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="get-involved.html">Hackathon</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="https://luma.com/ihwkjic3" class="btn btn-primary navbar__cta">Register Now</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between dark and light mode" aria-pressed="false">
+          <span aria-hidden="true">&#9680;</span>
+        </button>
+        <button type="button" class="navbar__toggle" data-nav-toggle aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" aria-labelledby="login-title">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h1 class="section__title" id="login-title">Sign in to AI-SEC Community</h1>
+          <p class="section__subtitle">Access meetup registrations, volunteering, and organizer tools.</p>
+        </div>
+
+        <article class="card" data-animate="fade-up" style="max-width: 480px; margin-inline: auto;">
+          <div class="card__body">
+            <form class="auth-form" action="#" method="post" autocomplete="on">
+              <div class="form-group">
+                <label class="form-label" for="login-email">Email address</label>
+                <input class="form-input" type="email" id="login-email" name="email" placeholder="you@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="login-password">Password</label>
+                <input class="form-input" type="password" id="login-password" name="password" placeholder="Your password" required />
+              </div>
+
+              <div class="form-group" style="display:flex; justify-content:space-between; align-items:center;">
+                <label class="form-label" style="display:flex; align-items:center; gap:0.5rem;">
+                  <input type="checkbox" name="remember" />
+                  <span>Remember me on this device</span>
+                </label>
+                <a href="#" class="icon-link">Forgot password?</a>
+              </div>
+
+              <button class="btn btn-primary form-submit" type="submit">Sign In</button>
+
+              <p class="card__text" style="margin-top: 1rem;">
+                New to AI-SEC Community?
+                <a href="register.html">Create an account</a>.
+              </p>
+            </form>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="28" height="28" />
+            AI-SEC Community
+          </a>
+          <p class="footer__tagline">Securing the age of AI, together.</p>
+        </div>
+
+        <nav aria-label="Footer navigation">
+          <h3 class="footer__heading">Explore</h3>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="get-involved.html">Get Involved</a>
+            <a href="about.html">About</a>
+          </div>
+        </nav>
+
+        <div>
+          <h3 class="footer__heading">Community</h3>
+          <div class="footer__social">
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on LinkedIn"></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on YouTube"></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on WhatsApp"></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on X / Twitter"></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Newsletter</h3>
+          <form class="newsletter-form" data-newsletter-form novalidate>
+            <div class="form-group">
+              <label class="form-label" for="footer-newsletter-email">Email address</label>
+              <input class="form-input" type="email" id="footer-newsletter-email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-captcha" data-captcha-placeholder aria-hidden="true"></div>
+            <button class="btn btn-primary form-submit" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>Built by the community, for the community.</p>
+        <p>&copy; 2025&ndash;<span data-current-year>2026</span> AI-SEC Community. <a href="get-involved.html#code-of-conduct">Code of Conduct</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/stats-counter.js" defer></script>
+  <script src="js/event-filters.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>

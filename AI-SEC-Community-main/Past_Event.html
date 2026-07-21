@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Past Events — AI-SEC Community | Speakers, Panels, Recordings</title>
+  <meta name="description" content="Archive of AI-SEC Community past meetups: speakers, panel discussions, flash mentoring, photo highlights, and full session recordings." />
+  <link rel="canonical" href="https://aisec.community/Past_Event.html" />
+
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Past Events — AI-SEC Community" />
+  <meta property="og:description" content="Archive of past AI-SEC Community meetups — speakers, panels, mentoring, photos, and recordings." />
+  <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:url" content="https://aisec.community/Past_Event.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Past Events — AI-SEC Community" />
+  <meta name="twitter:description" content="Archive of past AI-SEC Community meetups — speakers, panels, mentoring, photos, and recordings." />
+  <meta name="twitter:image" content="assets/images/logo.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/Images/logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles, in cascade order -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Supplemental styles for the archive nav, per-month groups, highlights gallery -->
+  <style>
+    .archive-nav { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+    .archive-nav a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1rem; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .month-block { padding-top: 1rem; scroll-margin-top: 90px; }
+    .month-block + .month-block {
+      margin-top: 3.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 3.5rem;
+    }
+    .month-block__header { margin-bottom: 2rem; }
+    .month-block__meta { display: flex; gap: 0.6rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; }
+
+    .event-group { margin-bottom: 2.5rem; }
+    .event-group:last-child { margin-bottom: 0; }
+    .event-group__header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.25rem; }
+    .event-group__title { font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 700; margin: 0; }
+    .badge--muted { opacity: 0.75; }
+
+    .grid-2c { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3c { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4c { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    @media (max-width: 1024px) {
+      .grid-3c, .grid-4c { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .grid-2c, .grid-3c, .grid-4c { grid-template-columns: 1fr; }
+    }
+
+    .highlight-photo {
+      display: block; width: 100%; aspect-ratio: 4 / 3;
+      object-fit: cover; border-radius: var(--radius-md, 10px);
+    }
+    .highlight-card { padding: 0; overflow: hidden; }
+    .highlight-card .card__body { padding: 0.75rem 0.9rem; }
+    .highlight-card .card__text { margin: 0; font-size: 0.85rem; opacity: 0.75; }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="32" height="32" />
+        <span class="navbar__wordmark">AI-SEC COMMUNITY</span>
+      </a>
+
+      <nav class="navbar__links" id="primary-nav" aria-label="Primary">
+        <a href="index.html" class="is-active" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="Past_Event.html">Past Events</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="get-involved.html">Hackathon</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="https://luma.com/ihwkjic3" class="btn btn-primary navbar__cta">Register Now</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between dark and light mode" aria-pressed="false">
+          <span aria-hidden="true">&#9680;</span>
+        </button>
+        <button type="button" class="navbar__toggle" data-nav-toggle aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Page header -->
+    <section class="section" aria-labelledby="past-hero-title">
+      <div class="container section__header" data-animate="fade-up">
+        <h1 class="section__title" id="past-hero-title">Past Events</h1>
+        <p class="section__subtitle">Speakers, panels, flash mentoring, photos, and full recordings from every AI-SEC Community meetup.</p>
+
+        <nav class="archive-nav" aria-label="Jump to a past meetup">
+          <a href="#june-2026">June 2026 &middot; Flipkart</a>
+          <a href="#may-2026">May 2026 .Nokia</a>
+          <a href="#april-2026">April 2026 . CloudSEK</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ============ JUNE 2026 ============ -->
+    <section class="section section--tint month-block" id="june-2026" aria-labelledby="june-title">
+      <div class="container">
+
+        <div class="month-block__header" data-animate="fade-up">
+          <div class="month-block__meta">
+            <span class="badge badge--accent">Past Event</span>
+            <span class="badge">Flipkart</span>
+          </div>
+          <h2 class="section__title" id="june-title">AI-SEC Community — June 2026</h2>
+          <p class="section__subtitle">Monthly meetup hosted at Flipkart.</p>
+        </div>
+
+        <article class="card" style="margin-bottom:2.5rem;" data-animate="fade-up">
+          <img class="card__image" src="/AI-SEC-Community-main/Images/AI-SEC Community ( Jun 2026 ).jpg" alt="Photo of attendees at the June 2026 AI-SEC Community meetup" />
+        </article>
+
+        <!-- Speakers -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Session Speakers</h3>
+            <!--<span class="badge badge--muted">2</span>-->
+          </div>
+          <div class="grid grid-2c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/apoorva  s1.png" alt="Portrait placeholder for speaker" />
+              <div class="card__body">
+                <h3 class="card__title">Apoorva kumari Dubey</h3>
+                <span class="badge badge--accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session Speaker 1</span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/apoorva-dubey13/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+                <a href="https://youtu.be/a7WRuGBPh1o?si=LE4Zjh4ehpEfTEO-">​Talk - "Break it before they do - LLM red teaming"</a>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/monappa k a.png" alt="Portrait placeholder for speaker" />
+              <div class="card__body">
+                <h3 class="card__title">Monnappa K A</h3>
+                <span class="badge badge--accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session Speaker 2</span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/monnappa-k-a-1b845a42/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              <a href="https://youtu.be/K0oUr6YMTZE?si=hf318fdudNuB2Udh">Talk - "Threat Hunting with Endpoint Telemetry and AI driven hunting""</a>
+            </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Panel Discussion -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Panel Discussion - "Future of Cyber Security Jobs - How AI is Rewriting the Cyber security Career Playbook"</h3>
+            
+          </div>
+          <div class="grid grid-4c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/CM 3.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Sandeep Singh</h3>
+                <span class="badge">&nbsp;&nbsp;&nbsp; Moderator</span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/sandeep-singh-cissp-ccsp-75101120/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/praveen n.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Praveen Nettimi</h3>
+                <span class="badge">&nbsp&nbspPanel Speaker 1</span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/praveennettimi/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/dhawal.png" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Dhawal</h3>
+                <span class="badge">&nbsp;Panel Speaker 2</span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/dhawalshrivastava/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/karthik venkatachalam.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Karthik Venkatachalam </h3>
+                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Panel Speaker 3 </span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/karthik-venkatachalam-shanmugasundaram-91941228/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Flash Mentoring -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Flash Mentoring</h3>
+
+          </div>
+          <div class="grid grid-3c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/sanjeev.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Sanjeev Jaiswal</h3>
+                <span class="badge badge--muted">&nbsp;Flash Mentor 1</span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/jassics/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/sourvav banerjee.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Sourav Banerjee </h3>
+                <span class="badge badge--muted">&nbsp;&nbsp;Flash Mentor 2 </span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/sourav-banerjee-cissp%C2%AE-fip%C2%AE-cipt%C2%AE-cipm%C2%AE-cipp-e%C2%AE-b196a613b/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="/AI-SEC-Community-main/Images/karthik venkatachalam.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Karthik Venkatachalam </h3>
+                <span class="badge badge--muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flash Mentor 3</span>
+                <p class="card__text"><a href="https://www.linkedin.com/in/karthik-venkatachalam-shanmugasundaram-91941228/" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Photo Highlights</h3>
+        
+          </div>
+          <div class="grid grid-4c">
+            <a href="Images/june-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="/AI-SEC-Community-main/Images/PH 3.jpeg" alt="Photo highlight 1 from June 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 1</p></div>
+            </a>
+            <a href="Images/june-highlight-2.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="/AI-SEC-Community-main/Images/PH 1.jpeg" alt="Photo highlight 2 from June 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 2</p></div>
+            </a>
+            <a href="Images/june-highlight-3.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="/AI-SEC-Community-main/Images/PH 2.jpeg" alt="Photo highlight 3 from June 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 3</p></div>
+            </a>
+            <a href="Images/june-highlight-4.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="/AI-SEC-Community-main/Images/PH 4.jpeg" alt="Photo highlight 4 from June 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 4</p></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Recording -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">June 2026 Playlist Recordings</h3>
+          </div>
+          <figure class="card video-embed">
+            <div class="video-embed__frame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLSjnU4Ajjwhg"
+                title="AI-SEC Community June 2026 Playlist"
+                width="100%" height="360" loading="lazy" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="card__body card__text">AI-SEC Community — June 2026 Meetup</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ MAY 2026 ============ -->
+    <section class="section month-block" id="may-2026" aria-labelledby="may-title">
+      <div class="container">
+
+        <div class="month-block__header" data-animate="fade-up">
+          <span class="badge badge--accent">Past Event</span>
+          <h2 class="section__title" id="may-title">AI-SEC Community — May 2026</h2>
+          <p class="section__subtitle">Monthly meetup recap.</p>
+        </div>
+
+        <!-- Speakers -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Speakers</h3>
+            <span class="badge badge--muted">2</span>
+          </div>
+          <div class="grid grid-2c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-speaker-1.jpg" alt="Portrait placeholder for speaker" />
+              <div class="card__body">
+                <h3 class="card__title">Speaker Name 1</h3>
+                <span class="badge badge--accent">Speaker</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-speaker-2.jpg" alt="Portrait placeholder for speaker" />
+              <div class="card__body">
+                <h3 class="card__title">Speaker Name 2</h3>
+                <span class="badge badge--accent">Speaker</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Panel Discussion -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Panel Discussion</h3>
+            <span class="badge badge--muted">4</span>
+          </div>
+          <div class="grid grid-4c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-panel-1.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 1</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-panel-2.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 2</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-panel-3.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 3</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-panel-4.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 4</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Flash Mentoring -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Flash Mentoring</h3>
+            <span class="badge badge--muted">3</span>
+          </div>
+          <div class="grid grid-3c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-mentor-1.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Mentor Name 1</h3>
+                <span class="badge badge--muted">Mentor</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-mentor-2.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Mentor Name 2</h3>
+                <span class="badge badge--muted">Mentor</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/may-mentor-3.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Mentor Name 3</h3>
+                <span class="badge badge--muted">Mentor</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Photo Highlights</h3>
+            <span class="badge badge--muted">4</span>
+          </div>
+          <div class="grid grid-4c">
+            <a href="Images/may-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/may-highlight-1.jpg" alt="Photo highlight 1 from May 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 1</p></div>
+            </a>
+            <a href="Images/may-highlight-2.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/may-highlight-2.jpg" alt="Photo highlight 2 from May 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 2</p></div>
+            </a>
+            <a href="Images/may-highlight-3.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/may-highlight-3.jpg" alt="Photo highlight 3 from May 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 3</p></div>
+            </a>
+            <a href="Images/may-highlight-4.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/may-highlight-4.jpg" alt="Photo highlight 4 from May 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 4</p></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Recording -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Recording</h3>
+          </div>
+          <figure class="card video-embed">
+            <div class="video-embed__frame">
+              <iframe
+                width="100%" height="360"
+                src="https://www.youtube.com/embed/videoseries?list=PLEx7cvusmN9hCDCHddscucMXZn5bDt2Oq"
+                title="AI-SEC Community May 2026 Playlist"
+                loading="lazy" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="card__body card__text">AI-SEC Community — May 2026 Meetup</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ APRIL 2026 ============ -->
+    <section class="section section--tint month-block" id="april-2026" aria-labelledby="april-title">
+      <div class="container">
+
+        <div class="month-block__header" data-animate="fade-up">
+          <span class="badge badge--accent">Past Event</span>
+          <h2 class="section__title" id="april-title">AI-SEC Community — April 2026</h2>
+          <p class="section__subtitle">Monthly meetup recap.</p>
+        </div>
+
+        <!-- Speakers -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Speakers</h3>
+            <span class="badge badge--muted">2</span>
+          </div>
+          <div class="grid grid-2c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-speaker-1.jpg" alt="Portrait placeholder for speaker" />
+              <div class="card__body">
+                <h3 class="card__title">Speaker Name 1</h3>
+                <span class="badge badge--accent">Speaker</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-speaker-2.jpg" alt="Portrait placeholder for speaker" />
+              <div class="card__body">
+                <h3 class="card__title">Speaker Name 2</h3>
+                <span class="badge badge--accent">Speaker</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Panel Discussion -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Panel Discussion</h3>
+            <span class="badge badge--muted">4</span>
+          </div>
+          <div class="grid grid-4c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-panel-1.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 1</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-panel-2.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 2</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-panel-3.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 3</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-panel-4.jpg" alt="Portrait placeholder for panelist" />
+              <div class="card__body">
+                <h3 class="card__title">Panelist Name 4</h3>
+                <span class="badge">Panelist</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Flash Mentoring -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Flash Mentoring</h3>
+            <span class="badge badge--muted">3</span>
+          </div>
+          <div class="grid grid-3c">
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-mentor-1.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Mentor Name 1</h3>
+                <span class="badge badge--muted">Mentor</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-mentor-2.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Mentor Name 2</h3>
+                <span class="badge badge--muted">Mentor</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+            <article class="card speaker-card">
+              <img class="speaker-card__avatar" src="Images/april-mentor-3.jpg" alt="Portrait placeholder for mentor" />
+              <div class="card__body">
+                <h3 class="card__title">Mentor Name 3</h3>
+                <span class="badge badge--muted">Mentor</span>
+                <p class="card__text"><a href="#" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg>LinkedIn</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Photo Highlights</h3>
+            <span class="badge badge--muted">4</span>
+          </div>
+          <div class="grid grid-4c">
+            <a href="Images/april-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/april-highlight-1.jpg" alt="Photo highlight 1 from April 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 1</p></div>
+            </a>
+            <a href="Images/april-highlight-2.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/april-highlight-2.jpg" alt="Photo highlight 2 from April 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 2</p></div>
+            </a>
+            <a href="Images/april-highlight-3.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/april-highlight-3.jpg" alt="Photo highlight 3 from April 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 3</p></div>
+            </a>
+            <a href="Images/april-highlight-4.jpg" target="_blank" rel="noopener" class="card highlight-card">
+              <img class="highlight-photo" src="Images/april-highlight-4.jpg" alt="Photo highlight 4 from April 2026 meetup" />
+              <div class="card__body"><p class="card__text">Highlight 4</p></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Recording -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">Recording</h3>
+          </div>
+          <figure class="card video-embed">
+            <div class="video-embed__frame">
+              <iframe
+                width="100%" height="360"
+                src="https://www.youtube.com/embed/videoseries?list=PLEx7cvusmN9hgwWOim8IAUB-MkWTXkwSq"
+                title="AI-SEC Community April 2026 Playlist"
+                loading="lazy" frameborder="0"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="card__body card__text">AI-SEC Community — April 2026 Meetup</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="28" height="28" />
+            AI-SEC Community
+          </a>
+          <p class="footer__tagline">Securing the age of AI, together.</p>
+        </div>
+
+    <nav class="navbar__links" id="primary-nav" aria-label="Primary">
+        <a href="index.html" class="is-active" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="Past_Event.html">Past Events</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="get-involved.html">Hackathon</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+        <div>
+          <h3 class="footer__heading">Community</h3>
+          <div class="footer__social">
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on YouTube"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 0 0 .502 6.186 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 0 0 2.107-2.117A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z"/></svg></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on WhatsApp"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .16 5.304.157 11.893c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.582 0 11.885-5.304 11.888-11.893a11.821 11.821 0 0 0-3.418-8.452"/></svg></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="AI-SEC Community on X / Twitter"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Newsletter</h3>
+          <form class="newsletter-form" data-newsletter-form novalidate>
+            <div class="form-group">
+              <label class="form-label" for="footer-newsletter-email">Email address</label>
+              <input class="form-input" type="email" id="footer-newsletter-email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-captcha" data-captcha-placeholder aria-hidden="true"></div>
+            <button class="btn btn-primary form-submit" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>Built by the community, for the community.</p>
+        <p>&copy; 2025&ndash;<span data-current-year>2026</span> AI-SEC Community. <a href="get-involved.html#code-of-conduct">Code of Conduct</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/stats-counter.js" defer></script>
+  <script src="js/event-filters.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>
