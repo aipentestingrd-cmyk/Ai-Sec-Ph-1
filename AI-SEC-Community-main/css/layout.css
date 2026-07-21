@@ -133,7 +133,7 @@ main > section + section {
 
 .hero__photo {
   z-index: 0;
-  background-image: url("/assets/images/community-hero.jpg"),
+  background-image: url("/AI-SEC-Community-main/assets/images/hero-bg.jpg.jpeg"),
     linear-gradient(135deg, var(--color-surface), var(--color-bg-alt));
   background-size: cover;
   background-position: center;
