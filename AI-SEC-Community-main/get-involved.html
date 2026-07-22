@@ -33,7 +33,14 @@
   <link rel="stylesheet" href="css/pages.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 
-  <!-- Hero background image -->
+  <!-- Hero background image
+       Bugfix: the photo + dark gradient overlay here is fixed and always
+       dark, in both themes. The heading/subtitle used to inherit the
+       theme's --color-text, which flips to near-black in light mode —
+       dark text on a dark photo, effectively invisible. This section now
+       pins the hero text to a light color unconditionally (it never sits
+       on the page background, only on this photo), independent of
+       [data-theme]. -->
   <style>
     .hero-bg {
       position: relative;
@@ -41,19 +48,60 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Background photo lives on its own layer so it can be scaled for a
+       slow Ken Burns drift without touching layout or the fixed-attachment
+       bug Safari on iOS has with background-attachment: fixed. */
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: -24px;
+      z-index: 0;
       background-image:
         linear-gradient(to bottom, rgba(10, 10, 20, 0.6), rgba(10, 10, 20, 0.8)),
-        url("Images/123 get involved.jpeg");
+        url("Images/123\ get\ involved.jpeg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
+      animation: hero-bg-drift 16s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .hero-bg .section__header {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Always light text on this hero, regardless of [data-theme] — the
+       photo behind it is always dark, so the text must stay light in
+       both dark and light mode. */
+    .hero-bg .section__title {
+      color: var(--brand-white);
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-bg .section__subtitle {
+      color: rgba(255, 255, 255, 0.88);
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+    }
+
+    @keyframes hero-bg-drift {
+      from { transform: scale(1) translate3d(0, 0, 0); }
+      to   { transform: scale(1.08) translate3d(0, -1%, 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg::before {
+        animation: none;
+      }
     }
 
     @media (max-width: 768px) {
       .hero-bg {
         min-height: 50vh;
-        background-attachment: scroll;
       }
     }
   </style>
@@ -72,7 +120,7 @@
         <a href="about.html">About</a>
         <a href="Past_Event.html">Past Events</a>
         <a href="get-involved.html">Get Involved</a>
-        <a href="get-involved.html">Hackathon</a>
+        <a href="#">Hackathon</a>
         <a href="login.html">Login</a>
       </nav>
       <div class="navbar__actions">
@@ -254,7 +302,7 @@
         </div>
 
         <div class="flex flex-col items-center gap-md" data-animate="fade-up" style="text-align:center;">
-          <a href="https://forms.gle/REPLACE-WITH-YOUR-GOOGLE-FORM-LINK"
+          <a href="https://docs.google.com/forms/d/1t1_HVS2mvc0FH7D2Aaojzd-439_r5deLL1He_07ri8M"
              class="btn btn-primary"
              target="_blank"
              rel="noopener">
@@ -305,6 +353,7 @@
           <div class="footer__links">
             <a href="index.html">Home</a>
             <a href="#">Events</a>
+            <a href="#">Hackathon</a>
             <a href="get-involved.html">Get Involved</a>
             <a href="about.html">About</a>
           </div>

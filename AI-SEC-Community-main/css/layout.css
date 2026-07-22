@@ -37,8 +37,28 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* Five-up — About page Volunteers row */
+.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Single centered column — used for standalone leadership cards (About:
+   Founder, Core Technical Member) so a lone card doesn't stretch to the
+   full container width, which is what was throwing those two rows out of
+   visual alignment with everything else on the page. */
+.grid-1 {
+  grid-template-columns: minmax(0, 24rem);
+  justify-content: center;
+}
+
+/* Two-up speaker pairs (Past Events session/panel rows) */
+.grid-2c {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media (max-width: 1024px) {
-  .grid-4 {
+  .grid-4,
+  .grid-5 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -46,8 +66,14 @@
 @media (max-width: 768px) {
   .grid-2,
   .grid-3,
-  .grid-4 {
+  .grid-4,
+  .grid-5,
+  .grid-2c {
     grid-template-columns: 1fr;
+  }
+
+  .grid-1 {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -120,10 +146,6 @@ main > section + section {
   min-height: 85vh;
   padding-block: var(--space-2xl);
   text-align: center;
-   background-image: url("/assets/images/hero-bg.jpg.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .hero__network-animation {
@@ -131,13 +153,24 @@ main > section + section {
     visibility: hidden;
 }
 
+/* Bugfix: this layer never actually covered the hero — it had a
+   background-image but no position/inset, so it collapsed to 0 height
+   and never painted. Someone patched around it by putting a background
+   directly on .hero itself, but pointed it at an invalid Windows-style
+   absolute path ("\AI-SEC-Community-main\assets\..."), which no browser
+   can resolve, so mobile and desktop alike got the plain fallback
+   gradient. Now the image lives on the <img class="hero__photo"> tag
+   in index.html itself; this just positions/crops it to fill the hero
+   (as the layer-stack comment above always intended). */
 .hero__photo {
+  position: absolute;
+  inset: 0;
   z-index: 0;
-  background-image: url("/assets/images/community-hero.jpg"),
-    linear-gradient(135deg, var(--color-surface), var(--color-bg-alt));
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background-color: var(--color-bg-alt); /* fallback while the image loads */
 }
 
 .hero__overlay {
@@ -193,7 +226,7 @@ main > section + section {
 .hero__scroll-cue {
   position: absolute;
   left: 50%;
-  bottom: 8rem;
+  bottom: 5.5rem;
   transform: translateX(-50%);
   z-index: 5;
   display: flex;

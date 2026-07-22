@@ -8,6 +8,7 @@
     '[data-topic-form]',
     '[data-sponsor-form]',
     '[data-contact-form]',
+    '[data-hackathon-form]',
   ].join(', ');
 
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

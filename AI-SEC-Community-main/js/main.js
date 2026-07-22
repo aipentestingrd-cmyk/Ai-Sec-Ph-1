@@ -6,7 +6,60 @@
     initFooterYear();
     initLazyVideos();
     initSmoothScroll();
+    initImageFallbacks();
   });
+
+  // Some speaker/recap photos referenced in the markup aren't in the
+  // Images folder yet (upcoming events added before the photo is taken).
+  // Without this, a missing photo shows the browser's broken-image icon
+  // at whatever size the alt text pushes it to — different per browser,
+  // which is what was throwing card grids out of alignment. Any <img>
+  // that fails to load is swapped for a same-sized placeholder carrying
+  // the person's initials, so every card in a row stays the same height.
+  //
+  // Because this script is `defer`red, most 404s have already happened —
+  // and fired and lost — by the time it runs, so a plain 'error' listener
+  // attached here would miss them. We sweep for already-broken <img>s
+  // first, then keep listening (capturing phase) for any that fail later.
+  function initImageFallbacks() {
+    document.querySelectorAll('img').forEach((img) => {
+      if (img.complete && img.naturalWidth === 0) {
+        applyImageFallback(img);
+      }
+    });
+
+    document.addEventListener(
+      'error',
+      (e) => {
+        if (e.target instanceof HTMLImageElement) applyImageFallback(e.target);
+      },
+      true
+    );
+  }
+
+  function applyImageFallback(img) {
+    if (img.dataset.fallbackApplied) return;
+    img.dataset.fallbackApplied = 'true';
+
+    const label = (img.alt || '')
+      .replace(/portrait placeholder for/i, '')
+      .replace(/photo of/i, '')
+      .trim();
+    const initials = label
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join('')
+      .toUpperCase() || 'AI';
+
+    const fallback = document.createElement('div');
+    fallback.className = `${img.className} img-fallback`.trim();
+    fallback.setAttribute('role', 'img');
+    fallback.setAttribute('aria-label', img.alt || 'Image unavailable');
+    fallback.textContent = initials;
+    img.replaceWith(fallback);
+  }
 
   function initFooterYear() {
     const yearEl = document.querySelector('[data-current-year]');

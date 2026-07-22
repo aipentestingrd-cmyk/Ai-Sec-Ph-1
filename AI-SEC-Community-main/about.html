@@ -32,86 +32,6 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/pages.css" />
   <link rel="stylesheet" href="css/responsive.css" />
-
-  <!-- Supplemental styles for the grouped Core Team layout -->
-  <style>
-    .team-group { margin-bottom: 3rem; }
-    .team-group:last-child { margin-bottom: 0; }
-    .team-group__header {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1.25rem;
-    }
-    .team-group--center .team-group__header {
-      justify-content: center;
-    }
-    .team-group__title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin: 0;
-    }
-    .badge--muted {
-      opacity: 0.75;
-    }
-    .grid-1 {
-      grid-template-columns: minmax(0, 280px);
-      justify-content: center;
-    }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-
-    @media (max-width: 1024px) {
-      .grid-4, .grid-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-    @media (max-width: 768px) {
-      .grid-1, .grid-4, .grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 480px) {
-      .grid-1, .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
-    }
-
-    /* --- ALIGNMENT FIX ---
-       The original markup used a variable number of &nbsp; characters inside
-       each badge to visually "center" the role text. That's fragile and
-       exactly why nothing lines up. Centering the whole card body properly
-       and letting the badge size itself removes the need for nbsp padding
-       entirely. */
-    .speaker-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .speaker-card__avatar {
-      display: block;
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1rem;
-    }
-    .speaker-card .card__body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-    .speaker-card .card__title {
-      margin: 0 0 0.5rem;
-    }
-    .speaker-card .badge {
-      display: inline-block;
-      white-space: nowrap;
-      margin: 0 0 0.75rem;
-    }
-    .speaker-card .icon-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-  </style>
 </head>
 <body>
 
@@ -127,7 +47,7 @@
         <a href="about.html">About</a>
         <a href="Past_Event.html">Past Events</a>
         <a href="get-involved.html">Get Involved</a>
-        <a href="get-involved.html">Hackathon</a>
+        <a href="#">Hackathon</a>
         <a href="login.html">Login</a>
       </nav>
       
@@ -237,12 +157,11 @@
           </div>
         </div>
 
-        <div class="team-group" data-animate="fade-up">
+        <div class="team-group team-group--center" data-animate="fade-up">
           <div class="team-group__header">
             <h3 class="team-group__title" id="team-managers">Community Manager</h3>
-            
           </div>
-          <div class="grid grid-2">
+          <div class="grid grid-1">
           <article class="card speaker-card">
             <img class="speaker-card__avatar" src="Images/hema.png" alt="Portrait placeholder for community manager" />
             <div class="card__body">
@@ -478,6 +397,7 @@
           <div class="footer__links">
             <a href="index.html">Home</a>
             <a href="events.html">Events</a>
+            <a href="#">Hackathon</a>
             <a href="get-involved.html">Get Involved</a>
             <a href="about.html">About</a>
           </div>

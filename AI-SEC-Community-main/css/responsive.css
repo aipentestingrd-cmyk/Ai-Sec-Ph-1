@@ -48,6 +48,48 @@
   }
 }
 
+/* --- Item 1: navbar logo was hardcoded to a fixed 60px mark + 28px
+   wordmark with no mobile fallback (components.css). At the <=768px
+   hamburger breakpoint that combination sits directly beside the
+   theme toggle and hamburger button with little headroom on narrow
+   phones — scaled down here so the row stays comfortably clear of the
+   controls next to it, and shrinks further alongside the >360px
+   wordmark-hide rule above. --- */
+@media (max-width: 768px) {
+  .navbar__logo {
+    gap: 10px;
+    font-size: 20px;
+  }
+
+  .navbar__logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo img {
+    height: 34px;
+  }
+}
+
+/* --- Item 8: login page's "Remember me / Forgot password" row used an
+   inline `display:flex; justify-content:space-between` with no wrap.
+   The label text ("Remember me on this device") plus the "Forgot
+   password?" link don't fit side by side once the card narrows past
+   roughly 340px of usable width, causing horizontal overflow/clipping
+   inside the auth card on small phones. Stacked instead below 480px,
+   matching how the rest of the auth forms already behave at that
+   width. Requires the inline style on that row in login.html to be
+   swapped for the `.auth-form__row` class so an external rule can
+   target it (inline styles can't be overridden without !important). --- */
+@media (max-width: 480px) {
+  .auth-form__row {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: var(--space-sm);
+  }
+}
+
 /* --- Item 2: hero heading shrinks going into tablet, then phone, so it
    never dominates the viewport or feels oversized relative to the
    stats bar below it. Stats bar is forced to stack — it was only
