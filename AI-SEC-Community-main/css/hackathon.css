@@ -1,0 +1,407 @@
+/* ==========================================================================
+   AI-SEC Community — Hackathon page
+   Page-scoped components only. Relies on tokens.css / components.css /
+   layout.css for everything shared (buttons, cards, badges, grid, section).
+   ========================================================================== */
+
+/* --- Hackathon hero (sits below the standard navbar, above main content) -- */
+.hackathon-hero {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-2xl) 0;
+  background:
+    radial-gradient(60% 60% at 15% 20%, rgba(153, 48, 246, 0.25), transparent 60%),
+    radial-gradient(50% 50% at 85% 10%, rgba(107, 31, 204, 0.25), transparent 55%),
+    var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hackathon-hero__network {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+}
+
+.hackathon-hero__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.hackathon-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+}
+
+.hackathon-hero__eyebrow .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.hackathon-hero h1 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-extrabold);
+  font-size: clamp(2.25rem, 5vw, var(--fs-h1));
+  line-height: 1.1;
+  max-width: 18ch;
+}
+
+.hackathon-hero h1 .accent {
+  color: var(--color-primary);
+}
+
+.hackathon-hero__subtitle {
+  max-width: 56ch;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-h5);
+}
+
+.hackathon-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+}
+
+.hackathon-hero__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+}
+
+/* --- Countdown --- */
+.countdown {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: var(--space-md) var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.countdown__value {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-h3);
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.countdown--closed .countdown__value { color: var(--color-text-secondary); }
+
+/* --- Info strip --- */
+.info-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-lg);
+}
+
+.info-strip__item {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.info-strip__icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
+  color: var(--color-primary);
+}
+
+.info-strip__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.15rem;
+}
+
+.info-strip__value {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h6);
+}
+
+/* --- Track cards --- */
+.track-card {
+  position: relative;
+  height: 100%;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.track-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+}
+
+.track-card__index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+}
+
+/* --- Timeline --- */
+.timeline {
+  position: relative;
+  margin-top: var(--space-lg);
+  padding-left: var(--space-xl);
+  border-left: 2px solid var(--color-border);
+}
+
+.timeline__item {
+  position: relative;
+  padding-bottom: var(--space-xl);
+}
+
+.timeline__item:last-child { padding-bottom: 0; }
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-xl) - 6px);
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 3px solid var(--color-primary);
+}
+
+.timeline__time {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.timeline__title {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h6);
+  margin-bottom: 0.25rem;
+}
+
+.timeline__day-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin: var(--space-xl) 0 var(--space-sm);
+}
+
+.timeline__day-label:first-child { margin-top: 0; }
+
+/* --- Prize tiers --- */
+.prize-tier {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.prize-tier--gold { border-color: #e8b923; }
+.prize-tier--silver { border-color: #a9adc4; }
+.prize-tier--bronze { border-color: #c07a4a; }
+
+.prize-tier__rank {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+}
+
+.prize-tier__amount {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-h2);
+  margin: var(--space-sm) 0;
+}
+
+.prize-tier--gold .prize-tier__amount { color: #e8b923; }
+.prize-tier--silver .prize-tier__amount { color: #a9adc4; }
+.prize-tier--bronze .prize-tier__amount { color: #c07a4a; }
+
+/* --- Judging criteria --- */
+.criteria-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.criteria-item:last-child { border-bottom: none; }
+
+.criteria-item__weight {
+  flex: none;
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h6);
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+}
+
+.criteria-item__body h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h6);
+  margin-bottom: 0.15rem;
+}
+
+/* --- FAQ (native <details>, no JS required) --- */
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-item + .faq-item { margin-top: var(--space-md); }
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  transition: transform var(--transition-base);
+  flex: none;
+}
+
+.faq-item[open] summary::after { transform: rotate(45deg); }
+
+.faq-item__body {
+  padding: 0 var(--space-lg) var(--space-lg);
+  color: var(--color-text-secondary);
+}
+
+/* --- Rules checklist --- */
+.rules-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.rules-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.rules-list li svg {
+  flex: none;
+  margin-top: 0.2rem;
+  color: var(--color-primary);
+}
+
+/* --- Final CTA banner --- */
+.hackathon-cta-banner {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(60% 100% at 50% 0%, rgba(153, 48, 246, 0.25), transparent 60%),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.hackathon-cta-banner h2 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-sm);
+}
+
+.hackathon-cta-banner p {
+  color: var(--color-text-secondary);
+  max-width: 56ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.hackathon-cta-banner .btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
