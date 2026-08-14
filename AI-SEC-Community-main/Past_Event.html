@@ -69,13 +69,37 @@
       .grid-2c, .grid-3c, .grid-4c { grid-template-columns: 1fr; }
     }
 
+    /* ===== Highlight photos: bigger cards, full image always visible, no letterbox bars ===== */
     .highlight-photo {
-      display: block; width: 100%; aspect-ratio: 4 / 3;
-      object-fit: cover; border-radius: var(--radius-md, 10px);
+      display: block;
+      width: 100%;
+      height: auto;               /* no fixed box — each photo keeps its own natural shape */
+      max-height: 520px;          /* keeps very tall/portrait photos from towering over the grid */
+      object-fit: contain;        /* safety net in case max-height kicks in on a tall photo */
+      border-radius: var(--radius-md, 10px);
     }
     .highlight-card { padding: 0; overflow: hidden; }
     .highlight-card .card__body { padding: 0.75rem 0.9rem; }
     .highlight-card .card__text { margin: 0; font-size: 0.85rem; opacity: 0.75; }
+
+    /* Photo Highlights: masonry-style column layout so cards of different
+       heights pack tightly with no dead space, while still showing the
+       full uncropped photo in each card. */
+    .highlights-grid {
+      display: block;
+      column-count: 2;
+      column-gap: 1.5rem;
+    }
+    .highlights-grid .highlight-card {
+      display: inline-block;
+      width: 100%;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      margin: 0 0 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .highlights-grid { column-count: 1; }
+    }
   </style>
 </head>
 <body>
@@ -251,7 +275,7 @@
             <h3 class="event-group__title">Photo Highlights</h3>
         
           </div>
-          <div class="grid grid-4c">
+          <div class="grid highlights-grid">
             <a href="Images/june-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
               <img class="highlight-photo" src="/Images/AI-SEC Community ( July 2026 ).jpg.jpg" alt="Photo highlight 1 from June 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 1</p></div>
@@ -419,9 +443,9 @@
             <h3 class="event-group__title">Photo Highlights</h3>
         
           </div>
-          <div class="grid grid-4c">
+          <div class="grid highlights-grid">
             <a href="Images/june-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
-              <img class="highlight-photo" src="Images/PH 3.jpeg" alt="Photo highlight 1 from June 2026 meetup" />
+              <img class="highlight-photo" src="/Images/AI-SEC Community ( Jun 2026 ).jpg" alt="Photo highlight 1 from June 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 1</p></div>
             </a>
             <a href="Images/june-highlight-2.jpg" target="_blank" rel="noopener" class="card highlight-card">
@@ -429,7 +453,7 @@
               <div class="card__body"><p class="card__text">Highlight 2</p></div>
             </a>
             <a href="Images/june-highlight-3.jpg" target="_blank" rel="noopener" class="card highlight-card">
-              <img class="highlight-photo" src="Images/PH 2.jpeg" alt="Photo highlight 3 from June 2026 meetup" />
+              <img class="highlight-photo" src="Images/PH 3.jpeg" alt="Photo highlight 3 from June 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 3</p></div>
             </a>
             <a href="Images/june-highlight-4.jpg" target="_blank" rel="noopener" class="card highlight-card">
@@ -606,7 +630,7 @@
           <div class="event-group__header">
             <h3 class="event-group__title">Photo Highlights</h3>
           </div>
-          <div class="grid grid-4c">
+          <div class="grid highlights-grid">
             <a href="Images/may-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
               <img class="highlight-photo" src="Images/may highlights/WhatsApp Image 2026-06-02 at 4.12.45 PM.jpeg" alt="Photo highlight 1 from May 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 1</p></div>
@@ -743,7 +767,7 @@
             <h3 class="event-group__title">Photo Highlights</h3>
             
           </div>
-          <div class="grid grid-4c">
+          <div class="grid highlights-grid">
             <a href="Images/april-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
               <img class="highlight-photo" src="Images/AI-SEC Community ( Apr 2026 ).jpg" alt="Photo highlight 1 from April 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 1</p></div>
@@ -878,7 +902,7 @@
             <h3 class="event-group__title">Photo Highlights</h3>
            
           </div>
-          <div class="grid grid-4c">
+          <div class="grid highlights-grid">
             <a href="Images/march-highlight-1.jpg" target="_blank" rel="noopener" class="card highlight-card">
               <img class="highlight-photo" src="Images/mar hl/mar hl.jpeg" alt="Photo highlight 1 from March 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 1</p></div>
@@ -987,7 +1011,7 @@
             <h3 class="event-group__title">Photo Highlights</h3>
           
           </div>
-          <div class="grid grid-4c">
+          <div class="grid highlights-grid">
             <a href="Images/march-highlight-1.jp" target="_blank" rel="noopener" class="card highlight-card">
               <img class="highlight-photo" src="/Images/AI-SEC Community ( Feb 2026 ).jpeg" alt="Photo highlight 1 from March 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 1</p></div>
@@ -1086,7 +1110,7 @@
             <h3 class="event-group__title">Photo Highlights</h3>
           
           </div>
-          <div class="grid grid-4c">
+          <div class="grid highlights-grid">
             <a href="Images/march-highlight-1.jp" target="_blank" rel="noopener" class="card highlight-card">
               <img class="highlight-photo" src="/Images/AI-SEC Community ( Jan 2026 ).jpeg" alt="Photo highlight 1 from March 2026 meetup" />
               <div class="card__body"><p class="card__text">Highlight 1</p></div>
