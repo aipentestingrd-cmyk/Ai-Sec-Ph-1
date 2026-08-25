@@ -301,6 +301,76 @@
   .venue-card .venue-name{font-family:'Manrope',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin:0 0 3px;}
   .venue-card .venue-addr{font-size:.9rem;color:var(--ink-soft);margin:0;line-height:1.5;}
 
+  /* ---------- countdown widget ---------- */
+  .countdown-section{max-width:760px;margin:32px auto 0;text-align:center;
+    opacity:0;animation:fadeUp .7s ease 2.15s forwards;}
+  .countdown-eyebrow{
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.28em;
+    color:var(--teal);margin-bottom:18px;text-transform:uppercase;
+    text-shadow:0 2px 10px rgba(0,0,0,.5);
+  }
+  .countdown-ring{position:relative;padding:3px;border-radius:26px;display:inline-block;}
+  .countdown-ring::before{
+    content:'';position:absolute;inset:0;border-radius:26px;padding:2px;
+    background:conic-gradient(from 0deg, var(--violet), var(--indigo), var(--teal), var(--violet-2), var(--violet));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    animation:ringSpin 6s linear infinite; opacity:.75;
+  }
+  @keyframes ringSpin{to{transform:rotate(360deg);}}
+  .countdown-grid{
+    position:relative;display:flex;gap:14px;align-items:center;justify-content:center;
+    background:rgba(14,10,28,0.85);border-radius:24px;padding:26px 30px;backdrop-filter:blur(8px);
+  }
+  .countdown-unit{
+    position:relative;min-width:84px;padding:16px 6px 14px;border-radius:16px;
+    background:rgba(139,92,246,0.08);border:1px solid var(--line);overflow:hidden;
+    transition:border-color .3s ease, background-color .3s ease;
+  }
+  .countdown-unit::after{
+    content:'';position:absolute;inset:0;border-radius:16px;
+    background:radial-gradient(ellipse at top, rgba(139,92,246,.28), transparent 70%);
+    opacity:0;transition:opacity .4s ease;
+  }
+  .countdown-unit.pulse::after{opacity:1;animation:unitPulse 1s ease;}
+  @keyframes unitPulse{0%{opacity:0;}30%{opacity:1;}100%{opacity:0;}}
+  .countdown-value-wrap{perspective:300px;height:2.6rem;display:flex;align-items:center;justify-content:center;}
+  .countdown-value{
+    font-family:'Poppins',sans-serif;font-weight:900;font-size:2.15rem;line-height:1;
+    color:var(--ink);display:inline-block;transform-style:preserve-3d;
+    text-shadow:0 0 18px rgba(169,139,255,.35);
+  }
+  .countdown-value.flip{animation:flipDigit .5s cubic-bezier(.4,.2,.2,1);}
+  @keyframes flipDigit{
+    0%{transform:rotateX(0deg);opacity:1;}
+    45%{transform:rotateX(90deg);opacity:0;}
+    55%{transform:rotateX(-90deg);opacity:0;}
+    100%{transform:rotateX(0deg);opacity:1;}
+  }
+  .countdown-label{
+    margin-top:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:.65rem;
+    letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase;
+  }
+  .countdown-sep{
+    font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--violet-2);
+    align-self:flex-start;margin-top:14px;animation:sepBlink 1.4s ease-in-out infinite;
+  }
+  @keyframes sepBlink{0%,100%{opacity:1;}50%{opacity:.25;}}
+  .countdown-grid.urgent .countdown-unit{border-color:rgba(240,193,75,0.45);background:rgba(240,193,75,0.08);}
+  .countdown-grid.urgent .countdown-value{color:#f0c14b;text-shadow:0 0 18px rgba(240,193,75,.45);}
+  .countdown-grid.urgent .countdown-sep{color:#f0c14b;}
+  .countdown-live{
+    display:none;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.4rem;color:var(--teal);
+    padding:20px 0;text-shadow:0 2px 10px rgba(0,0,0,.5);
+  }
+  .countdown-live.show{display:block;animation:fadeUp .5s ease both;}
+  @media (max-width:560px){
+    .countdown-grid{gap:8px;padding:20px 14px;}
+    .countdown-unit{min-width:64px;padding:12px 4px 10px;}
+    .countdown-value{font-size:1.5rem;}
+    .countdown-sep{font-size:1.3rem;margin-top:10px;}
+  }
+
   hr.divider{border:none;border-top:1px solid var(--line);max-width:1600px;margin:44px auto;}
 
   .section{max-width:1600px;margin:0 auto;padding:0 40px 72px;position:relative;z-index:1;}
@@ -318,20 +388,36 @@
   .flow-list{position:relative;padding-left:36px;max-width:1200px;margin:0 auto;}
   .flow-list::before{content:'';position:absolute;left:11px;top:6px;bottom:6px;width:2px;
     background:var(--violet-2);opacity:.35;}
+  .flow-list-fill{position:absolute;left:11px;top:6px;width:2px;height:0%;
+    background:var(--violet-2);box-shadow:0 0 12px rgba(139,92,246,.6);
+    transition:height .3s cubic-bezier(.2,.8,.2,1);z-index:1;}
   .flow-item{position:relative;padding:24px 0;border-bottom:1px solid var(--line);
-    display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+    display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+    opacity:0;transform:translateX(-18px);
+    transition:opacity .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1);}
+  .flow-item.in{opacity:1;transform:translateX(0);}
   .flow-item:last-child{border-bottom:none;}
   .flow-item::before{
     content:'';position:absolute;left:-36px;top:30px;width:10px;height:10px;border-radius:50%;
     background:var(--violet-2);box-shadow:0 0 0 4px #170e30, 0 0 0 6px rgba(139,92,246,.3);
+    transform:scale(.4);opacity:.5;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1.4), opacity .5s ease;
   }
+  .flow-item.in::before{transform:scale(1);opacity:1;}
   .flow-main{display:flex;align-items:flex-start;gap:20px;flex:1 1 380px;min-width:0;}
   .flow-ico{
     flex-shrink:0;width:50px;height:50px;border-radius:13px;
     background:rgba(139,92,246,0.16);
     display:flex;align-items:center;justify-content:center;margin-top:2px;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), background .3s ease, box-shadow .35s ease;
   }
-  .flow-ico svg{width:24px;height:24px;stroke:var(--violet-2);}
+  .flow-item:hover .flow-ico{
+    transform:rotate(-8deg) scale(1.08);
+    background:rgba(139,92,246,0.28);
+    box-shadow:0 8px 20px -6px rgba(139,92,246,.55);
+  }
+  .flow-ico svg{width:24px;height:24px;stroke:var(--violet-2);transition:transform .35s ease;}
+  .flow-item:hover .flow-ico svg{transform:scale(1.1);}
   .flow-body h3{margin:0 0 6px;font-size:1.18rem;font-weight:800;color:var(--ink);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
   .flow-body h3 .tag{font-family:'Manrope',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;color:var(--teal);}
   .flow-body p{margin:0;font-size:1rem;color:var(--ink-soft);line-height:1.6;max-width:760px;}
@@ -339,22 +425,56 @@
     flex:0 0 auto;width:340px;max-width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
     border:1px solid var(--line);background:rgba(139,92,246,0.08);
   }
-  .flow-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .flow-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+  .flow-item:hover .flow-photo img{transform:scale(1.05);}
   @media (max-width:900px){
     .flow-item{flex-direction:column;align-items:stretch;}
     .flow-photo{width:100%;order:2;}
   }
 
-  /* ---------- why participate: flowing chips ---------- */
-  .why-row{display:flex;flex-wrap:wrap;gap:10px 8px;justify-content:center;align-items:center;}
-  .why-chip{
-    display:flex;align-items:center;gap:9px;font-family:'Manrope',sans-serif;
-    font-size:.98rem;font-weight:600;color:var(--ink);
-    padding:11px 8px;border-bottom:2px solid transparent;transition:color .2s ease, border-color .2s ease, transform .2s ease;
+  /* ---------- why participate: professional benefit cards ---------- */
+  .why-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:20px;max-width:1500px;margin:0 auto;
   }
-  .why-chip:hover{color:var(--violet-2);border-color:var(--violet-2);transform:translateY(-2px);}
-  .why-chip svg{width:18px;height:18px;stroke:var(--teal);flex-shrink:0;}
-  .why-sep{color:var(--line);align-self:center;}
+  .why-card{
+    position:relative;overflow:hidden;
+    background:rgba(24,15,44,0.68);border:1px solid var(--line);border-radius:20px;
+    padding:28px 22px 26px;text-align:left;backdrop-filter:blur(6px);
+    display:flex;flex-direction:column;gap:16px;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .why-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px -22px rgba(139,92,246,.5);border-color:var(--violet-2);}
+  .why-card::after{
+    content:'';position:absolute;top:-30%;right:-30%;width:60%;height:60%;border-radius:50%;
+    background:radial-gradient(circle, rgba(139,92,246,.22), transparent 70%);
+    opacity:0;transition:opacity .4s ease;pointer-events:none;
+  }
+  .why-card:hover::after{opacity:1;}
+  .why-icon{
+    position:relative;z-index:1;
+    width:48px;height:48px;border-radius:13px;flex-shrink:0;
+    background:rgba(45,212,191,0.14);border:1px solid rgba(45,212,191,0.3);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .why-icon svg{width:22px;height:22px;stroke:var(--teal);}
+  .why-num{
+    position:absolute;top:22px;right:24px;z-index:1;
+    font-family:'Poppins',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.04em;
+    color:var(--ink-soft);opacity:.45;
+  }
+  .why-card h3{
+    position:relative;z-index:1;margin:0;font-family:'Manrope',sans-serif;
+    font-size:1.03rem;font-weight:800;color:var(--ink);line-height:1.4;
+  }
+  .why-card p{
+    position:relative;z-index:1;margin:0;font-size:.87rem;color:var(--ink-soft);line-height:1.55;
+  }
+  @media (max-width:1100px){
+    .why-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (max-width:640px){
+    .why-grid{grid-template-columns:1fr;}
+  }
 
   /* ---------- challenge tracks ---------- */
   .track-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
@@ -490,30 +610,83 @@
 
   /* ---------- judges ---------- */
   .judges-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1360px;margin:0 auto;
   }
   .judge-card{
+    position:relative;overflow:hidden;
     background:var(--card-bg);border:1px solid var(--line);border-radius:22px;
-    padding:38px 28px 32px;text-align:center;backdrop-filter:blur(6px);
+    padding:38px 24px 30px;text-align:center;backdrop-filter:blur(6px);
     opacity:0;transform:translateY(28px);
-    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    transform-style:preserve-3d;will-change:transform;
+    transition:box-shadow .35s ease, border-color .35s ease;
+    display:flex;flex-direction:column;align-items:center;
   }
   .judges-grid.reveal.in .judge-card{animation:judgeIn .65s cubic-bezier(.2,.8,.2,1) forwards;}
   .judges-grid.reveal.in .judge-card:nth-child(1){animation-delay:.05s;}
   .judges-grid.reveal.in .judge-card:nth-child(2){animation-delay:.2s;}
   .judges-grid.reveal.in .judge-card:nth-child(3){animation-delay:.35s;}
+  .judges-grid.reveal.in .judge-card:nth-child(4){animation-delay:.5s;}
   @keyframes judgeIn{from{opacity:0;transform:translateY(28px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
-  .judge-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px -22px rgba(139,92,246,.55);border-color:var(--violet-2);}
+  .judge-card:hover{box-shadow:0 24px 50px -22px rgba(139,92,246,.55);border-color:var(--violet-2);}
+
+  /* diagonal shine sweep on hover */
+  .judge-card::before{
+    content:'';position:absolute;top:0;left:-160%;width:55%;height:100%;
+    background:linear-gradient(115deg, transparent, rgba(255,255,255,.14), rgba(139,92,246,.12), transparent);
+    transform:skewX(-18deg);transition:left .75s cubic-bezier(.2,.8,.2,1);pointer-events:none;z-index:2;
+  }
+  .judge-card:hover::before{left:160%;}
+
+  /* corner accent glow that blooms on hover */
+  .judge-card::after{
+    content:'';position:absolute;top:-40%;right:-40%;width:70%;height:70%;border-radius:50%;
+    background:radial-gradient(circle, rgba(139,92,246,.28), transparent 70%);
+    opacity:0;transition:opacity .45s ease;pointer-events:none;z-index:0;
+  }
+  .judge-card:hover::after{opacity:1;}
+
+  .judge-avatar-ring{
+    position:relative;width:150px;height:150px;margin:0 auto 22px;border-radius:50%;padding:4px;z-index:1;
+  }
+  .judge-avatar-ring::before{
+    content:'';position:absolute;inset:0;border-radius:50%;padding:2px;
+    background:conic-gradient(from 0deg, var(--violet), var(--teal), var(--violet-2), var(--indigo), var(--violet));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    animation:ringSpin 5s linear infinite;opacity:.5;transition:opacity .35s ease;
+  }
+  .judge-card:hover .judge-avatar-ring::before{opacity:1;}
   .judge-avatar{
-    width:104px;height:104px;margin:0 auto 20px;border-radius:50%;
+    position:relative;overflow:hidden;
+    width:100%;height:100%;border-radius:50%;
     background:rgba(139,92,246,0.22);
     border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
     box-shadow:0 0 0 6px rgba(139,92,246,0.08);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
   }
-  .judge-avatar svg{width:46px;height:46px;stroke:var(--violet-2);}
-  .judge-card h4{margin:0 0 6px;font-size:1.22rem;font-weight:800;color:var(--ink);}
-  .judge-role{font-family:'Manrope',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:12px;}
-  .judge-bio{margin:0;font-size:.92rem;color:var(--ink-soft);line-height:1.55;}
+  .judge-avatar img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;
+    border-radius:50%;display:block;
+  }
+  .judge-card:hover .judge-avatar{transform:scale(1.06);}
+  .judge-avatar svg{width:44px;height:44px;stroke:var(--violet-2);}
+  .judge-card h4{position:relative;z-index:1;margin:0 0 8px;font-size:1.14rem;font-weight:800;color:var(--ink);line-height:1.3;}
+  .judge-role{position:relative;z-index:1;font-family:'Manrope',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.11em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:12px;}
+  .judge-bio{position:relative;z-index:1;margin:0;font-size:.88rem;color:var(--ink-soft);line-height:1.55;}
+
+  .judge-linkedin{
+    position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;
+    margin-top:auto;padding:9px 20px;border-radius:999px;
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.02em;
+    color:var(--ink);background:rgba(139,92,246,0.12);border:1px solid var(--line);
+    transition:background .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .judge-linkedin svg{width:16px;height:16px;fill:var(--teal);transition:fill .3s ease, transform .3s ease;flex-shrink:0;}
+  .judge-linkedin:hover{
+    background:rgba(45,212,191,0.14);border-color:var(--teal);transform:translateY(-2px);
+    box-shadow:0 10px 24px -14px rgba(45,212,191,.55);
+  }
+  .judge-linkedin:hover svg{transform:scale(1.1) rotate(-4deg);}
 
   @media (max-width:900px){
     .track-grid{grid-template-columns:1fr 1fr;}
@@ -541,6 +714,66 @@
   }
   @media (max-width:360px){
     .headline{font-size:clamp(1.35rem,8.6vw,2.1rem);}
+  }
+
+  /* ---------- deadline highlight banner ---------- */
+  .deadline-banner{
+    max-width:1000px;margin:0 auto 72px;position:relative;
+  }
+  .deadline-banner-inner{
+    position:relative;display:flex;align-items:center;justify-content:center;gap:14px;
+    flex-wrap:wrap;text-align:center;
+    padding:20px 32px;border-radius:999px;
+    background:rgba(240,193,75,0.10);
+    border:1.5px solid rgba(240,193,75,0.45);
+    overflow:hidden;
+    animation:deadlineGlow 2.2s ease-in-out infinite;
+  }
+  .deadline-banner-inner::before{
+    content:'';position:absolute;inset:-2px;border-radius:999px;
+    background:conic-gradient(from 0deg, rgba(240,193,75,0), rgba(240,193,75,.9), rgba(240,193,75,0) 30%);
+    animation:ringSpin 3.2s linear infinite;
+    z-index:0;
+  }
+  .deadline-banner-inner::after{
+    content:'';position:absolute;inset:2px;border-radius:999px;
+    background:#170e30;
+    z-index:0;
+  }
+  .deadline-banner-content{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .deadline-icon{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;flex-shrink:0;
+    background:rgba(240,193,75,0.18);border:1px solid rgba(240,193,75,0.5);
+    animation:deadlineTick 1.6s ease-in-out infinite;
+  }
+  .deadline-icon svg{width:17px;height:17px;stroke:#f0c14b;}
+  .deadline-text{
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:1.02rem;color:var(--ink);
+  }
+  .deadline-text strong{color:#f0c14b;}
+  .deadline-badge{
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.1em;
+    color:#170e30;background:#f0c14b;padding:5px 14px;border-radius:999px;
+    text-transform:uppercase;
+    animation:deadlinePop 2.2s ease-in-out infinite;
+  }
+  @keyframes deadlineGlow{
+    0%,100%{box-shadow:0 0 0 0 rgba(240,193,75,.25);}
+    50%{box-shadow:0 0 0 10px rgba(240,193,75,0);}
+  }
+  @keyframes deadlineTick{
+    0%,100%{transform:scale(1) rotate(0deg);}
+    25%{transform:scale(1.1) rotate(-8deg);}
+    75%{transform:scale(1.1) rotate(8deg);}
+  }
+  @keyframes deadlinePop{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.06);}
+  }
+  @media (max-width:560px){
+    .deadline-banner-inner{padding:16px 20px;}
+    .deadline-text{font-size:.9rem;}
   }
 
   /* ---------- contact ---------- */
@@ -603,6 +836,7 @@
     .v-item{opacity:1 !important;transform:none !important;}
     .v-node{opacity:1 !important;transform:translate(-50%,0) scale(1) !important;}
     .v-node svg{opacity:1 !important;transform:scale(1) !important;}
+    .judge-card{opacity:1 !important;transform:none !important;}
   }
 </style>
 </head>
@@ -657,7 +891,7 @@
     </div>
 
     <div class="wrap">
-      
+
       <h1 class="headline">
         <span class="plain char-row" id="charRow"></span>
         <span class="grad">2026</span>
@@ -671,8 +905,8 @@
 
     <div class="cta-row">
       <a href="https://luma.com/f20lkkce" class="btn btn-primary">Register Now</a>
-     <!--<a href="#sponsor" class="btn btn-ghost">Become a Sponsor</a>
-    -->
+     <a href="https://docs.google.com/forms/d/1vo8-IWvprEzFJvfjzegJmuDrj1CTGYVKDowixd3hqUc/edit" class="btn btn-ghost">Become a Sponsor</a>
+    
     </div>
     <div class="meta-row">
       <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> 19 September 2026</span>
@@ -686,19 +920,50 @@
         <p class="venue-addr">Govindapura, Yelahanka, Bengaluru, Karnataka, 560064 &nbsp;&middot;&nbsp; 19 September 2026</p>
       </div>
     </a>
+
+    <!-- COUNTDOWN WIDGET -->
+    <div class="countdown-section">
+      <div class="countdown-eyebrow">Countdown to HackFest</div>
+      <div class="countdown-ring">
+        <div class="countdown-grid" id="countdownGrid">
+          <div class="countdown-unit" id="unit-days">
+            <div class="countdown-value-wrap"><span class="countdown-value" id="val-days">00</span></div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit" id="unit-hours">
+            <div class="countdown-value-wrap"><span class="countdown-value" id="val-hours">00</span></div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit" id="unit-minutes">
+            <div class="countdown-value-wrap"><span class="countdown-value" id="val-minutes">00</span></div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit" id="unit-seconds">
+            <div class="countdown-value-wrap"><span class="countdown-value" id="val-seconds">00</span></div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+      <div class="countdown-live" id="countdownLive">🚀 AI-SEC HackFest is LIVE right now!</div>
+    </div>
+
     </div>
   </section>
 
   <hr class="divider" />
 
-  <!-- ABOUT -->
+  <!-- ABOUT 
   <section class="section" id="about">
     <div class="section-head reveal">
       <span class="eyebrow">THE HACKFEST</span>
       <h2>What a weekend at AI-SEC HackFest looks like</h2>
     </div>
-    <div class="flow-list">
-      <div class="flow-item reveal">
+    <div class="flow-list" id="flowList">
+      <div class="flow-list-fill" id="flowFill"></div>
+      <div class="flow-item">
         <div class="flow-main">
           <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <div class="flow-body">
@@ -711,7 +976,7 @@
                onerror="this.parentElement.style.display='none'" />
         </div>
       </div>
-      <div class="flow-item reveal">
+      <div class="flow-item">
         <div class="flow-main">
           <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
           <div class="flow-body">
@@ -724,7 +989,7 @@
                onerror="this.parentElement.style.display='none'" />
         </div>
       </div>
-      <div class="flow-item reveal">
+      <div class="flow-item">
         <div class="flow-main">
           <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="17" cy="8" r="2.5"/></svg></div>
           <div class="flow-body">
@@ -737,7 +1002,7 @@
                onerror="this.parentElement.style.display='none'" />
         </div>
       </div>
-      <div class="flow-item reveal">
+      <div class="flow-item">
         <div class="flow-main">
           <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
           <div class="flow-body">
@@ -759,17 +1024,37 @@
       <span class="eyebrow">WHY PARTICIPATE</span>
       <h2>What you actually get out of it</h2>
     </div>
-    <div class="why-row reveal">
-      <div class="why-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Real AI security challenges</div>
-      <span class="why-sep">/</span>
-      <div class="why-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Hands-on LLM &amp; agentic AI security</div>
-      <span class="why-sep">/</span>
-      <div class="why-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> A working solution you built</div>
-      <span class="why-sep">/</span>
-      <div class="why-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Direct time with industry experts</div>
-      <span class="why-sep">/</span>
-      
-      <div class="why-chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Prizes and recognition</div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-num">01</span>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Real AI security challenges</h3>
+        <p>Work against a genuinely vulnerable system, not a simulated puzzle.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-num">02</span>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M16 8l3-3 3 3M19 5v6"/></svg></div>
+        <h3>Hands-on LLM &amp; agentic AI security</h3>
+        <p>Get practical exposure to RAG pipelines, agentic tool calls, and MCP.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-num">03</span>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
+        <h3>A working solution you built</h3>
+        <p>Leave with a real repo and a shippable fix, not just a slide deck.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-num">04</span>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="17" cy="8" r="2.5"/></svg></div>
+        <h3>Direct time with industry experts</h3>
+        <p>Mentors in red teaming and LLM security sit with your team, not above it.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-num">05</span>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg></div>
+        <h3>Prizes and recognition</h3>
+        <p>Top teams are recognized for depth and real-world impact, not polish.</p>
+      </div>
     </div>
   </section>
 
@@ -936,12 +1221,93 @@
     </div>
   </section>
 
+  <!-- JUDGING PANEL -->
+  <section class="section" id="judges">
+    <div class="section-head reveal">
+      <span class="eyebrow">MEET THE JURIES</span>
+      <h2>Hackathon Juries</h2>
+      <p class="section-sub">Building the future of secure AI one challenge at a time.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="judges-grid reveal">
+      <div class="judge-card">
+        <div class="judge-avatar-ring">
+          <div class="judge-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+            <img src="/Images/CAB 2.jpg" alt="Dr. Ram Kumar G" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <h4>Dr. Ram Kumar G</h4>
+        <span class="judge-role">Cybersecurity &amp; Risk Leader</span>
+        <a class="judge-linkedin" href="https://linkedin.com/in/ram-kumar-g" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+      <div class="judge-card">
+        <div class="judge-avatar-ring">
+          <div class="judge-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+            <img src="/Images/Hackathon 2026 - Sep 19/2026-08-25 14_38_53-Praveen.jpeg.png" alt="Rohan Mehta" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <h4>Praveen Kumar Motupalli</h4>
+        <span class="judge-role">Cybersecurity & Privacy Leader</span>
+        <a class="judge-linkedin" href="https://www.linkedin.com/in/praveenmotupalli/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+      <div class="judge-card">
+        <div class="judge-avatar-ring">
+          <div class="judge-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+            <img src="/Images/Hackathon 2026 - Sep 19/mohammed" alt="Priya Iyer" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <h4>Muhammed Ashiq Abdul Khader</h4>
+        <span class="judge-role">Cyber Security Engineer</span>
+        <a class="judge-linkedin" href="https://www.linkedin.com/in/muhammed-ashiq-abdul-khader/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+      <div class="judge-card">
+        <div class="judge-avatar-ring">
+          <div class="judge-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+            <img src="/Images/Hackathon 2026 - Sep 19/swastik.jpeg" alt="Kabir Nair" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <h4>Swastik Mukherjee</h4>
+        <span class="judge-role">Sr. AI/ML Security Engineer</span>
+        <a class="judge-linkedin" href="https://www.linkedin.com/in/swastik-mukherjee/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION DEADLINE HIGHLIGHT -->
+  <div class="deadline-banner">
+    <div class="deadline-banner-inner">
+      <div class="deadline-banner-content">
+        <span class="deadline-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </span>
+        <span class="deadline-text">Registrations close on <strong>6 September 2026</strong> -  Claim your place at AI-SEC HackFest!.</span>
+        <span class="deadline-badge">Secure Spot</span>
+      </div>
+    </div>
+  </div>
+
   <!-- REGISTER CTA -->
   <div class="register-band reveal" id="register">
     <div>
       <h3>8 Hours. One AI Security Challenge. Your Team.</h3>
       <p>19 September 2026 &middot; Manipal Institute of Technology (MIT), Bengaluru</p>
-      <p>Registrations close 15 September 2026 - Spots are limited to 20 teams.</p>
+      <p>Registrations close 6 September 2026 - Spots are limited to 20 teams.</p>
     </div>
     <a href="https://luma.com/f20lkkce" class="btn btn-primary">Register Your Team</a>
   </div>
@@ -1050,6 +1416,50 @@
       p.style.animationDelay = (Math.random()*14) + 's';
       field.appendChild(p);
     }
+  })();
+
+  // ---- about flow-list: staggered reveal ----
+  (function(){
+    const items = document.querySelectorAll('.flow-item');
+    if(!items.length) return;
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target;
+          const idx = Array.prototype.indexOf.call(items, el);
+          setTimeout(()=> el.classList.add('in'), idx * 110);
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(el=>obs.observe(el));
+  })();
+
+  // ---- about flow-list: connector line fill tied to scroll ----
+  (function(){
+    const list = document.getElementById('flowList');
+    const fill = document.getElementById('flowFill');
+    if(!list || !fill) return;
+    let ticking = false;
+    function update(){
+      const rect = list.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const total = rect.height;
+      const start = vh * 0.85;
+      const raw = (start - rect.top) / (total - (vh * 0.35) + start);
+      const progress = Math.min(1, Math.max(0, raw));
+      fill.style.height = (progress * 100) + '%';
+      ticking = false;
+    }
+    function onScroll(){
+      if(!ticking){
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', onScroll);
+    update();
   })();
 
   // ---- scroll reveal (generic sections) ----
@@ -1178,6 +1588,90 @@
       const toggled = btn.classList.toggle('is-toggled');
       btn.setAttribute('aria-pressed', String(toggled));
     });
+  })();
+
+  // ---- judges: cursor-following 3D tilt ----
+  (function(){
+    const cards = document.querySelectorAll('.judge-card');
+    if(!cards.length) return;
+    const MAX_TILT = 7; // degrees
+    cards.forEach(card => {
+      let raf = null;
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;  // 0..1
+        const py = (e.clientY - rect.top) / rect.height;  // 0..1
+        const rotateY = (px - 0.5) * (MAX_TILT * 2);
+        const rotateX = (0.5 - py) * (MAX_TILT * 2);
+        if(raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        if(raf) cancelAnimationFrame(raf);
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  // ---- countdown to HackFest kickoff ----
+  (function(){
+    // Edit this to your actual kickoff time. Currently: 19 Sep 2026, 09:00 IST.
+    const TARGET = new Date('2026-09-19T09:00:00+05:30').getTime();
+
+    const els = {
+      days:   { val: document.getElementById('val-days'),    unit: document.getElementById('unit-days') },
+      hours:  { val: document.getElementById('val-hours'),   unit: document.getElementById('unit-hours') },
+      minutes:{ val: document.getElementById('val-minutes'), unit: document.getElementById('unit-minutes') },
+      seconds:{ val: document.getElementById('val-seconds'), unit: document.getElementById('unit-seconds') }
+    };
+    const grid = document.getElementById('countdownGrid');
+    const liveMsg = document.getElementById('countdownLive');
+    if(!grid || !liveMsg) return;
+
+    const prev = { days:null, hours:null, minutes:null, seconds:null };
+
+    function setUnit(key, num){
+      const str = String(num).padStart(2,'0');
+      if(prev[key] !== str){
+        els[key].val.textContent = str;
+        els[key].val.classList.remove('flip');
+        void els[key].val.offsetWidth; // restart animation
+        els[key].val.classList.add('flip');
+        els[key].unit.classList.remove('pulse');
+        void els[key].unit.offsetWidth;
+        els[key].unit.classList.add('pulse');
+        prev[key] = str;
+      }
+    }
+
+    function tick(){
+      const now = Date.now();
+      const diff = TARGET - now;
+
+      if(diff <= 0){
+        grid.style.display = 'none';
+        liveMsg.classList.add('show');
+        clearInterval(countdownTimer);
+        return;
+      }
+
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+
+      setUnit('days', d);
+      setUnit('hours', h);
+      setUnit('minutes', m);
+      setUnit('seconds', s);
+
+      grid.classList.toggle('urgent', diff < 86400000); // < 24h left
+    }
+
+    tick();
+    const countdownTimer = setInterval(tick, 1000);
   })();
 </script>
 
