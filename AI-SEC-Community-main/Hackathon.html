@@ -610,7 +610,7 @@
 
   /* ---------- judges ---------- */
   .judges-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1360px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:20px;max-width:1600px;margin:0 auto;
   }
   .judge-card{
     position:relative;overflow:hidden;
@@ -626,6 +626,7 @@
   .judges-grid.reveal.in .judge-card:nth-child(2){animation-delay:.2s;}
   .judges-grid.reveal.in .judge-card:nth-child(3){animation-delay:.35s;}
   .judges-grid.reveal.in .judge-card:nth-child(4){animation-delay:.5s;}
+  .judges-grid.reveal.in .judge-card:nth-child(5){animation-delay:.65s;}
   @keyframes judgeIn{from{opacity:0;transform:translateY(28px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
   .judge-card:hover{box-shadow:0 24px 50px -22px rgba(139,92,246,.55);border-color:var(--violet-2);}
 
@@ -646,7 +647,7 @@
   .judge-card:hover::after{opacity:1;}
 
   .judge-avatar-ring{
-    position:relative;width:150px;height:150px;margin:0 auto 22px;border-radius:50%;padding:4px;z-index:1;
+    position:relative;width:130px;height:130px;margin:0 auto 22px;border-radius:50%;padding:4px;z-index:1;
   }
   .judge-avatar-ring::before{
     content:'';position:absolute;inset:0;border-radius:50%;padding:2px;
@@ -670,8 +671,8 @@
   }
   .judge-card:hover .judge-avatar{transform:scale(1.06);}
   .judge-avatar svg{width:44px;height:44px;stroke:var(--violet-2);}
-  .judge-card h4{position:relative;z-index:1;margin:0 0 8px;font-size:1.14rem;font-weight:800;color:var(--ink);line-height:1.3;}
-  .judge-role{position:relative;z-index:1;font-family:'Manrope',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.11em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:12px;}
+  .judge-card h4{position:relative;z-index:1;margin:0 0 8px;font-size:1.05rem;font-weight:800;color:var(--ink);line-height:1.3;}
+  .judge-role{position:relative;z-index:1;font-family:'Manrope',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.1em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:12px;}
   .judge-bio{position:relative;z-index:1;margin:0;font-size:.88rem;color:var(--ink-soft);line-height:1.55;}
 
   .judge-linkedin{
@@ -688,6 +689,9 @@
   }
   .judge-linkedin:hover svg{transform:scale(1.1) rotate(-4deg);}
 
+  @media (max-width:1200px){
+    .judges-grid{grid-template-columns:repeat(3,1fr);}
+  }
   @media (max-width:900px){
     .track-grid{grid-template-columns:1fr 1fr;}
     .venue-card{flex-direction:column;text-align:center;}
@@ -1250,11 +1254,11 @@
         <div class="judge-avatar-ring">
           <div class="judge-avatar">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/Hackathon 2026 - Sep 19/2026-08-25 14_38_53-Praveen.jpeg.png" alt="Rohan Mehta" onerror="this.style.display='none'" />
+            <img src="/Images/Hackathon 2026 - Sep 19/2026-08-25 14_38_53-Praveen.jpeg.png" alt="Praveen Kumar Motupalli" onerror="this.style.display='none'" />
           </div>
         </div>
         <h4>Praveen Kumar Motupalli</h4>
-        <span class="judge-role">Cybersecurity & Privacy Leader</span>
+        <span class="judge-role">Cybersecurity &amp; Privacy Leader</span>
         <a class="judge-linkedin" href="https://www.linkedin.com/in/praveenmotupalli/" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
           View LinkedIn
@@ -1264,7 +1268,7 @@
         <div class="judge-avatar-ring">
           <div class="judge-avatar">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/Hackathon 2026 - Sep 19/mohammed" alt="Priya Iyer" onerror="this.style.display='none'" />
+            <img src="/Images/Hackathon 2026 - Sep 19/mohammed" alt="Muhammed Ashiq Abdul Khader" onerror="this.style.display='none'" />
           </div>
         </div>
         <h4>Muhammed Ashiq Abdul Khader</h4>
@@ -1278,12 +1282,26 @@
         <div class="judge-avatar-ring">
           <div class="judge-avatar">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/Hackathon 2026 - Sep 19/swastik.jpeg" alt="Kabir Nair" onerror="this.style.display='none'" />
+            <img src="/Images/Hackathon 2026 - Sep 19/swastik.jpeg" alt="Swastik Mukherjee" onerror="this.style.display='none'" />
           </div>
         </div>
         <h4>Swastik Mukherjee</h4>
         <span class="judge-role">Sr. AI/ML Security Engineer</span>
         <a class="judge-linkedin" href="https://www.linkedin.com/in/swastik-mukherjee/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+      <div class="judge-card">
+        <div class="judge-avatar-ring">
+          <div class="judge-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+            <img src="/Images/Hackathon 2026 - Sep 19/PH Reddy.jpg" alt="PH Reddy" onerror="this.style.display='none'" />
+          </div>
+        </div>
+        <h4>PH Reddy</h4>
+        <span class="judge-role">CyberSecurity Leader</span>
+        <a class="judge-linkedin" href="https://www.linkedin.com/in/ph-reddy-5884aa24a/" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
           View LinkedIn
         </a>
