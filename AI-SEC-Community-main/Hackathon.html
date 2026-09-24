@@ -3,843 +3,341 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI-SEC HackFest 2026</title>
+<title>AI-SEC HackFest 2026 — Winners &amp; Highlights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Poppins:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<!-- Design tokens only (CSS variables) — safe to load, doesn't touch body/h1/.btn etc. -->
 <link rel="stylesheet" href="/css/tokens.css" />
 <style>
   :root{
-    --ink:#f2edff;
-    --ink-soft:#b6acdb;
-    --violet:#8b5cf6;
-    --violet-2:#a98bff;
-    --indigo:#6d3ff5;
-    --teal:#2dd4bf;
-    --line:rgba(168,140,255,0.22);
-    --nav-bg:#0c0818;
-    --card-bg:rgba(38,26,64,0.55);
+    --ink:#f2edff;--ink-soft:#b6acdb;--violet:#8b5cf6;--violet-2:#a98bff;--indigo:#6d3ff5;
+    --teal:#2dd4bf;--gold:#f0c14b;--silver:#cbd5e1;--bronze:#e08a52;
+    --line:rgba(168,140,255,0.22);--nav-bg:#0c0818;--card-bg:rgba(38,26,64,0.55);
   }
-
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:#170e30;
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    overflow-x:hidden;
-  }
-
+  body{margin:0;background:#170e30;color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;}
   h1,h2,h3,.display{font-family:'Poppins',sans-serif;}
   .mono{font-family:'Manrope',sans-serif;}
   a{text-decoration:none;}
 
-  /* ---------- navbar (transplanted verbatim from the site's components.css,
-     scoped under .navbar so it can't touch this page's own .btn/.btn-primary/.container) ---------- */
+  /* ---------- navbar ---------- */
   .navbar {
-    position: sticky;
-    top: 0;
-    z-index: var(--z-navbar, 100);
+    position: sticky; top: 0; z-index: var(--z-navbar, 100);
     background-color: var(--color-bg);
     background-color: color-mix(in srgb, var(--color-bg) 72%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
     transition: background-color var(--transition-base), box-shadow var(--transition-base);
     animation: navbar-drop 0.6s var(--ease-standard) both;
   }
   .navbar .container{ max-width:1280px;margin:0 auto;padding-inline:clamp(20px,4vw,64px); }
   .navbar::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--brand-primary), var(--brand-deep-purple), var(--brand-primary));
-    background-size: 200% auto;
-    opacity: 0.9;
-    animation: navbar-accent-pan 8s linear infinite;
+    background-size: 200% auto; opacity: 0.9; animation: navbar-accent-pan 8s linear infinite;
   }
   @keyframes navbar-accent-pan { to { background-position: 200% center; } }
   @keyframes navbar-drop { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-  .navbar__inner {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: var(--space-md); padding-block: var(--space-md);
-    transition: padding-block var(--transition-base);
-  }
-  .navbar__logo {
-    display: flex; align-items: center; gap: 12px;
-    font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;
-    letter-spacing: 0.01em; color: var(--color-text);
-    transition: color var(--transition-fast); text-decoration:none;
-  }
+  .navbar__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); transition: padding-block var(--transition-base); }
+  .navbar__logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.01em; color: var(--color-text); transition: color var(--transition-fast); text-decoration:none; }
   .navbar__logo:hover { color: var(--color-primary); }
   .navbar__logo img { height: 46px; width: auto; transition: transform var(--transition-base); }
   .navbar__logo:hover img { transform: rotate(-8deg) scale(1.08); }
-
-  .navbar__links {
-    display: flex; align-items: center; gap: var(--space-lg);
-    font-size: 1rem; font-weight: var(--fw-medium); letter-spacing: 0.01em;
-  }
+  .navbar__links { display: flex; align-items: center; gap: var(--space-lg); font-size: 1rem; font-weight: var(--fw-medium); letter-spacing: 0.01em; }
   .navbar__links a { position: relative; color: var(--color-text-secondary); padding-block: 0.35rem; transition: color var(--transition-fast); text-decoration:none; }
-  .navbar__links a::after {
-    content: ""; position: absolute; left: 50%; bottom: -1px; width: 0; height: 2px;
-    background: linear-gradient(90deg, var(--color-primary), var(--brand-deep-purple));
-    border-radius: var(--radius-full); transform: translateX(-50%);
-    transition: width var(--transition-base);
-  }
+  .navbar__links a::after { content: ""; position: absolute; left: 50%; bottom: -1px; width: 0; height: 2px; background: linear-gradient(90deg, var(--color-primary), var(--brand-deep-purple)); border-radius: var(--radius-full); transform: translateX(-50%); transition: width var(--transition-base); }
   .navbar__links a:hover, .navbar__links a.is-active { color: var(--color-text); }
   .navbar__links a:hover::after, .navbar__links a.is-active::after { width: 100%; }
-
   .navbar__actions { display: flex; align-items: center; gap: var(--space-md); }
-
-  .theme-toggle {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 2.25rem; height: 2.25rem; border-radius: var(--radius-full);
-    border: 1px solid var(--color-border); color: var(--color-text); background:transparent; cursor:pointer;
-    transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
-  }
+  .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text); background:transparent; cursor:pointer; transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast); }
   .theme-toggle:hover { background-color: var(--color-surface); border-color: var(--color-primary); transform: rotate(15deg); }
   .theme-toggle span { display: inline-block; transition: transform var(--transition-slow); }
   .theme-toggle.is-toggled span { transform: rotate(180deg); }
-
-  .navbar__toggle {
-    display: none; flex-direction: column; justify-content: center; gap: 5px;
-    width: 2.25rem; height: 2.25rem; background:transparent; border:none; cursor:pointer;
-    transition: transform var(--transition-fast);
-  }
+  .navbar__toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 2.25rem; height: 2.25rem; background:transparent; border:none; cursor:pointer; transition: transform var(--transition-fast); }
   .navbar__toggle:hover { transform: scale(1.08); }
   .navbar__toggle span { display: block; height: 2px; width: 100%; background-color: var(--color-text); border-radius: var(--radius-sm); transition: transform var(--transition-fast), opacity var(--transition-fast), background-color var(--transition-fast); }
   .navbar__toggle:hover span { background-color: var(--color-primary); }
   .navbar__toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .navbar__toggle.is-open span:nth-child(2) { opacity: 0; }
   .navbar__toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
   .navbar .btn { display:inline-flex;align-items:center;justify-content:center;gap:.4em;padding:.5rem 1.5rem;border-radius:var(--radius-full);font-family:var(--font-body);font-weight:var(--fw-medium);font-size:var(--fs-small);white-space:nowrap;border:2px solid transparent;transition:background-color var(--transition-base),border-color var(--transition-base),color var(--transition-base),transform var(--transition-base),box-shadow var(--transition-base); }
   .navbar .btn-primary { background-color: var(--color-primary); color: var(--color-on-primary); }
-  .navbar__cta { transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
-  .navbar__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px color-mix(in srgb, var(--color-primary) 45%, transparent); }
-
   @media (max-width: 768px) {
-    .navbar__links {
-      position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; align-items: flex-start; gap: var(--space-md);
-      padding: var(--space-lg); background-color: var(--color-bg);
-      border-bottom: 1px solid var(--color-border);
-      transform: translateY(-8px); opacity: 0; visibility: hidden;
-      transition: transform var(--transition-base), opacity var(--transition-base), visibility var(--transition-base);
-    }
+    .navbar__links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: var(--space-md); padding: var(--space-lg); background-color: var(--color-bg); border-bottom: 1px solid var(--color-border); transform: translateY(-8px); opacity: 0; visibility: hidden; transition: transform var(--transition-base), opacity var(--transition-base), visibility var(--transition-base); }
     .navbar__links.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
     .navbar__links a { opacity: 0; transform: translateX(-8px); transition: opacity var(--transition-base), transform var(--transition-base); }
     .navbar__links.is-open a { opacity: 1; transform: translateX(0); }
-
     .navbar__inner { gap: 10px; }
     .navbar__logo { font-size: 1rem; gap: 8px; }
     .navbar__logo img { height: 34px; }
     .navbar__wordmark { max-width: 132px; line-height: 1.15; }
-    .navbar__cta { padding: .5rem 1rem; font-size: .85rem; }
   }
+  @media (max-width: 400px) { .navbar__wordmark { display: none; } }
 
-  @media (max-width: 480px) {
-    .navbar__cta span.cta-label-long { display:none; }
-  }
-
-  @media (max-width: 400px) {
-    .navbar__wordmark { display: none; }
-  }
-
-  /* ---------- ambient background: flat solid, no gradients/orbs ---------- */
+  /* ---------- ambient background ---------- */
   .particle-field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
-  .particle{
-    position:absolute;bottom:-20px;border-radius:50%;
-    background:var(--violet-2);
-    opacity:.6;animation:rise linear infinite;
-  }
-  @keyframes rise{
-    0%{transform:translateY(0) translateX(0);opacity:0;}
-    10%{opacity:.6;}
-    100%{transform:translateY(-110vh) translateX(20px);opacity:0;}
-  }
+  .particle{position:absolute;bottom:-20px;border-radius:50%;background:var(--violet-2);opacity:.6;animation:rise linear infinite;}
+  @keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:.6;}100%{transform:translateY(-110vh) translateX(20px);opacity:0;}}
 
-  /* ---------- hero: full-bleed photo backdrop ---------- */
-  .hero{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;}
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;min-height:92vh;min-height:92svh;display:flex;flex-direction:column;}
   .hero-bg{position:absolute;inset:0;z-index:0;background:#170e30;}
   .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;}
-  .hero-bg::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(14,9,30,.88) 0%, rgba(16,10,34,.9) 40%, rgba(12,7,26,.94) 100%);
-  }
-
-  /* top-left mark + wordmark lockup, sits over the photo */
-  .hero-lockup{
-    position:absolute;top:28px;left:40px;z-index:2;display:flex;align-items:center;gap:14px;
-    opacity:0;animation:fadeUp .7s ease .05s forwards;
-  }
-  .hero-lockup .mark{
-    width:auto;height:104px;flex-shrink:0;overflow:visible;
-    border:none;background:transparent;
-    display:flex;align-items:center;justify-content:center;
-  }
+  .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(14,9,30,.88) 0%, rgba(16,10,34,.9) 40%, rgba(12,7,26,.94) 100%);}
+  .hero-lockup{position:absolute;top:28px;left:40px;z-index:2;display:flex;align-items:center;gap:14px;opacity:0;animation:fadeUp .7s ease .05s forwards;}
+  .hero-lockup .mark{width:auto;height:104px;flex-shrink:0;overflow:visible;border:none;background:transparent;display:flex;align-items:center;justify-content:center;}
   .hero-lockup .mark img{width:auto;height:100%;object-fit:contain;transform:none;display:block;}
   .hero-lockup .word{display:flex;flex-direction:column;line-height:1.2;text-align:left;}
-  .hero-lockup .word .l1{
-    font-family:'Poppins',sans-serif;font-weight:800;font-size:1.34rem;letter-spacing:.03em;
-    color:#fff;white-space:nowrap;
-    text-shadow:0 2px 10px rgba(0,0,0,.55);
-  }
-  .hero-lockup .word .l3{font-family:'Manrope',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.16em;color:var(--ink-soft);margin-top:5px;
-    text-shadow:0 2px 8px rgba(0,0,0,.5);}
-
-  .wrap{
-    position:relative;z-index:1;max-width:1600px;width:100%;margin:0 auto;
-    padding:40px 40px 56px;text-align:center;
-    flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  }
-
-  .edition-eyebrow{
-    font-family:'Manrope',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.32em;
-    color:#f0a24b;margin-bottom:14px;opacity:0;animation:fadeUp .7s ease .05s forwards;
-    text-shadow:0 2px 10px rgba(0,0,0,.5);
-  }
-
-  /* logo-mark collapses to 0 height until an image successfully loads (via .has-logo class added by JS) */
+  .hero-lockup .word .l1{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.34rem;letter-spacing:.03em;color:#fff;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,.55);}
+  .hero-lockup .word .l3{font-family:'Manrope',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.16em;color:var(--ink-soft);margin-top:5px;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+  .wrap{position:relative;z-index:1;max-width:1600px;width:100%;margin:0 auto;padding:40px 40px 56px;text-align:center;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;}
   .logo-mark{width:250px;height:0;margin:0 auto 0;overflow:hidden;transition:height .3s ease, margin .3s ease;}
   .logo-mark.has-logo{height:250px;margin:0 auto 18px;animation:logoIn .8s cubic-bezier(.2,.8,.2,1) both;}
-  .logo-mark img{width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:26px;display:block;
-    /* The source PNG has transparent padding around the mark itself, which shows as empty space.
-       Scale up to zoom past that padding and crop it out. Increase/decrease 1.6 to taste. */
-    transform:scale(1.6);
-    filter:drop-shadow(0 12px 30px rgba(109,63,245,.4));}
+  .logo-mark img{width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:26px;display:block;transform:scale(1.6);filter:drop-shadow(0 12px 30px rgba(109,63,245,.4));}
   @keyframes logoIn{from{opacity:0;transform:translateY(-14px) scale(.85);}to{opacity:1;transform:translateY(0) scale(1);}}
-
-  .brand-word{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:6px;
-    opacity:0;animation:fadeUp .7s ease .15s forwards;}
-  .brand-word .line1{font-weight:900;font-size:1.35rem;letter-spacing:.08em;color:var(--ink);}
-  .brand-word .line2{
-    font-weight:900;font-size:2.3rem;letter-spacing:.01em;
-    color:var(--violet-2);
-  }
   @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-
-  .badge-pill{
-    display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);
-    padding:7px 18px;border-radius:999px;font-family:'Manrope',sans-serif;font-size:.76rem;
-    letter-spacing:.16em;color:var(--ink-soft);background:rgba(139,92,246,0.12);margin-top:4px;
-    opacity:0;animation:fadeUp .7s ease .3s forwards;
-  }
+  .badge-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(45,212,191,0.4);padding:7px 18px;border-radius:999px;font-family:'Manrope',sans-serif;font-size:.76rem;letter-spacing:.16em;color:var(--teal);background:rgba(45,212,191,0.10);margin-top:4px;opacity:0;animation:fadeUp .7s ease .3s forwards;}
 
   /* ---------- animated headline ---------- */
-  .headline{
-    margin:30px 0 14px;font-weight:900;font-size:clamp(2.9rem,7.2vw,5.9rem);line-height:1.05;letter-spacing:-.01em;
-    display:flex;flex-wrap:wrap;justify-content:center;gap:.28em;
-  }
+  .headline{margin:30px 0 14px;font-weight:900;font-size:clamp(2.9rem,7.2vw,5.9rem);line-height:1.05;letter-spacing:-.01em;display:flex;flex-wrap:wrap;justify-content:center;gap:.28em;}
   .headline .char-row{display:inline-flex;flex-wrap:nowrap;white-space:nowrap;}
-  .headline .plain span{
-    display:inline-block;opacity:0;transform:translateY(22px) rotate(3deg);
-    animation:charIn .55s cubic-bezier(.2,.9,.25,1.2) forwards;
-    color:var(--ink);
-    text-shadow:0 4px 24px rgba(0,0,0,.6);
-  }
-  .headline .grad{
-    position:relative;display:inline-block;
-    color:var(--violet-2);
-    animation:gradIn .7s ease .9s both;
-    text-shadow:0 4px 24px rgba(0,0,0,.6);
-  }
-  .headline .grad::after{
-    content:'';position:absolute;inset:-6px -10px;border-radius:14px;
-    background:rgba(109,63,245,.22);
-    z-index:-1;animation:pulseGlow 2.6s ease-in-out infinite;
-  }
+  .headline .plain span{display:inline-block;opacity:0;transform:translateY(22px) rotate(3deg);animation:charIn .55s cubic-bezier(.2,.9,.25,1.2) forwards;color:var(--ink);text-shadow:0 4px 24px rgba(0,0,0,.6);}
+  .headline .grad{position:relative;display:inline-block;color:var(--violet-2);animation:gradIn .7s ease .9s both;text-shadow:0 4px 24px rgba(0,0,0,.6);}
+  .headline .grad::after{content:'';position:absolute;inset:-6px -10px;border-radius:14px;background:rgba(109,63,245,.22);z-index:-1;animation:pulseGlow 2.6s ease-in-out infinite;}
   @keyframes pulseGlow{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:.85;transform:scale(1.08);}}
   @keyframes gradIn{from{opacity:0;transform:translateY(14px) scale(.94);}to{opacity:1;transform:translateY(0) scale(1);}}
   @keyframes charIn{to{opacity:1;transform:translateY(0) rotate(0);}}
-
   .tagline{display:flex;justify-content:center;gap:.6em;flex-wrap:wrap;font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(1.15rem,2.9vw,1.7rem);letter-spacing:.16em;margin:4px 0 20px;}
-  .tagline span{opacity:0;transform:translateY(10px);animation:rise .6s ease forwards;text-shadow:0 2px 14px rgba(0,0,0,.55);}
+  .tagline span{opacity:0;transform:translateY(10px);animation:tagRise .6s ease forwards;text-shadow:0 2px 14px rgba(0,0,0,.55);}
   .tagline .w1{color:var(--violet);animation-delay:1.15s;}
   .tagline .w2{color:var(--indigo);animation-delay:1.35s;}
   .tagline .w3{color:var(--teal);animation-delay:1.55s;}
-  @keyframes rise{to{opacity:1;transform:translateY(0);}}
-
-  .sub{max-width:720px;margin:0 auto 28px;color:var(--ink-soft);font-size:1.25rem;line-height:1.65;
-    opacity:0;animation:fadeUp .7s ease 1.7s forwards;
-    text-shadow:0 2px 12px rgba(0,0,0,.55);}
-
-  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;
-    opacity:0;animation:fadeUp .7s ease 1.85s forwards;}
-  .btn{font-family:'Manrope',sans-serif;font-weight:700;font-size:1rem;padding:15px 32px;border-radius:12px;display:inline-block;
-    position:relative;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease;}
-  .btn:hover{transform:translateY(-3px);}
-  .btn-primary{color:#fff;background:var(--indigo);box-shadow:0 14px 28px -14px rgba(109,63,245,.55);}
-  .btn-primary::before{
-    content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
-    transform:translateX(-120%);transition:transform .6s ease;
-  }
-  .btn-primary:hover::before{transform:translateX(120%);}
-  .btn-ghost{color:var(--ink);background:rgba(255,255,255,0.04);border:1.5px solid var(--line);}
-  .btn-ghost:hover{border-color:var(--violet-2);background:rgba(139,92,246,0.1);}
-
-  .meta-row{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-family:'Manrope',sans-serif;font-weight:700;font-size:.98rem;color:var(--ink-soft);
-    opacity:0;animation:fadeUp .7s ease 2s forwards;
-    text-shadow:0 2px 10px rgba(0,0,0,.5);}
+  @keyframes tagRise{to{opacity:1;transform:translateY(0);}}
+  .sub{max-width:720px;margin:0 auto 28px;color:var(--ink-soft);font-size:1.25rem;line-height:1.65;opacity:0;animation:fadeUp .7s ease 1.7s forwards;text-shadow:0 2px 12px rgba(0,0,0,.55);}
+  .meta-row{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-family:'Manrope',sans-serif;font-weight:700;font-size:.98rem;color:var(--ink-soft);opacity:0;animation:fadeUp .7s ease 1.9s forwards;text-shadow:0 2px 10px rgba(0,0,0,.5);}
   .meta-row span{display:flex;align-items:center;gap:8px;}
   .meta-row svg{width:18px;height:18px;stroke:var(--violet);}
-
-  /* ---------- venue card ---------- */
-  .venue-card{
-    max-width:760px;margin:32px auto 0;padding:26px 34px;border-radius:18px;
-    background:rgba(20,13,40,0.72);border:1px solid var(--line);backdrop-filter:blur(6px);
-    display:flex;align-items:center;gap:18px;justify-content:center;text-align:left;
-    opacity:0;animation:fadeUp .7s ease 2.1s forwards;
-    cursor:pointer;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
+  .venue-card{max-width:760px;margin:32px auto 0;padding:26px 34px;border-radius:18px;background:rgba(20,13,40,0.72);border:1px solid var(--line);backdrop-filter:blur(6px);display:flex;align-items:center;gap:18px;justify-content:center;text-align:left;opacity:0;animation:fadeUp .7s ease 2.05s forwards;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
   .venue-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -20px rgba(139,92,246,.5);border-color:var(--violet-2);}
   .venue-card:active{transform:translateY(-1px);}
   .venue-card svg{width:30px;height:30px;stroke:var(--teal);flex-shrink:0;}
   .venue-card .venue-name{font-family:'Manrope',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin:0 0 3px;}
   .venue-card .venue-addr{font-size:.9rem;color:var(--ink-soft);margin:0;line-height:1.5;}
-
-  /* ---------- countdown widget ---------- */
-  .countdown-section{max-width:760px;margin:32px auto 0;text-align:center;
-    opacity:0;animation:fadeUp .7s ease 2.15s forwards;}
-  .countdown-eyebrow{
-    font-family:'Manrope',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.28em;
-    color:var(--teal);margin-bottom:18px;text-transform:uppercase;
-    text-shadow:0 2px 10px rgba(0,0,0,.5);
-  }
-  .countdown-ring{position:relative;padding:3px;border-radius:26px;display:inline-block;}
-  .countdown-ring::before{
-    content:'';position:absolute;inset:0;border-radius:26px;padding:2px;
-    background:conic-gradient(from 0deg, var(--violet), var(--indigo), var(--teal), var(--violet-2), var(--violet));
-    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor; mask-composite:exclude;
-    animation:ringSpin 6s linear infinite; opacity:.75;
-  }
-  @keyframes ringSpin{to{transform:rotate(360deg);}}
-  .countdown-grid{
-    position:relative;display:flex;gap:14px;align-items:center;justify-content:center;
-    background:rgba(14,10,28,0.85);border-radius:24px;padding:26px 30px;backdrop-filter:blur(8px);
-  }
-  .countdown-unit{
-    position:relative;min-width:84px;padding:16px 6px 14px;border-radius:16px;
-    background:rgba(139,92,246,0.08);border:1px solid var(--line);overflow:hidden;
-    transition:border-color .3s ease, background-color .3s ease;
-  }
-  .countdown-unit::after{
-    content:'';position:absolute;inset:0;border-radius:16px;
-    background:radial-gradient(ellipse at top, rgba(139,92,246,.28), transparent 70%);
-    opacity:0;transition:opacity .4s ease;
-  }
-  .countdown-unit.pulse::after{opacity:1;animation:unitPulse 1s ease;}
-  @keyframes unitPulse{0%{opacity:0;}30%{opacity:1;}100%{opacity:0;}}
-  .countdown-value-wrap{perspective:300px;height:2.6rem;display:flex;align-items:center;justify-content:center;}
-  .countdown-value{
-    font-family:'Poppins',sans-serif;font-weight:900;font-size:2.15rem;line-height:1;
-    color:var(--ink);display:inline-block;transform-style:preserve-3d;
-    text-shadow:0 0 18px rgba(169,139,255,.35);
-  }
-  .countdown-value.flip{animation:flipDigit .5s cubic-bezier(.4,.2,.2,1);}
-  @keyframes flipDigit{
-    0%{transform:rotateX(0deg);opacity:1;}
-    45%{transform:rotateX(90deg);opacity:0;}
-    55%{transform:rotateX(-90deg);opacity:0;}
-    100%{transform:rotateX(0deg);opacity:1;}
-  }
-  .countdown-label{
-    margin-top:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:.65rem;
-    letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase;
-  }
-  .countdown-sep{
-    font-family:'Poppins',sans-serif;font-weight:900;font-size:1.8rem;color:var(--violet-2);
-    align-self:flex-start;margin-top:14px;animation:sepBlink 1.4s ease-in-out infinite;
-  }
-  @keyframes sepBlink{0%,100%{opacity:1;}50%{opacity:.25;}}
-  .countdown-grid.urgent .countdown-unit{border-color:rgba(240,193,75,0.45);background:rgba(240,193,75,0.08);}
-  .countdown-grid.urgent .countdown-value{color:#f0c14b;text-shadow:0 0 18px rgba(240,193,75,.45);}
-  .countdown-grid.urgent .countdown-sep{color:#f0c14b;}
-  .countdown-live{
-    display:none;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.4rem;color:var(--teal);
-    padding:20px 0;text-shadow:0 2px 10px rgba(0,0,0,.5);
-  }
-  .countdown-live.show{display:block;animation:fadeUp .5s ease both;}
   @media (max-width:560px){
-    .countdown-grid{gap:8px;padding:20px 14px;}
-    .countdown-unit{min-width:64px;padding:12px 4px 10px;}
-    .countdown-value{font-size:1.5rem;}
-    .countdown-sep{font-size:1.3rem;margin-top:10px;}
-  }
-
-  hr.divider{border:none;border-top:1px solid var(--line);max-width:1600px;margin:44px auto;}
-
-  .section{max-width:1600px;margin:0 auto;padding:0 40px 72px;position:relative;z-index:1;}
-  .section-head{text-align:center;margin-bottom:44px;}
-  .eyebrow{font-family:'Manrope',sans-serif;font-size:.8rem;letter-spacing:.2em;color:var(--violet);font-weight:700;}
-  .section h2{font-weight:800;font-size:clamp(1.9rem,3vw,2.4rem);margin:8px 0 0;color:var(--ink);}
-  .section-sub{max-width:560px;margin:14px auto 0;color:var(--ink-soft);font-size:1.02rem;line-height:1.6;}
-  .section-divider{width:64px;height:3px;border-radius:2px;margin:20px auto 0;
-    background:var(--violet-2);}
-
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
-
-  /* ---------- editorial list (About) ---------- */
-  .flow-list{position:relative;padding-left:36px;max-width:1200px;margin:0 auto;}
-  .flow-list::before{content:'';position:absolute;left:11px;top:6px;bottom:6px;width:2px;
-    background:var(--violet-2);opacity:.35;}
-  .flow-list-fill{position:absolute;left:11px;top:6px;width:2px;height:0%;
-    background:var(--violet-2);box-shadow:0 0 12px rgba(139,92,246,.6);
-    transition:height .3s cubic-bezier(.2,.8,.2,1);z-index:1;}
-  .flow-item{position:relative;padding:24px 0;border-bottom:1px solid var(--line);
-    display:flex;align-items:center;gap:28px;flex-wrap:wrap;
-    opacity:0;transform:translateX(-18px);
-    transition:opacity .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1);}
-  .flow-item.in{opacity:1;transform:translateX(0);}
-  .flow-item:last-child{border-bottom:none;}
-  .flow-item::before{
-    content:'';position:absolute;left:-36px;top:30px;width:10px;height:10px;border-radius:50%;
-    background:var(--violet-2);box-shadow:0 0 0 4px #170e30, 0 0 0 6px rgba(139,92,246,.3);
-    transform:scale(.4);opacity:.5;
-    transition:transform .5s cubic-bezier(.2,.8,.2,1.4), opacity .5s ease;
-  }
-  .flow-item.in::before{transform:scale(1);opacity:1;}
-  .flow-main{display:flex;align-items:flex-start;gap:20px;flex:1 1 380px;min-width:0;}
-  .flow-ico{
-    flex-shrink:0;width:50px;height:50px;border-radius:13px;
-    background:rgba(139,92,246,0.16);
-    display:flex;align-items:center;justify-content:center;margin-top:2px;
-    transition:transform .35s cubic-bezier(.2,.8,.2,1), background .3s ease, box-shadow .35s ease;
-  }
-  .flow-item:hover .flow-ico{
-    transform:rotate(-8deg) scale(1.08);
-    background:rgba(139,92,246,0.28);
-    box-shadow:0 8px 20px -6px rgba(139,92,246,.55);
-  }
-  .flow-ico svg{width:24px;height:24px;stroke:var(--violet-2);transition:transform .35s ease;}
-  .flow-item:hover .flow-ico svg{transform:scale(1.1);}
-  .flow-body h3{margin:0 0 6px;font-size:1.18rem;font-weight:800;color:var(--ink);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
-  .flow-body h3 .tag{font-family:'Manrope',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;color:var(--teal);}
-  .flow-body p{margin:0;font-size:1rem;color:var(--ink-soft);line-height:1.6;max-width:760px;}
-  .flow-photo{
-    flex:0 0 auto;width:340px;max-width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
-    border:1px solid var(--line);background:rgba(139,92,246,0.08);
-  }
-  .flow-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
-  .flow-item:hover .flow-photo img{transform:scale(1.05);}
-  @media (max-width:900px){
-    .flow-item{flex-direction:column;align-items:stretch;}
-    .flow-photo{width:100%;order:2;}
-  }
-
-  /* ---------- why participate: professional benefit cards ---------- */
-  .why-grid{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:20px;max-width:1500px;margin:0 auto;
-  }
-  .why-card{
-    position:relative;overflow:hidden;
-    background:rgba(24,15,44,0.68);border:1px solid var(--line);border-radius:20px;
-    padding:28px 22px 26px;text-align:left;backdrop-filter:blur(6px);
-    display:flex;flex-direction:column;gap:16px;
-    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  }
-  .why-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px -22px rgba(139,92,246,.5);border-color:var(--violet-2);}
-  .why-card::after{
-    content:'';position:absolute;top:-30%;right:-30%;width:60%;height:60%;border-radius:50%;
-    background:radial-gradient(circle, rgba(139,92,246,.22), transparent 70%);
-    opacity:0;transition:opacity .4s ease;pointer-events:none;
-  }
-  .why-card:hover::after{opacity:1;}
-  .why-icon{
-    position:relative;z-index:1;
-    width:48px;height:48px;border-radius:13px;flex-shrink:0;
-    background:rgba(45,212,191,0.14);border:1px solid rgba(45,212,191,0.3);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .why-icon svg{width:22px;height:22px;stroke:var(--teal);}
-  .why-num{
-    position:absolute;top:22px;right:24px;z-index:1;
-    font-family:'Poppins',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.04em;
-    color:var(--ink-soft);opacity:.45;
-  }
-  .why-card h3{
-    position:relative;z-index:1;margin:0;font-family:'Manrope',sans-serif;
-    font-size:1.03rem;font-weight:800;color:var(--ink);line-height:1.4;
-  }
-  .why-card p{
-    position:relative;z-index:1;margin:0;font-size:.87rem;color:var(--ink-soft);line-height:1.55;
-  }
-  @media (max-width:1100px){
-    .why-grid{grid-template-columns:repeat(3,1fr);}
-  }
-  @media (max-width:640px){
-    .why-grid{grid-template-columns:1fr;}
-  }
-
-  /* ---------- challenge tracks ---------- */
-  .track-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-  .track-card{
-    background:rgba(24,15,44,0.68);
-    border:1px solid var(--line);border-radius:24px;padding:32px 28px 30px;
-    text-align:left;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-    backdrop-filter:blur(6px);display:flex;flex-direction:column;
-  }
-  .track-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px -22px rgba(139,92,246,.5);border-color:var(--violet-2);}
-  .track-icon-badge{
-    width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    margin-bottom:22px;flex-shrink:0;
-  }
-  .track-icon-badge svg{width:24px;height:24px;}
-  .t1 .track-icon-badge{background:rgba(139,92,246,0.20);} .t1 .track-icon-badge svg{stroke:var(--violet-2);}
-  .t2 .track-icon-badge{background:rgba(109,63,245,0.20);} .t2 .track-icon-badge svg{stroke:#a98bff;}
-  .t3 .track-icon-badge{background:rgba(45,212,191,0.18);} .t3 .track-icon-badge svg{stroke:var(--teal);}
-  .t4 .track-icon-badge{background:rgba(226,96,63,0.20);} .t4 .track-icon-badge svg{stroke:#f0906c;}
-
-  .track-illustration{
-    height:168px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;
-    border-radius:16px;background:rgba(255,255,255,0.02);position:relative;overflow:hidden;
-  }
-  .track-illustration svg{width:100%;height:100%;}
-
-  .track-underline{width:34px;height:3px;border-radius:2px;margin:12px 0 14px;}
-  .t1 .track-underline{background:var(--violet-2);}
-  .t2 .track-underline{background:#a98bff;}
-  .t3 .track-underline{background:var(--teal);}
-  .t4 .track-underline{background:#f0906c;}
-
-  .track-card h3{font-size:1.1rem;margin:0;font-weight:800;line-height:1.32;}
-  .track-card p{margin:0;font-size:.93rem;color:var(--ink-soft);line-height:1.6;}
-
-  /* ---------- timeline (vertical, alternating) ---------- */
-  .tl-wrap{position:relative;padding:32px 32px 20px;border-radius:28px;overflow:hidden;}
-  .tl-glow{
-    position:absolute;inset:0;z-index:0;
-    background:#1a1030;
-    opacity:.9;
-  }
-
-  .v-timeline{position:relative;z-index:1;max-width:1360px;margin:0 auto;}
-  .v-tl-line{
-    position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);
-    background:rgba(168,140,255,0.16);z-index:0;overflow:hidden;border-radius:2px;
-  }
-  .v-tl-fill{
-    position:absolute;top:0;left:0;width:100%;height:0%;
-    background:var(--violet-2);
-    box-shadow:0 0 14px rgba(139,92,246,.55);
-    transition:height .25s cubic-bezier(.2,.8,.2,1);
-  }
-  .v-item{
-    position:relative;display:flex;align-items:flex-start;
-    justify-content:flex-start;margin:0 0 52px;min-height:76px;
-    opacity:0;transform:translateX(-36px);
-    transition:opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1);
-  }
-  .v-item.right{transform:translateX(36px);}
-  .v-item.in{opacity:1;transform:translateX(0);}
-  .v-item:last-child{margin-bottom:8px;}
-  .v-card{
-    width:calc(50% - 54px);background:#0e0a1c;border:1px solid var(--line);border-radius:18px;
-    padding:22px 26px;backdrop-filter:blur(6px);
-    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  }
-  .v-item.in .v-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px -20px rgba(139,92,246,.45);border-color:var(--violet-2);}
-  .v-item.right{justify-content:flex-end;}
-  .v-item.left .v-card{margin-right:auto;}
-  .v-item.right .v-card{margin-left:auto;}
-
-  .v-when{display:flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:.85rem;color:var(--violet-2);margin-bottom:10px;}
-  .v-when .dot-sep{width:3px;height:3px;border-radius:50%;background:var(--ink-soft);opacity:.6;}
-  .v-when .day{color:var(--ink-soft);font-weight:700;letter-spacing:.04em;}
-  .v-flag{
-    display:inline-flex;align-items:center;gap:6px;font-family:'Manrope',sans-serif;font-weight:700;
-    font-size:.72rem;letter-spacing:.06em;color:#f0c14b;background:rgba(240,193,75,0.12);
-    border:1px solid rgba(240,193,75,0.35);border-radius:999px;padding:5px 12px;margin-bottom:12px;
-  }
-  .v-flag svg{width:13px;height:13px;stroke:#f0c14b;}
-  .v-card h4{margin:0 0 10px;font-weight:800;font-size:1.2rem;line-height:1.3;color:var(--ink);}
-  .v-card h4.gold{color:#f0c14b;}
-  .v-card p{margin:0;font-size:.95rem;color:var(--ink-soft);line-height:1.6;}
-
-  .v-node{
-    position:absolute;left:50%;top:0;transform:translate(-50%,0) scale(.4);z-index:2;
-    width:42px;height:42px;border-radius:50%;
-    background:#140c26;border:2px solid var(--violet-2);
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 0 0 6px rgba(20,12,38,0.9), 0 0 18px rgba(139,92,246,.35);
-    opacity:0;transition:opacity .5s ease .15s, transform .5s cubic-bezier(.2,.8,.2,1.4) .15s;
-  }
-  .v-item.in .v-node{opacity:1;transform:translate(-50%,0) scale(1);}
-  .v-node svg{width:18px;height:18px;stroke:#fff;stroke-width:3;opacity:0;transform:scale(.5);transition:opacity .3s ease .45s, transform .3s ease .45s;}
-  .v-item.in .v-node svg{opacity:1;transform:scale(1);}
-  .v-item.flag .v-node{border-color:#f0c14b;box-shadow:0 0 0 6px rgba(20,12,38,0.9), 0 0 18px rgba(240,193,75,.35);}
-  .v-item.final .v-node{border-color:var(--teal);box-shadow:0 0 0 6px rgba(20,12,38,0.9), 0 0 18px rgba(45,212,191,.4);}
-  .v-item.in.final .v-node{animation:nodeSettle .5s cubic-bezier(.2,.8,.2,1.4) .15s both, finalPulse 2.4s ease-in-out 1s infinite;}
-  @keyframes nodeSettle{0%{transform:translate(-50%,0) scale(.4);}100%{transform:translate(-50%,0) scale(1);}}
-  @keyframes finalPulse{0%,100%{box-shadow:0 0 0 6px rgba(20,12,38,0.9), 0 0 18px rgba(45,212,191,.4);}50%{box-shadow:0 0 0 6px rgba(20,12,38,0.9), 0 0 28px rgba(45,212,191,.7);}}
-
-  @media (max-width:760px){
-    .v-tl-line{left:19px;}
-    .v-item, .v-item.right{justify-content:flex-start;padding-left:56px;}
-    .v-card, .v-item.left .v-card, .v-item.right .v-card{width:100%;margin:0;}
-    .v-node{left:19px;}
-    .v-item{transform:translateY(24px);}
-    .v-item.right{transform:translateY(24px);}
-    .v-item.in{transform:translateY(0);}
-  }
-
-  /* ---------- crew slider ---------- */
-  .crew-wrap{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
-  .crew-track{display:flex;width:max-content;gap:22px;animation:crewScroll 32s linear infinite;}
-  .crew-wrap:hover .crew-track{animation-play-state:paused;}
-  @keyframes crewScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .crew-card{
-    flex:0 0 230px;background:var(--card-bg);border:1px solid var(--line);border-radius:20px;
-    padding:28px 22px 22px;text-align:center;backdrop-filter:blur(6px);
-    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  }
-  .crew-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px -22px rgba(139,92,246,.55);border-color:var(--violet-2);}
-  .crew-avatar{
-    width:84px;height:84px;margin:0 auto 16px;border-radius:50%;
-    background:rgba(139,92,246,0.20);
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
-  }
-  .crew-avatar svg{width:36px;height:36px;stroke:var(--violet-2);}
-  .crew-card h4{margin:0 0 5px;font-size:1.05rem;font-weight:800;color:var(--ink);}
-  .crew-role{font-family:'Manrope',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;}
-
-  /* ---------- judges ---------- */
-  .judges-grid{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:20px;max-width:1600px;margin:0 auto;
-  }
-  .judge-card{
-    position:relative;overflow:hidden;
-    background:var(--card-bg);border:1px solid var(--line);border-radius:22px;
-    padding:38px 24px 30px;text-align:center;backdrop-filter:blur(6px);
-    opacity:0;transform:translateY(28px);
-    transform-style:preserve-3d;will-change:transform;
-    transition:box-shadow .35s ease, border-color .35s ease;
-    display:flex;flex-direction:column;align-items:center;
-  }
-  .judges-grid.reveal.in .judge-card{animation:judgeIn .65s cubic-bezier(.2,.8,.2,1) forwards;}
-  .judges-grid.reveal.in .judge-card:nth-child(1){animation-delay:.05s;}
-  .judges-grid.reveal.in .judge-card:nth-child(2){animation-delay:.2s;}
-  .judges-grid.reveal.in .judge-card:nth-child(3){animation-delay:.35s;}
-  .judges-grid.reveal.in .judge-card:nth-child(4){animation-delay:.5s;}
-  .judges-grid.reveal.in .judge-card:nth-child(5){animation-delay:.65s;}
-  @keyframes judgeIn{from{opacity:0;transform:translateY(28px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
-  .judge-card:hover{box-shadow:0 24px 50px -22px rgba(139,92,246,.55);border-color:var(--violet-2);}
-
-  /* diagonal shine sweep on hover */
-  .judge-card::before{
-    content:'';position:absolute;top:0;left:-160%;width:55%;height:100%;
-    background:linear-gradient(115deg, transparent, rgba(255,255,255,.14), rgba(139,92,246,.12), transparent);
-    transform:skewX(-18deg);transition:left .75s cubic-bezier(.2,.8,.2,1);pointer-events:none;z-index:2;
-  }
-  .judge-card:hover::before{left:160%;}
-
-  /* corner accent glow that blooms on hover */
-  .judge-card::after{
-    content:'';position:absolute;top:-40%;right:-40%;width:70%;height:70%;border-radius:50%;
-    background:radial-gradient(circle, rgba(139,92,246,.28), transparent 70%);
-    opacity:0;transition:opacity .45s ease;pointer-events:none;z-index:0;
-  }
-  .judge-card:hover::after{opacity:1;}
-
-  .judge-avatar-ring{
-    position:relative;width:130px;height:130px;margin:0 auto 22px;border-radius:50%;padding:4px;z-index:1;
-  }
-  .judge-avatar-ring::before{
-    content:'';position:absolute;inset:0;border-radius:50%;padding:2px;
-    background:conic-gradient(from 0deg, var(--violet), var(--teal), var(--violet-2), var(--indigo), var(--violet));
-    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;
-    animation:ringSpin 5s linear infinite;opacity:.5;transition:opacity .35s ease;
-  }
-  .judge-card:hover .judge-avatar-ring::before{opacity:1;}
-  .judge-avatar{
-    position:relative;overflow:hidden;
-    width:100%;height:100%;border-radius:50%;
-    background:rgba(139,92,246,0.22);
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
-    box-shadow:0 0 0 6px rgba(139,92,246,0.08);
-    transition:transform .4s cubic-bezier(.2,.8,.2,1);
-  }
-  .judge-avatar img{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;
-    border-radius:50%;display:block;
-  }
-  .judge-card:hover .judge-avatar{transform:scale(1.06);}
-  .judge-avatar svg{width:44px;height:44px;stroke:var(--violet-2);}
-  .judge-card h4{position:relative;z-index:1;margin:0 0 8px;font-size:1.05rem;font-weight:800;color:var(--ink);line-height:1.3;}
-  .judge-role{position:relative;z-index:1;font-family:'Manrope',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.1em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:12px;}
-  .judge-bio{position:relative;z-index:1;margin:0;font-size:.88rem;color:var(--ink-soft);line-height:1.55;}
-
-  .judge-linkedin{
-    position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;
-    margin-top:auto;padding:9px 20px;border-radius:999px;
-    font-family:'Manrope',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.02em;
-    color:var(--ink);background:rgba(139,92,246,0.12);border:1px solid var(--line);
-    transition:background .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;
-  }
-  .judge-linkedin svg{width:16px;height:16px;fill:var(--teal);transition:fill .3s ease, transform .3s ease;flex-shrink:0;}
-  .judge-linkedin:hover{
-    background:rgba(45,212,191,0.14);border-color:var(--teal);transform:translateY(-2px);
-    box-shadow:0 10px 24px -14px rgba(45,212,191,.55);
-  }
-  .judge-linkedin:hover svg{transform:scale(1.1) rotate(-4deg);}
-
-  @media (max-width:1200px){
-    .judges-grid{grid-template-columns:repeat(3,1fr);}
-  }
-  @media (max-width:900px){
-    .track-grid{grid-template-columns:1fr 1fr;}
-    .venue-card{flex-direction:column;text-align:center;}
-    .judges-grid{grid-template-columns:1fr 1fr;}
-  }
-  @media (max-width:560px){
-    .track-grid{grid-template-columns:1fr;}
     .logo-mark.has-logo{width:180px;height:180px;}
     .wrap{padding:56px 20px 28px;}
-    .section{padding:0 20px 56px;}
-    .judges-grid{grid-template-columns:1fr;}
     .hero-lockup{top:18px;left:18px;gap:10px;}
     .hero-lockup .mark{height:64px;}
     .hero-lockup .word .l1{font-size:.98rem;}
     .hero-lockup .word .l3{font-size:.56rem;}
-
     .headline{font-size:clamp(1.55rem,8.8vw,2.5rem);gap:.14em;margin:24px 0 10px;}
     .tagline{font-size:clamp(.95rem,3.6vw,1.15rem);gap:.35em;}
     .sub{font-size:1.05rem;}
-    .cta-row{gap:12px;}
-    .btn{padding:13px 24px;font-size:.92rem;}
     .meta-row{font-size:.85rem;gap:16px;}
-    .venue-card{padding:18px 20px;gap:12px;}
+    .venue-card{padding:18px 20px;gap:12px;flex-direction:column;text-align:center;}
   }
-  @media (max-width:360px){
-    .headline{font-size:clamp(1.35rem,8.6vw,2.1rem);}
-  }
+  @media (max-width:360px){ .headline{font-size:clamp(1.35rem,8.6vw,2.1rem);} }
 
-  /* ---------- deadline highlight banner ---------- */
-  .deadline-banner{
-    max-width:1000px;margin:0 auto 72px;position:relative;
-  }
-  .deadline-banner-inner{
-    position:relative;display:flex;align-items:center;justify-content:center;gap:14px;
-    flex-wrap:wrap;text-align:center;
-    padding:20px 32px;border-radius:999px;
-    background:rgba(240,193,75,0.10);
-    border:1.5px solid rgba(240,193,75,0.45);
-    overflow:hidden;
-    animation:deadlineGlow 2.2s ease-in-out infinite;
-  }
-  .deadline-banner-inner::before{
-    content:'';position:absolute;inset:-2px;border-radius:999px;
-    background:conic-gradient(from 0deg, rgba(240,193,75,0), rgba(240,193,75,.9), rgba(240,193,75,0) 30%);
-    animation:ringSpin 3.2s linear infinite;
-    z-index:0;
-  }
-  .deadline-banner-inner::after{
-    content:'';position:absolute;inset:2px;border-radius:999px;
-    background:#170e30;
-    z-index:0;
-  }
-  .deadline-banner-content{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
-  .deadline-icon{
-    display:inline-flex;align-items:center;justify-content:center;
-    width:34px;height:34px;border-radius:50%;flex-shrink:0;
-    background:rgba(240,193,75,0.18);border:1px solid rgba(240,193,75,0.5);
-    animation:deadlineTick 1.6s ease-in-out infinite;
-  }
-  .deadline-icon svg{width:17px;height:17px;stroke:#f0c14b;}
-  .deadline-text{
-    font-family:'Manrope',sans-serif;font-weight:700;font-size:1.02rem;color:var(--ink);
-  }
-  .deadline-text strong{color:#f0c14b;}
-  .deadline-badge{
-    font-family:'Manrope',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.1em;
-    color:#170e30;background:#f0c14b;padding:5px 14px;border-radius:999px;
-    text-transform:uppercase;
-    animation:deadlinePop 2.2s ease-in-out infinite;
-  }
-  @keyframes deadlineGlow{
-    0%,100%{box-shadow:0 0 0 0 rgba(240,193,75,.25);}
-    50%{box-shadow:0 0 0 10px rgba(240,193,75,0);}
-  }
-  @keyframes deadlineTick{
-    0%,100%{transform:scale(1) rotate(0deg);}
-    25%{transform:scale(1.1) rotate(-8deg);}
-    75%{transform:scale(1.1) rotate(8deg);}
-  }
-  @keyframes deadlinePop{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.06);}
-  }
-  @media (max-width:560px){
-    .deadline-banner-inner{padding:16px 20px;}
-    .deadline-text{font-size:.9rem;}
-  }
+  hr.divider{border:none;border-top:1px solid var(--line);max-width:1600px;margin:44px auto;}
+  .section{max-width:1600px;margin:0 auto;padding:0 40px 72px;position:relative;z-index:1;}
+  .section-head{text-align:center;margin-bottom:44px;}
+  .eyebrow{font-family:'Manrope',sans-serif;font-size:.8rem;letter-spacing:.2em;color:var(--violet);font-weight:700;}
+  .section h2{font-weight:800;font-size:clamp(1.9rem,3vw,2.4rem);margin:8px 0 0;color:var(--ink);}
+  .section-sub{max-width:620px;margin:14px auto 0;color:var(--ink-soft);font-size:1.02rem;line-height:1.6;}
+  .section-divider{width:64px;height:3px;border-radius:2px;margin:20px auto 0;background:var(--violet-2);}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
 
-  /* ---------- contact ---------- */
-  .contact-table{
-    max-width:1360px;margin:0 auto;border:1px solid var(--line);border-radius:20px;
-    overflow:hidden;background:rgba(38,26,64,0.35);backdrop-filter:blur(6px);
-  }
-  .contact-row{display:grid;grid-template-columns:repeat(3,1fr);}
-  .contact-row + .contact-row{border-top:1px solid var(--line);}
-  .contact-cell{padding:22px 26px;}
-  .contact-cell + .contact-cell{border-left:1px solid var(--line);}
-  .contact-head .contact-cell{
-    background:rgba(139,92,246,0.10);padding:16px 26px;
-    display:flex;align-items:center;gap:10px;
-    font-family:'Manrope',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.14em;
-    color:var(--ink-soft);text-transform:uppercase;
-  }
-  .contact-head .contact-cell svg{width:16px;height:16px;stroke:var(--teal);flex-shrink:0;}
-  .contact-body .contact-cell{min-height:92px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
-  .contact-value{
-    display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.02rem;color:var(--ink);flex-wrap:wrap;
-  }
-  .contact-value a{color:var(--ink);transition:color .2s ease;}
-  .contact-value a:hover{color:var(--violet-2);}
-  .contact-copy{
-    display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
-    border:1px solid var(--line);background:rgba(255,255,255,0.03);cursor:pointer;flex-shrink:0;
-    transition:border-color .2s ease, background .2s ease;
-  }
-  .contact-copy svg{width:13px;height:13px;stroke:var(--ink-soft);}
-  .contact-copy:hover{border-color:var(--violet-2);background:rgba(139,92,246,0.12);}
-  .contact-copy.copied svg{stroke:var(--teal);}
-  .contact-note{font-size:.86rem;color:var(--ink-soft);line-height:1.5;}
-  .contact-link{
-    display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--violet-2);
-    transition:gap .2s ease, color .2s ease;
-  }
-  .contact-link:hover{color:var(--teal);gap:10px;}
-  .contact-link svg{width:16px;height:16px;}
+  /* ---------- WINNERS ---------- */
+  .winner-feature{max-width:1000px;margin:0 auto 26px;}
+  .winners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1500px;margin:0 auto;}
+  .winner-card{position:relative;overflow:hidden;background:var(--card-bg);border:1px solid var(--line);border-radius:24px;padding:0 0 30px;text-align:center;backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;--mx:50%;--my:50%;will-change:transform;}
+  .winner-card:hover{transform:translateY(-6px);}
+  .winner-card > :not(.winner-photo-frame):not(.spot){padding-inline:24px;}
+  .winner-medal{font-size:2.1rem;line-height:1;margin-bottom:4px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.4));}
+  .winner-place{font-family:'Manrope',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin-bottom:10px;}
+  .winner-card h3{margin:0 0 4px;font-size:1.05rem;font-weight:800;color:var(--ink);}
+  .winner-project{margin:0 0 6px;font-family:'Manrope',sans-serif;font-weight:700;font-size:.98rem;color:var(--ink-soft);}
+  .winner-members{margin:0;font-size:.78rem;color:var(--ink-soft);opacity:.85;line-height:1.4;}
+  .winner-photo-frame{width:100%;max-width:none;margin:0 0 22px;border:none;border-radius:0;background:none;overflow:hidden;display:block;flex-shrink:0;}
+  .winner-photo-frame img{width:100%;height:auto;max-height:none;object-fit:cover;display:block;}
+  .winner-card.rank-1 .winner-photo-frame,.winner-card.rank-2 .winner-photo-frame,.winner-card.rank-3 .winner-photo-frame,.winner-card.rank-4 .winner-photo-frame{max-width:none;border:none;box-shadow:none;}
+  .winner-card.rank-1{border-color:rgba(240,193,75,0.55);background:linear-gradient(180deg, rgba(240,193,75,0.14), rgba(38,26,64,0.6));padding:0 0 38px;box-shadow:0 24px 60px -26px rgba(240,193,75,.45);}
+  .winner-card.rank-1 .winner-medal{font-size:2.6rem;}
+  .winner-card.rank-1 .winner-place{background:var(--gold);color:#170e30;}
+  .winner-card.rank-1 h3{font-size:1.3rem;}
+  .winner-card.rank-1:hover{box-shadow:0 28px 70px -24px rgba(240,193,75,.6);}
+  .winner-card.rank-2{border-color:rgba(203,213,225,0.45);}
+  .winner-card.rank-2 .winner-place{background:rgba(203,213,225,0.18);color:var(--silver);border:1px solid rgba(203,213,225,0.4);}
+  .winner-card.rank-2:hover{box-shadow:0 20px 44px -22px rgba(203,213,225,.4);border-color:var(--silver);}
+  .winner-card.rank-3{border-color:rgba(224,138,82,0.45);}
+  .winner-card.rank-3 .winner-place{background:rgba(224,138,82,0.18);color:var(--bronze);border:1px solid rgba(224,138,82,0.4);}
+  .winner-card.rank-3:hover{box-shadow:0 20px 44px -22px rgba(224,138,82,.4);border-color:var(--bronze);}
+  .winner-card.rank-4{border-color:rgba(45,212,191,0.4);}
+  .winner-card.rank-4 .winner-place{background:rgba(45,212,191,0.14);color:var(--teal);border:1px solid rgba(45,212,191,0.35);}
+  .winner-card.rank-4:hover{box-shadow:0 20px 44px -22px rgba(45,212,191,.4);border-color:var(--teal);}
+  @media (max-width:900px){ .winners-grid{grid-template-columns:1fr;max-width:520px;} }
 
-  @media (max-width:760px){
-    .contact-row{grid-template-columns:1fr;}
-    .contact-cell + .contact-cell{border-left:none;border-top:1px solid var(--line);}
+  /* ---------- PREMIUM WINNER ANIMATIONS ---------- */
+  @property --angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
+  .winner-feature.reveal.in .winner-card{animation:winnerRise 1s cubic-bezier(.2,.9,.25,1) .1s backwards;}
+  .winners-grid.reveal.in .winner-card{animation:winnerRise .9s cubic-bezier(.2,.9,.25,1) backwards;}
+  .winners-grid.reveal.in .winner-card:nth-child(1){animation-delay:.15s;}
+  .winners-grid.reveal.in .winner-card:nth-child(2){animation-delay:.35s;}
+  .winners-grid.reveal.in .winner-card:nth-child(3){animation-delay:.55s;}
+  @keyframes winnerRise{
+    from{opacity:0;transform:perspective(900px) translateY(60px) rotateX(18deg) scale(.92);filter:blur(10px);}
+    to{opacity:1;transform:perspective(900px) translateY(0) rotateX(0) scale(1);filter:blur(0);}
   }
+  .winner-card .spot{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0;transition:opacity .35s ease;
+    background:radial-gradient(360px circle at var(--mx) var(--my), rgba(255,255,255,.14), transparent 60%);}
+  .winner-card:hover .spot{opacity:1;}
+  .winner-photo-frame{position:relative;}
+  .winner-photo-frame::after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;pointer-events:none;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);
+    animation:photoSweep 5.5s ease-in-out infinite;}
+  .winner-card.rank-2 .winner-photo-frame::after{animation-delay:1.2s;}
+  .winner-card.rank-3 .winner-photo-frame::after{animation-delay:2.4s;}
+  .winner-card.rank-4 .winner-photo-frame::after{animation-delay:3.6s;}
+  @keyframes photoSweep{0%{left:-70%;}35%,100%{left:160%;}}
+  .winner-medal{animation:medalFloat 3.4s ease-in-out infinite;display:inline-block;}
+  .winner-card.rank-1 .winner-medal{animation:medalFloat 3s ease-in-out infinite, medalGlow 2.4s ease-in-out infinite;}
+  @keyframes medalFloat{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-8px) rotate(4deg);}}
+  @keyframes medalGlow{0%,100%{filter:drop-shadow(0 6px 14px rgba(0,0,0,.4));}50%{filter:drop-shadow(0 0 22px rgba(240,193,75,.9));}}
+  .winner-card.rank-1::before{content:'';position:absolute;inset:0;border-radius:24px;padding:2px;pointer-events:none;z-index:4;
+    background:conic-gradient(from var(--angle),transparent 0deg,var(--gold) 70deg,#fff6cf 110deg,var(--gold) 150deg,transparent 220deg,transparent 360deg);
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+    animation:borderSpin 4s linear infinite;}
+  @keyframes borderSpin{to{--angle:360deg;}}
+  .winner-feature.reveal.in .winner-card.rank-1{animation:winnerRise 1s cubic-bezier(.2,.9,.25,1) .1s backwards, auraPulse 3.2s ease-in-out 1.2s infinite;}
+  @keyframes auraPulse{0%,100%{box-shadow:0 24px 60px -26px rgba(240,193,75,.45);}50%{box-shadow:0 30px 90px -18px rgba(240,193,75,.8);}}
+  .winner-place{position:relative;overflow:hidden;}
+  .winner-place::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:pillShimmer 3.6s ease-in-out infinite;}
+  @keyframes pillShimmer{0%{left:-100%;}45%,100%{left:180%;}}
+  .confetti{position:fixed;top:-12px;width:9px;height:14px;z-index:60;pointer-events:none;border-radius:2px;opacity:0;
+    animation:confettiFall var(--dur,3s) cubic-bezier(.25,.6,.4,1) forwards;}
+  @keyframes confettiFall{
+    0%{opacity:1;transform:translate3d(0,0,0) rotate(0);}
+    100%{opacity:0;transform:translate3d(var(--dx,0),105vh,0) rotate(var(--rot,720deg));}}
 
-  /* ---------- register CTA ---------- */
-  .register-band{
-    max-width:1600px;margin:0 auto 72px;padding:48px 44px;border-radius:26px;
-    background:rgba(139,92,246,0.14);border:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
-    position:relative;overflow:hidden;
+  /* ---------- HIGHLIGHTS gallery ---------- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start;max-width:1500px;margin:0 auto 64px;}
+  .gallery-card{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:rgba(24,15,44,0.5);backdrop-filter:blur(6px);transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;}
+  .gallery-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px -22px rgba(139,92,246,.5);border-color:var(--violet-2);}
+  .gallery-photo{background:rgba(139,92,246,0.08);overflow:hidden;line-height:0;}
+  .gallery-photo img{width:100%;height:auto;display:block;transition:transform .5s ease;}
+  .gallery-card:hover .gallery-photo img{transform:scale(1.04);}
+  .gallery-card.is-empty .gallery-photo{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;line-height:1.4;}
+  .gallery-card.is-empty .gallery-photo img{display:none;}
+  .gallery-card.is-empty .gallery-photo::after{content:'Add photo';font-family:'Manrope',sans-serif;font-weight:700;font-size:.85rem;color:var(--ink-soft);}
+  @media (max-width:900px){ .gallery-grid{grid-template-columns:repeat(2,1fr);gap:16px;} }
+
+  /* ---------- CHIEF GUESTS ---------- */
+  .guests-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:960px;margin:0 auto 64px;}
+  .guest-card{position:relative;overflow:hidden;text-align:center;padding:44px 28px 34px;border-radius:26px;
+    background:linear-gradient(180deg,rgba(240,193,75,.10),rgba(38,26,64,.6));border:1px solid rgba(240,193,75,.35);
+    backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;}
+  .guest-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 28px 60px -26px rgba(240,193,75,.55);}
+  .guest-card::before{content:'';position:absolute;top:0;left:-160%;width:55%;height:100%;pointer-events:none;
+    background:linear-gradient(115deg,transparent,rgba(255,255,255,.14),transparent);transform:skewX(-18deg);transition:left .8s cubic-bezier(.2,.8,.2,1);}
+  .guest-card:hover::before{left:160%;}
+  .guest-avatar-ring{position:relative;width:160px;height:160px;border-radius:50%;padding:5px;margin-bottom:24px;}
+  .guest-avatar-ring::before{content:'';position:absolute;inset:0;border-radius:50%;padding:3px;
+    background:conic-gradient(from var(--angle),var(--gold),#fff6cf,var(--violet-2),var(--gold));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+    animation:borderSpin 5s linear infinite;}
+  .guest-avatar{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:rgba(139,92,246,.22);display:flex;align-items:center;justify-content:center;}
+  .guest-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
+  .guest-avatar svg{width:56px;height:56px;stroke:var(--violet-2);}
+  .guest-tag{font-family:'Manrope',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:5px 16px;border-radius:999px;background:var(--gold);color:#170e30;margin-bottom:14px;}
+  .guest-card h4{margin:0 0 8px;font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+  .guest-role{font-family:'Manrope',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;color:var(--teal);text-transform:uppercase;margin-bottom:14px;display:block;}
+  .guests-grid.reveal.in .guest-card{animation:winnerRise .9s cubic-bezier(.2,.9,.25,1) backwards;}
+  .guests-grid.reveal.in .guest-card:nth-child(2){animation-delay:.2s;}
+  @media (max-width:700px){ .guests-grid{grid-template-columns:1fr;max-width:460px;} }
+
+  /* ---------- jury / mentors ---------- */
+  .judges-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;max-width:1600px;margin:0 auto;}
+  .judge-card{position:relative;overflow:hidden;background:var(--card-bg);border:1px solid var(--line);border-radius:22px;padding:38px 24px 30px;text-align:center;backdrop-filter:blur(6px);opacity:0;transform:translateY(28px);transform-style:preserve-3d;will-change:transform;transition:box-shadow .35s ease, border-color .35s ease;display:flex;flex-direction:column;align-items:center;}
+  .judges-grid.reveal.in .judge-card{animation:judgeIn .65s cubic-bezier(.2,.8,.2,1) forwards;}
+  .judges-grid.reveal.in .judge-card:nth-child(1){animation-delay:.05s;}
+  .judges-grid.reveal.in .judge-card:nth-child(2){animation-delay:.15s;}
+  .judges-grid.reveal.in .judge-card:nth-child(3){animation-delay:.25s;}
+  .judges-grid.reveal.in .judge-card:nth-child(4){animation-delay:.35s;}
+  .judges-grid.reveal.in .judge-card:nth-child(5){animation-delay:.45s;}
+  .judges-grid.reveal.in .judge-card:nth-child(6){animation-delay:.55s;}
+  @keyframes judgeIn{from{opacity:0;transform:translateY(28px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+  .judge-card:hover{box-shadow:0 24px 50px -22px rgba(139,92,246,.55);border-color:var(--violet-2);}
+  .judge-card::before{content:'';position:absolute;top:0;left:-160%;width:55%;height:100%;background:linear-gradient(115deg, transparent, rgba(255,255,255,.14), rgba(139,92,246,.12), transparent);transform:skewX(-18deg);transition:left .75s cubic-bezier(.2,.8,.2,1);pointer-events:none;z-index:2;}
+  .judge-card:hover::before{left:160%;}
+  .judge-card::after{content:'';position:absolute;top:-40%;right:-40%;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle, rgba(139,92,246,.28), transparent 70%);opacity:0;transition:opacity .45s ease;pointer-events:none;z-index:0;}
+  .judge-card:hover::after{opacity:1;}
+  .judge-avatar-ring{position:relative;width:130px;height:130px;margin:0 auto 22px;border-radius:50%;padding:4px;z-index:1;}
+  .judge-avatar-ring::before{content:'';position:absolute;inset:0;border-radius:50%;padding:2px;background:conic-gradient(from 0deg, var(--violet), var(--teal), var(--violet-2), var(--indigo), var(--violet));-webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:ringSpin 5s linear infinite;opacity:.5;transition:opacity .35s ease;}
+  @keyframes ringSpin{to{transform:rotate(360deg);}}
+  .judge-card:hover .judge-avatar-ring::before{opacity:1;}
+  .judge-avatar{position:relative;overflow:hidden;width:100%;height:100%;border-radius:50%;background:rgba(139,92,246,0.22);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(139,92,246,0.08);transition:transform .4s cubic-bezier(.2,.8,.2,1);}
+  .judge-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;display:block;}
+  .judge-card:hover .judge-avatar{transform:scale(1.06);}
+  .judge-avatar svg{width:44px;height:44px;stroke:var(--violet-2);}
+  .judge-card h4{position:relative;z-index:1;margin:0 0 8px;font-size:1.05rem;font-weight:800;color:var(--ink);line-height:1.3;}
+  .judge-role{position:relative;z-index:1;font-family:'Manrope',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.1em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:12px;}
+  .judge-linkedin{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding:9px 20px;border-radius:999px;font-family:'Manrope',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.02em;color:var(--ink);background:rgba(139,92,246,0.12);border:1px solid var(--line);transition:background .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;}
+  .judge-linkedin svg{width:16px;height:16px;fill:var(--teal);transition:fill .3s ease, transform .3s ease;flex-shrink:0;}
+  .judge-linkedin:hover{background:rgba(45,212,191,0.14);border-color:var(--teal);transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(45,212,191,.55);}
+  .judge-linkedin:hover svg{transform:scale(1.1) rotate(-4deg);}
+  @media (max-width:1400px){ .judges-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:900px){ .judges-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .judges-grid{grid-template-columns:1fr;} }
+
+  /* ---------- SEE YOU NEXT TIME ---------- */
+  .next-meetup{position:relative;overflow:hidden;max-width:900px;margin:72px auto 0;padding:52px 40px;border-radius:28px;text-align:center;
+    background:linear-gradient(135deg, rgba(139,92,246,0.16), rgba(45,212,191,0.10) 55%, rgba(240,193,75,0.10));
+    border:1px solid var(--line);backdrop-filter:blur(8px);}
+  .next-meetup::before{content:'';position:absolute;inset:-2px;border-radius:28px;padding:2px;pointer-events:none;z-index:0;
+    background:conic-gradient(from var(--angle), var(--violet), var(--teal), var(--gold), var(--violet-2), var(--violet));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+    animation:borderSpin 6s linear infinite;}
+  .next-meetup::after{content:'';position:absolute;top:-60%;left:50%;width:140%;aspect-ratio:1;transform:translateX(-50%);
+    background:radial-gradient(circle, rgba(139,92,246,.35), transparent 65%);pointer-events:none;z-index:0;}
+  .next-meetup .icon{position:relative;z-index:1;font-size:2.4rem;margin-bottom:14px;display:inline-block;animation:medalFloat 3.4s ease-in-out infinite;}
+  .next-meetup h3{position:relative;z-index:1;margin:0 0 10px;font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.6rem,3.2vw,2.3rem);
+    background:linear-gradient(90deg, var(--violet-2), var(--teal), var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:200% auto;animation:navbar-accent-pan 5s linear infinite;}
+  .next-meetup p{position:relative;z-index:1;margin:0;color:var(--ink-soft);font-size:1.05rem;line-height:1.6;max-width:560px;margin-inline:auto;}
+  .next-meetup.reveal.in{animation:winnerRise .9s cubic-bezier(.2,.9,.25,1) backwards;}
+  @media (max-width:560px){ .next-meetup{padding:40px 24px;margin-top:52px;} }
+
+  /* ---------- SITE FOOTER (from About page) ---------- */
+  .site-footer{position:relative;z-index:1;margin-top:40px;background:var(--nav-bg);border-top:1px solid var(--line);color:var(--ink-soft);font-family:'Inter',sans-serif;}
+  .site-footer .container{max-width:1280px;margin:0 auto;padding:56px clamp(20px,4vw,64px) 24px;}
+  .footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+  .footer__logo{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);transition:color .2s ease;}
+  .footer__logo:hover{color:var(--violet-2);}
+  .footer__logo img{height:28px;width:auto;}
+  .footer__tagline{margin:14px 0 0;font-size:.95rem;line-height:1.6;max-width:320px;}
+  .footer__heading{margin:0 0 16px;font-family:'Manrope',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-2);}
+  .footer__links{display:flex;flex-direction:column;gap:10px;}
+  .footer__links a{color:var(--ink-soft);font-size:.95rem;transition:color .2s ease, transform .2s ease;width:fit-content;}
+  .footer__links a:hover{color:var(--teal);transform:translateX(3px);}
+  .footer__social{display:flex;gap:12px;}
+  .footer__social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);color:var(--ink-soft);background:rgba(139,92,246,.08);transition:color .25s ease, border-color .25s ease, background .25s ease, transform .25s ease;}
+  .footer__social a:hover{color:var(--teal);border-color:var(--teal);background:rgba(45,212,191,.12);transform:translateY(-3px);}
+  .footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:.85rem;}
+  .footer__bottom p{margin:0;}
+  .footer__bottom a{color:var(--violet-2);text-decoration:underline;text-underline-offset:3px;}
+  .footer__bottom a:hover{color:var(--teal);}
+  @media (max-width:800px){
+    .footer__grid{grid-template-columns:1fr;gap:32px;}
+    .footer__bottom{flex-direction:column;align-items:flex-start;}
   }
-  .register-band h3{margin:0 0 6px;font-size:1.55rem;}
-  .register-band p{margin:0;color:var(--ink-soft);font-size:.98rem;}
-
-  .footer{padding:32px 24px;text-align:center;font-family:'Manrope',sans-serif;font-size:.86rem;color:var(--ink-soft);}
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important;transition:none !important;}
-    .v-item{opacity:1 !important;transform:none !important;}
-    .v-node{opacity:1 !important;transform:translate(-50%,0) scale(1) !important;}
-    .v-node svg{opacity:1 !important;transform:scale(1) !important;}
     .judge-card{opacity:1 !important;transform:none !important;}
   }
 </style>
@@ -852,16 +350,13 @@
         <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="32" height="32" />
         <span class="navbar__wordmark">AI-SEC COMMUNITY</span>
       </a>
-
       <nav class="navbar__links" id="primary-nav" aria-label="Primary">
         <a href="/index.html">Home</a>
         <a href="/about.html">About</a>
-                <a href="Chapters.html">Chapters</a>
-
-       
+        <a href="Chapters.html">Chapters</a>
         <a href="/Hackathon.html" class="is-active" aria-current="page">Hackathon</a>
+      <a href="Community Partners.html">Community Partners</a>
       </nav>
-
       <div class="navbar__actions">
         <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between dark and light mode" aria-pressed="false">
           <span aria-hidden="true">&#9680;</span>
@@ -877,371 +372,237 @@
 
   <section class="hero">
     <div class="hero-bg">
-      <!-- Swap this src for your hosted event/venue photo (a wide landscape shot works best).
-           If it fails to load, the hero simply falls back to the ambient gradient background. -->
-      <img src="/Images/Hackathon 2026 - Sep 19/MIT hero bg.png" alt=""
-           onerror="this.style.display='none'" />
+      <img src="/Images/Hackathon 2026 - Sep 19/Highlights/GRP.jpg" alt="" onerror="this.style.display='none'" />
     </div>
-
     <div class="hero-lockup">
       <div class="mark" id="logoMark">
-        <!-- Exact uploaded logo (transparent padding trimmed, full artwork shown uncropped). -->
-        <img src="/assets/images/ai-sec-logo.png" alt="AI-SEC HackFest logo"
-             onerror="this.parentElement.style.display='none'" />
+        <img src="/assets/images/ai-sec-logo.png" alt="AI-SEC HackFest logo" onerror="this.parentElement.style.display='none'" />
       </div>
       <div class="word">
         <span class="l1">AI-SEC HACKFEST</span>
         <span class="l3">SECURE &nbsp;&bull;&nbsp; BUILD &nbsp;&bull;&nbsp; INNOVATE</span>
       </div>
     </div>
-
     <div class="wrap">
-
+      <span class="badge-pill">HACKFEST COMPLETED</span>
       <h1 class="headline">
         <span class="plain char-row" id="charRow"></span>
         <span class="grad">2026</span>
       </h1>
-
-    <div class="tagline">
-      <span class="w1">SECURE MODELS.</span><span class="w2">PROTECT DATA.</span><span class="w3">PREVENT THREATS.</span>
-    </div>
-
-    <p class="sub">Tackle real-world AI security challenges, build innovative defenses, and strengthen the future of trustworthy AI.</p>
-
-    <div class="cta-row">
-      
-     <a href="https://docs.google.com/forms/d/1vo8-IWvprEzFJvfjzegJmuDrj1CTGYVKDowixd3hqUc/edit" class="btn btn-ghost">Become a Sponsor</a>
-    
-    </div>
-    <div class="meta-row">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> 19 September 2026</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Manipal Institute of Technology (MIT), Bengaluru</span>
-    </div>
-
-    <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=Manipal+Institute+of+Technology+Bengaluru+Govindapura+Yelahanka+Bengaluru+Karnataka+560064" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <div>
-        <p class="venue-name">Manipal Institute of Technology (MIT), Bengaluru</p>
-        <p class="venue-addr">Govindapura, Yelahanka, Bengaluru, Karnataka, 560064 &nbsp;&middot;&nbsp; 19 September 2026</p>
+      <div class="tagline">
+        <span class="w1">SECURE MODELS.</span><span class="w2">PROTECT DATA.</span><span class="w3">PREVENT THREATS.</span>
       </div>
-    </a>
-
-    <!-- COUNTDOWN WIDGET -->
-    <div class="countdown-section">
-      <div class="countdown-eyebrow">Countdown to HackFest</div>
-      <div class="countdown-ring">
-        <div class="countdown-grid" id="countdownGrid">
-          <div class="countdown-unit" id="unit-days">
-            <div class="countdown-value-wrap"><span class="countdown-value" id="val-days">00</span></div>
-            <div class="countdown-label">Days</div>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit" id="unit-hours">
-            <div class="countdown-value-wrap"><span class="countdown-value" id="val-hours">00</span></div>
-            <div class="countdown-label">Hours</div>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit" id="unit-minutes">
-            <div class="countdown-value-wrap"><span class="countdown-value" id="val-minutes">00</span></div>
-            <div class="countdown-label">Minutes</div>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit" id="unit-seconds">
-            <div class="countdown-value-wrap"><span class="countdown-value" id="val-seconds">00</span></div>
-            <div class="countdown-label">Seconds</div>
-          </div>
+      <p class="sub">Thank you to every team that spent the day breaking and defending real AI systems. Here's a look back at the winners and the moments that made it memorable.</p>
+      <div class="meta-row">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> 19 September 2026</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Manipal Institute of Technology (MIT), Bengaluru</span>
+      </div>
+      <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=Manipal+Institute+of+Technology+Bengaluru+Govindapura+Yelahanka+Bengaluru+Karnataka+560064" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <p class="venue-name">Manipal Institute of Technology (MIT), Bengaluru</p>
+          <p class="venue-addr">Govindapura, Yelahanka, Bengaluru, Karnataka, 560064 &nbsp;&middot;&nbsp; 19 September 2026</p>
         </div>
-      </div>
-      <div class="countdown-live" id="countdownLive">🚀 AI-SEC HackFest is LIVE right now!</div>
-    </div>
-
+      </a>
     </div>
   </section>
 
   <hr class="divider" />
 
-  <!-- ABOUT 
-  <section class="section" id="about">
+  <section class="section" id="winners">
     <div class="section-head reveal">
-      <span class="eyebrow">THE HACKFEST</span>
-      <h2>What a weekend at AI-SEC HackFest looks like</h2>
-    </div>
-    <div class="flow-list" id="flowList">
-      <div class="flow-list-fill" id="flowFill"></div>
-      <div class="flow-item">
-        <div class="flow-main">
-          <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div class="flow-body">
-            <h3>Hands-on, not hypothetical <span class="tag"></span></h3>
-            <p>You attack a real, deliberately vulnerable AI system — an LLM-backed app with a RAG pipeline and agentic tool calls, built to be broken.</p>
-          </div>
-        </div>
-        <div class="flow-photo">
-          <img src="/Images/Hackathon 2026 - Sep 19/day1-hands-on.jpg" alt="Participants hacking on laptops at AI-SEC HackFest"
-               onerror="this.parentElement.style.display='none'" />
-        </div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-main">
-          <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-          <div class="flow-body">
-            <h3>Find it, then fix it <span class="tag"></span></h3>
-            <p>Document the exploit your team finds, then flip to defense and ship a working fix — a filter, a monitor, a hardened design.</p>
-          </div>
-        </div>
-        <div class="flow-photo">
-          <img src="/Images/Hackathon 2026 - Sep 19/find-fix.jpg" alt="Team debugging code on multiple monitors"
-               onerror="this.parentElement.style.display='none'" />
-        </div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-main">
-          <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="17" cy="8" r="2.5"/></svg></div>
-          <div class="flow-body">
-            <h3>Mentors sit with you, not above you</h3>
-            <p>Practitioners in red teaming, LLM security, and MCP rotate through office hours across both days of the build.</p>
-          </div>
-        </div>
-        <div class="flow-photo">
-          <img src="/Images/Hackathon 2026 - Sep 19/mentors.jpg" alt="Mentors gathered around a table helping a team"
-               onerror="this.parentElement.style.display='none'" />
-        </div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-main">
-          <div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
-          <div class="flow-body">
-            <h3>You leave with a repo, not a slide deck</h3>
-            <p>Every team demos working code live — judges score depth and real-world impact over polish.</p>
-          </div>
-        </div>
-        <div class="flow-photo">
-          <img src="/Images/Hackathon 2026 - Sep 19/demo-day.jpg" alt="Team presenting their project on stage"
-               onerror="this.parentElement.style.display='none'" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY PARTICIPATE -->
-  <section class="section">
-    <div class="section-head reveal">
-      <span class="eyebrow">WHY PARTICIPATE</span>
-      <h2>What you actually get out of it</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <span class="why-num">01</span>
-        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Real AI security challenges</h3>
-        <p>Work against a genuinely vulnerable system, not a simulated puzzle.</p>
-      </div>
-      <div class="why-card reveal">
-        <span class="why-num">02</span>
-        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M16 8l3-3 3 3M19 5v6"/></svg></div>
-        <h3>Hands-on LLM &amp; agentic AI security</h3>
-        <p>Get practical exposure to RAG pipelines, agentic tool calls, and MCP.</p>
-      </div>
-      <div class="why-card reveal">
-        <span class="why-num">03</span>
-        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
-        <h3>A working solution you built</h3>
-        <p>Leave with a real repo and a shippable fix, not just a slide deck.</p>
-      </div>
-      <div class="why-card reveal">
-        <span class="why-num">04</span>
-        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="17" cy="8" r="2.5"/></svg></div>
-        <h3>Direct time with industry experts</h3>
-        <p>Mentors in red teaming and LLM security sit with your team, not above it.</p>
-      </div>
-      <div class="why-card reveal">
-        <span class="why-num">05</span>
-        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg></div>
-        <h3>Prizes and recognition</h3>
-        <p>Top teams are recognized for depth and real-world impact, not polish.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHALLENGE TRACKS -->
-  <section class="section" id="tracks">
-    <div class="section-head reveal">
-      <span class="eyebrow">FOUR FOCUS AREAS</span>
-      <h2>Challenge Tracks</h2>
-      <p class="section-sub">Explore real-world problems across AI security. Build skills. Solve challenges. Make an impact.</p>
+      <span class="eyebrow">RESULTS ARE IN</span>
+      <h2>Winners of AI-SEC HackFest 2026</h2>
+      <p class="section-sub">Congratulations to every team that pushed AI security forward over an intense day of building, breaking, and defending.</p>
       <div class="section-divider"></div>
     </div>
-    <div class="track-grid">
-      <div class="track-card t1 reveal">
-        <div class="track-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M16 8l3-3 3 3M19 5v6"/></svg></div>
-        <div class="track-illustration">
-          <svg viewBox="0 0 240 160" fill="none">
-            <rect x="18" y="55" width="70" height="60" rx="8" fill="rgba(139,92,246,0.12)" stroke="rgba(168,140,255,0.4)"/>
-            <text x="28" y="70" font-size="8" fill="#cfc4f5" font-family="Manrope">AI Model</text>
-            <circle cx="35" cy="90" r="3" fill="#a98bff"/>
-            <circle cx="55" cy="82" r="3" fill="#a98bff"/>
-            <circle cx="70" cy="98" r="3" fill="#a98bff"/>
-            <line x1="35" y1="90" x2="55" y2="82" stroke="#a98bff" stroke-width="1"/>
-            <line x1="55" y1="82" x2="70" y2="98" stroke="#a98bff" stroke-width="1"/>
-            <path d="M110 26 L152 39 V78 C152 104 132 121 110 130 C88 121 68 104 68 78 V39 Z" fill="rgba(139,92,246,0.2)" stroke="#a98bff" stroke-width="2"/>
-            <rect x="95" y="68" width="30" height="24" rx="4" fill="#1a1030" stroke="#a98bff" stroke-width="2"/>
-            <path d="M103 68 v-8 a7 7 0 0 1 14 0 v8" stroke="#a98bff" stroke-width="2" fill="none"/>
-            <circle cx="110" cy="80" r="3" fill="#a98bff"/>
-            <rect x="150" y="88" width="62" height="46" rx="8" fill="rgba(139,92,246,0.1)" stroke="rgba(168,140,255,0.35)"/>
-            <text x="160" y="105" font-size="8" fill="#cfc4f5" font-family="monospace">&gt;_</text>
-            <line x1="160" y1="115" x2="198" y2="115" stroke="#a98bff" stroke-width="2" opacity=".55"/>
-            <line x1="160" y1="124" x2="186" y2="124" stroke="#a98bff" stroke-width="2" opacity=".35"/>
-          </svg>
+    <div class="winner-feature reveal">
+      <div class="winner-card rank-1">
+        <span class="spot"></span>
+        <div class="winner-photo-frame">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/1st.jpg" alt="1st Prize winning team photo" onerror="this.parentElement.style.display='none'" />
         </div>
-        <h3>AI in Red Teaming &amp; Offensive Security</h3>
-        <div class="track-underline"></div>
-        <p>Find, exploit, and demonstrate real vulnerabilities in AI systems.</p>
+        <div class="winner-medal">🥇</div>
+        <span class="winner-place">1st Prize Winner</span>
+        <h3>[KAVACH AI]</h3>
+        <p class="winner-members">[Tarun]</p>
       </div>
-      <div class="track-card t2 reveal">
-        <div class="track-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="track-illustration">
-          <svg viewBox="0 0 240 160" fill="none">
-            <circle cx="155" cy="80" r="52" stroke="#a98bff" stroke-width="1.5" opacity=".5"/>
-            <circle cx="155" cy="80" r="36" stroke="#a98bff" stroke-width="1.5" opacity=".4"/>
-            <circle cx="155" cy="80" r="20" stroke="#a98bff" stroke-width="1.5" opacity=".35"/>
-            <line x1="155" y1="80" x2="188" y2="52" stroke="#a98bff" stroke-width="2"/>
-            <circle cx="155" cy="80" r="3.5" fill="#a98bff"/>
-            <path d="M42 66 L58 40 L74 66 Z" fill="rgba(226,96,63,0.18)" stroke="#f0906c" stroke-width="2" stroke-linejoin="round"/>
-            <text x="58" y="60" font-size="13" fill="#f0906c" text-anchor="middle" font-family="Poppins" font-weight="800">!</text>
-            <rect x="18" y="88" width="96" height="50" rx="8" fill="rgba(139,92,246,0.1)" stroke="rgba(168,140,255,0.35)"/>
-            <text x="30" y="106" font-size="9" fill="#f2edff" font-family="Manrope" font-weight="700">Security</text>
-            <text x="30" y="119" font-size="9" fill="#f0906c" font-family="Manrope" font-weight="700">Threat Detected</text>
-            <line x1="30" y1="128" x2="95" y2="128" stroke="#a98bff" stroke-width="1.5" opacity=".4"/>
-          </svg>
+    </div>
+    <div class="winners-grid reveal">
+      <div class="winner-card rank-2">
+        <span class="spot"></span>
+        <div class="winner-photo-frame">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/2nd.png" alt="2nd Prize winning team photo" onerror="this.parentElement.style.display='none'" />
         </div>
-        <h3>AI in Blue Teaming &amp; Security Operations</h3>
-        <div class="track-underline"></div>
-        <p>Detect, defend against, and respond to threats targeting AI systems.</p>
+        <div class="winner-medal">🥈</div>
+        <span class="winner-place">2nd Prize Winner</span>
+        <h3>[.dll found ]</h3>
+        <p class="winner-members">[Lakshya Karira,Nishi Mittal ]</p>
       </div>
-      <div class="track-card t3 reveal">
-        <div class="track-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5v1a4 4 0 0 0-2 7h2v4h10v-4h2a4 4 0 0 0-2-7V7a5 5 0 0 0-5-5z"/></svg></div>
-        <div class="track-illustration">
-          <svg viewBox="0 0 240 160" fill="none">
-            <rect x="60" y="98" width="120" height="16" rx="5" fill="rgba(45,212,191,0.1)" stroke="#2dd4bf" stroke-width="1.5"/>
-            <rect x="78" y="80" width="84" height="16" rx="5" fill="rgba(45,212,191,0.14)" stroke="#2dd4bf" stroke-width="1.5"/>
-            <rect x="100" y="34" width="40" height="52" rx="7" fill="rgba(45,212,191,0.22)" stroke="#2dd4bf" stroke-width="2"/>
-            <text x="120" y="64" font-size="11" fill="#bdfff4" text-anchor="middle" font-family="Poppins" font-weight="800">MCP</text>
-            <rect x="24" y="52" width="52" height="28" rx="6" fill="#0c1f1c" stroke="#2dd4bf" stroke-width="1.5"/>
-            <text x="50" y="70" font-size="9" fill="#e8fffb" text-anchor="middle" font-family="Manrope" font-weight="700">LLMs</text>
-            <rect x="164" y="52" width="56" height="28" rx="6" fill="#0c1f1c" stroke="#2dd4bf" stroke-width="1.5"/>
-            <text x="192" y="70" font-size="9" fill="#e8fffb" text-anchor="middle" font-family="Manrope" font-weight="700">Agents</text>
-            <line x1="76" y1="66" x2="100" y2="58" stroke="#2dd4bf" stroke-width="1.5"/>
-            <line x1="140" y1="58" x2="164" y2="66" stroke="#2dd4bf" stroke-width="1.5"/>
-            <circle cx="76" cy="66" r="3" fill="#2dd4bf"/>
-            <circle cx="164" cy="66" r="3" fill="#2dd4bf"/>
-            <circle cx="88" cy="98" r="3" fill="#2dd4bf"/>
-            <circle cx="152" cy="98" r="3" fill="#2dd4bf"/>
-          </svg>
+      <div class="winner-card rank-3">
+        <span class="spot"></span>
+        <div class="winner-photo-frame">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/3rd.jpg" alt="3rd Prize winning team photo" onerror="this.parentElement.style.display='none'" />
         </div>
-        <h3>MCP, LLM &amp; Agentic AI Security</h3>
-        <div class="track-underline"></div>
-        <p>Secure LLMs, MCP protocols, and multi-step agentic systems.</p>
+        <div class="winner-medal">🥉</div>
+        <span class="winner-place">3rd Prize Winner</span>
+        <h3>[COSMOS]</h3>
+        <p class="winner-members">[Saroj Patil, Shaam N, Roopashree, Reshma ]</p>
       </div>
-      <div class="track-card t4 reveal">
-        <div class="track-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-        <div class="track-illustration">
-          <svg viewBox="0 0 240 160" fill="none">
-            <ellipse cx="52" cy="52" rx="26" ry="9" fill="rgba(226,96,63,0.18)" stroke="#f0906c" stroke-width="1.5"/>
-            <path d="M26 52 V94 C26 100 38 104 52 104 C66 104 78 100 78 94 V52" stroke="#f0906c" stroke-width="1.5" fill="rgba(226,96,63,0.08)"/>
-            <line x1="26" y1="73" x2="78" y2="73" stroke="#f0906c" stroke-width="1" opacity=".5"/>
-            <rect x="106" y="24" width="94" height="76" rx="9" fill="rgba(139,92,246,0.08)" stroke="rgba(168,140,255,0.35)"/>
-            <text x="118" y="46" font-size="14" fill="#f2edff" font-family="Poppins" font-weight="800">GRC</text>
-            <text x="118" y="64" font-size="9" fill="#a98bff" font-family="Manrope">&#10003; Privacy</text>
-            <text x="118" y="78" font-size="9" fill="#a98bff" font-family="Manrope">&#10003; Governance</text>
-            <text x="118" y="92" font-size="9" fill="#a98bff" font-family="Manrope">&#10003; Compliance</text>
-            <path d="M168 104 L194 111 V130 C194 143 181 151 168 155 C155 151 142 143 142 130 V111 Z" fill="rgba(226,96,63,0.18)" stroke="#f0906c" stroke-width="2"/>
-            <path d="M159 128 L165 134 L177 119" stroke="#f0906c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <div class="winner-card rank-4">
+        <span class="spot"></span>
+        <div class="winner-photo-frame">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/4th.png" alt="4th Prize winning team photo" onerror="this.parentElement.style.display='none'" />
         </div>
-        <h3>Data Privacy, Governance &amp; Responsible AI (GRC)</h3>
-        <div class="track-underline"></div>
-        <p>Protect data, strengthen governance, and build AI you can trust.</p>
+        <div class="winner-medal">🏅</div>
+        <span class="winner-place">4th Prize Winner</span>
+        <h3>[FANTASTIC 4]</h3>
+        <p class="winner-members">[Bharath M, Shri Adithya, Susheeth G, Rahul S ]</p>
       </div>
     </div>
   </section>
 
-  <!-- EVENT TIMELINE -->
-  <section class="section" id="timeline">
+  <hr class="divider" />
+
+  <section class="section" id="highlights">
     <div class="section-head reveal">
-      <span class="eyebrow">HOW IT UNFOLDS</span>
-      <h2>Event Timeline</h2>
+      <span class="eyebrow">RELIVE THE DAY</span>
+      <h2>HackFest Highlights</h2>
+      <p class="section-sub">Moments from an intense day of hacking, defending, and building trustworthy AI at MIT Bengaluru.</p>
+      <div class="section-divider"></div>
     </div>
-    <div class="tl-wrap reveal" id="tlWrap">
-      <div class="tl-glow" id="tlGlow"></div>
-      <div class="v-timeline">
-        <div class="v-tl-line"><div class="v-tl-fill" id="tlFill"></div></div>
 
-        <div class="v-item left">
-          <div class="v-node"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div class="v-card">
-            <div class="v-when">AUGUST <span class="dot-sep"></span> <span class="day">REGISTRATIONS</span></div>
-            <h4>Registrations Open</h4>
-            <p>Teams of up to 4 can sign up for AI-SEC HackFest 2026 starting this month.</p>
-          </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/GRP.jpg" alt="HackFest highlight 1" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
         </div>
-
-        <div class="v-item right">
-          <div class="v-node"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div class="v-card">
-            <div class="v-when">AUG&ndash;SEP <span class="dot-sep"></span> <span class="day">FORMATION</span></div>
-            <h4>Team Formation</h4>
-            <p>Find teammates, lock in your squad, and pick the track you want to tackle.</p>
-          </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/2nd.png" alt="HackFest highlight 2" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
         </div>
-
-        <div class="v-item left flag">
-          <div class="v-node"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div class="v-card">
-            <div class="v-when">SEPTEMBER <span class="dot-sep"></span> <span class="day">PREP</span></div>
-            <span class="v-flag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg> INTEGRITY CHECK</span>
-            <h4 class="gold">Challenge Prep &amp; Briefing</h4>
-            <p>Get the vulnerable system spec and rules ahead of the day &mdash; no pre-built code, only original work moves forward.</p>
-          </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/20260919_101936.jpg" alt="HackFest highlight 3" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
         </div>
-
-        <div class="v-item right">
-          <div class="v-node"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div class="v-card">
-            <div class="v-when">19 SEPT <span class="dot-sep"></span> <span class="day">HACKFEST DAY</span></div>
-            <h4>HackFest Day &middot; MIT Bengaluru</h4>
-            <p>Build, break, and defend on-site at Manipal Institute of Technology, Bengaluru.</p>
-          </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/4.png" alt="HackFest highlight 4" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
         </div>
-
-        <div class="v-item left final">
-          <div class="v-node"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div class="v-card">
-            <div class="v-when">FINAL <span class="dot-sep"></span> <span class="day">DEMO &amp; AWARDS</span></div>
-            <h4>Live Demos &amp; Awards</h4>
-            <p>Teams demo working code live &mdash; judges score depth and real-world impact over polish.</p>
-          </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/5.png" alt="HackFest highlight 5" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
         </div>
-
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/6.png" alt="HackFest highlight 6" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/7.png" alt="HackFest highlight 7" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/123.png" alt="HackFest highlight 8" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/123.png" alt="HackFest highlight 9" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/8.png" alt="HackFest highlight 10" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/00001.jpg" alt="HackFest highlight 11" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/0000.jpg" alt="HackFest highlight 12" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/0002.jpg" alt="HackFest highlight 13" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/0006.jpg" alt="HackFest highlight 14" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/0005.jpg" alt="HackFest highlight 15" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-photo">
+          <img src="/Images/Hackathon 2026 - Sep 19/Highlights/0004.jpg" alt="HackFest highlight 16" loading="lazy" onerror="this.closest('.gallery-card').classList.add('is-empty')" />
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- JUDGING PANEL -->
-  <section class="section" id="judges">
-    <div class="section-head reveal">
-      <span class="eyebrow">MEET THE JURIES</span>
-      <h2>Hackathon Juries</h2>
-      <p class="section-sub">Building the future of secure AI one challenge at a time.</p>
+    <!-- CHIEF GUESTS: replace names, designations and image paths -->
+    <div class="section-head reveal" style="margin-top:8px;">
+      <span class="eyebrow">HONOURED GUESTS</span>
+      <h2>Chief Guests</h2>
+      <p class="section-sub">Distinguished guests who graced AI-SEC HackFest 2026 with their presence and inspired every team.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="guests-grid reveal">
+      <div class="guest-card">
+        <div class="guest-avatar-ring"><div class="guest-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/CAB 3.jpg" alt="Chief Guest 1" onerror="this.style.display='none'" />
+        </div></div>
+        <span class="guest-tag">Chief Guest</span>
+        <h4>Sivakumar Dhakshinamoorthy</h4>
+        <span class="guest-role">Head of Services Support and AI Security & Governance Researcher</span>
+       <a class="judge-linkedin" href="https://www.linkedin.com/in/dshivaa/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+      <div class="guest-card">
+        <div class="guest-avatar-ring"><div class="guest-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/Hackathon 2026 - Sep 19/sathya priya.jpg" alt="Chief Guest 2" onerror="this.style.display='none'" />
+        </div></div>
+        <span class="guest-tag">Chief Guest</span>
+        <h4>Sathya Priya Chidambaram</h4>
+        <span class="guest-role">Director - Luxentra Pvt.Ltd</span>
+         <a class="judge-linkedin" href="https://www.linkedin.com/in/sathya-priya-chidambaram-99952026a/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:8px;">
+      <span class="eyebrow">MEET THE JURY</span>
+      <h2>Jury &amp; Mentors</h2>
+      <p class="section-sub">The panel that evaluated every build for depth, creativity, and real-world impact.</p>
       <div class="section-divider"></div>
     </div>
     <div class="judges-grid reveal">
       <div class="judge-card">
-        <div class="judge-avatar-ring">
-          <div class="judge-avatar">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/CAB 2.jpg" alt="Dr. Ram Kumar G" onerror="this.style.display='none'" />
-          </div>
-        </div>
+        <div class="judge-avatar-ring"><div class="judge-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/CAB 2.jpg" alt="Dr. Ram Kumar G" onerror="this.style.display='none'" />
+        </div></div>
         <h4>Dr. Ram Kumar G</h4>
         <span class="judge-role">Cybersecurity &amp; Risk Leader</span>
         <a class="judge-linkedin" href="https://linkedin.com/in/ram-kumar-g" target="_blank" rel="noopener">
@@ -1250,12 +611,10 @@
         </a>
       </div>
       <div class="judge-card">
-        <div class="judge-avatar-ring">
-          <div class="judge-avatar">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/Hackathon 2026 - Sep 19/2026-08-25 14_38_53-Praveen.jpeg.png" alt="Praveen Kumar Motupalli" onerror="this.style.display='none'" />
-          </div>
-        </div>
+        <div class="judge-avatar-ring"><div class="judge-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/Hackathon 2026 - Sep 19/2026-08-25 14_38_53-Praveen.jpeg.png" alt="Praveen Kumar Motupalli" onerror="this.style.display='none'" />
+        </div></div>
         <h4>Praveen Kumar Motupalli</h4>
         <span class="judge-role">Cybersecurity &amp; Privacy Leader</span>
         <a class="judge-linkedin" href="https://www.linkedin.com/in/praveenmotupalli/" target="_blank" rel="noopener">
@@ -1264,12 +623,34 @@
         </a>
       </div>
       <div class="judge-card">
-        <div class="judge-avatar-ring">
-          <div class="judge-avatar">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/Hackathon 2026 - Sep 19/mohammed" alt="Muhammed Ashiq Abdul Khader" onerror="this.style.display='none'" />
-          </div>
-        </div>
+        <div class="judge-avatar-ring"><div class="judge-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/Hackathon 2026 - Sep 19/PH Reddy.jpg" alt="PH Reddy" onerror="this.style.display='none'" />
+        </div></div>
+        <h4>PH Reddy</h4>
+        <span class="judge-role">CyberSecurity Leader</span>
+        <a class="judge-linkedin" href="https://www.linkedin.com/in/ph-reddy-5884aa24a/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+      <div class="judge-card">
+        <div class="judge-avatar-ring"><div class="judge-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/Hackathon 2026 - Sep 19/Anandhu gopi.jpeg" alt="Anandhu Gopi" onerror="this.style.display='none'" />
+        </div></div>
+        <h4>Anandhu Gopi</h4>
+        <span class="judge-role">CloudSEK</span>
+        <a class="judge-linkedin" href="https://www.linkedin.com/in/anandhu-gopi-691b35144/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          View LinkedIn
+        </a>
+      </div>
+      <div class="judge-card">
+        <div class="judge-avatar-ring"><div class="judge-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/Hackathon 2026 - Sep 19/mohammed" alt="Muhammed Ashiq Abdul Khader" onerror="this.style.display='none'" />
+        </div></div>
         <h4>Muhammed Ashiq Abdul Khader</h4>
         <span class="judge-role">Cyber Security Engineer</span>
         <a class="judge-linkedin" href="https://www.linkedin.com/in/muhammed-ashiq-abdul-khader/" target="_blank" rel="noopener">
@@ -1278,12 +659,10 @@
         </a>
       </div>
       <div class="judge-card">
-        <div class="judge-avatar-ring">
-          <div class="judge-avatar">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/Hackathon 2026 - Sep 19/swastik.jpeg" alt="Swastik Mukherjee" onerror="this.style.display='none'" />
-          </div>
-        </div>
+        <div class="judge-avatar-ring"><div class="judge-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <img src="/Images/Hackathon 2026 - Sep 19/swastik.jpeg" alt="Swastik Mukherjee" onerror="this.style.display='none'" />
+        </div></div>
         <h4>Swastik Mukherjee</h4>
         <span class="judge-role">Sr. AI/ML Security Engineer</span>
         <a class="judge-linkedin" href="https://www.linkedin.com/in/swastik-mukherjee/" target="_blank" rel="noopener">
@@ -1291,100 +670,55 @@
           View LinkedIn
         </a>
       </div>
-      <div class="judge-card">
-        <div class="judge-avatar-ring">
-          <div class="judge-avatar">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-            <img src="/Images/Hackathon 2026 - Sep 19/PH Reddy.jpg" alt="PH Reddy" onerror="this.style.display='none'" />
-          </div>
-        </div>
-        <h4>PH Reddy</h4>
-        <span class="judge-role">CyberSecurity Leader</span>
-        <a class="judge-linkedin" href="https://www.linkedin.com/in/ph-reddy-5884aa24a/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          View LinkedIn
-        </a>
-      </div>
+
+
+    </div>
+
+    <div class="next-meetup reveal">
+      <span class="icon">🚀</span>
+      <h3>See You at the Next AI-SEC Hackathon!</h3>
+      <p>This is just the beginning. Stay tuned for the next AI-SEC Community Hackathon - more challenges, more mentors, and more ways to secure the future of AI together.</p>
     </div>
   </section>
 
-  <!-- REGISTRATION DEADLINE HIGHLIGHT 
-  <div class="deadline-banner">
-    <div class="deadline-banner-inner">
-      <div class="deadline-banner-content">
-        <span class="deadline-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-        </span>
-        <span class="deadline-text">Registrations close on <strong>6 September 2026</strong> -  Claim your place at AI-SEC HackFest!.</span>
-        <span class="deadline-badge">Secure Spot</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- REGISTER CTA -->
-  <div class="register-band reveal" id="register">
-    <div>
-      <h3>8 Hours. One AI Security Challenge. Your Team.</h3>
-      <p>19 September 2026 &middot; Manipal Institute of Technology (MIT), Bengaluru</p>
-    
-    </div>
-    <a href="#" class="btn btn-primary">Registration Closed</a>
-  </div>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="section-head reveal">
-      <span class="eyebrow">GET IN TOUCH</span>
-      <h2>Contact Us</h2>
-    </div>
-    <p class="sub reveal" style="opacity:1;animation:none;margin-bottom:36px;">Have questions about AI-SEC HACKFEST 2026?  Contact us for registration, event details, or any other queries.</p>
-
-    <div class="contact-table reveal">
-      <div class="contact-row contact-head">
-        <div class="contact-cell">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
-          Email
+  <!-- ---------- SITE FOOTER (copied from About page) ---------- -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/index.html" class="footer__logo">
+            <img src="assets/images/logo.png" alt="AI-SEC Community logo" width="28" height="28" />
+            AI-SEC Community
+          </a>
+          <p class="footer__tagline">Securing the age of AI, together.</p>
         </div>
-        <div class="contact-cell">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Venue
-        </div>
-        <div class="contact-cell">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>
-          Inquiries
-        </div>
-      </div>
-      <div class="contact-row contact-body">
-        <div class="contact-cell">
-          <div class="contact-value">
-            <a href="mailto:info@ai-seccommunity.org" id="contactEmail">info@ai-seccommunity.org</a>
-            <span class="contact-copy" id="copyEmailBtn" title="Copy email">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            </span>
+
+        <nav aria-label="Footer navigation">
+          <h3 class="footer__heading">Explore</h3>
+          <div class="footer__links">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="Chapters.html">Chapters</a>
+            <a href="/Hackathon.html">Hackathon</a>
+            <a href="Community Partners.html">Community Partners</a>
           </div>
-          <p class="contact-note">We respond to all emails within 24 hours.</p>
-        </div>
-        <div class="contact-cell">
-          <div class="contact-value">Manipal Institute of Technology (MIT)</div>
-          <p class="contact-note">Govindapura, Yelahanka, Bengaluru, Karnataka 560064.</p>
-        </div>
-        <div class="contact-cell">
-          <div class="contact-value">
-            <a class="contact-link" href="https://luma.com/f20lkkce" target="_blank" rel="noopener">
-              Open Registration Form
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
+        </nav>
+
+        <div>
+          <h3 class="footer__heading">Community</h3>
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/ai-sec-community/?viewAsMember=true" target="_blank" rel="noopener" aria-label="AI-SEC Community on LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S0 4.881 0 3.5 1.12 1 2.5 1s2.48 1.119 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.02 8.25h4.31v2.01h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.75-2.59 3.56V23h-4.5V8.25z"/></svg></a>
+            <a href="https://www.youtube.com/@AI-PentestingRD" target="_blank" rel="noopener" aria-label="AI-SEC Community on YouTube"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 0 0 .502 6.186 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 0 0 2.107-2.117A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z"/></svg></a>
+            <a href="https://chat.whatsapp.com/Je6FdiOAhg59l80TBUSzJm" target="_blank" rel="noopener" aria-label="AI-SEC Community on WhatsApp"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .16 5.304.157 11.893c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.582 0 11.885-5.304 11.888-11.893a11.821 11.821 0 0 0-3.418-8.452"/></svg></a>
           </div>
-          <p class="contact-note">Submit detailed questions or team info here.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <footer class="footer">© 2026 AI-SEC Community · Bengaluru, India</footer>
+      </div>
+    </div>
+  </footer>
 
 <script>
-  // ---- animated headline lettering ----
   (function(){
     const text = "AI-SEC HACKFEST";
     const row = document.getElementById('charRow');
@@ -1397,8 +731,6 @@
       row.appendChild(span);
     });
   })();
-
-  // ---- headline: shrink-to-fit safety net (guarantees a single line, no clipping) ----
   (function(){
     const headline = document.querySelector('.headline');
     const row = document.getElementById('charRow');
@@ -1417,14 +749,11 @@
     window.addEventListener('resize', fit);
     window.addEventListener('orientationchange', fit);
     setTimeout(fit, 50);
-    setTimeout(fit, 1000); // re-check after webfonts finish loading
+    setTimeout(fit, 1000);
   })();
-
-  // ---- floating particles ----
   (function(){
     const field = document.getElementById('particleField');
-    const count = 22;
-    for(let i=0;i<count;i++){
+    for(let i=0;i<22;i++){
       const p = document.createElement('div');
       p.className = 'particle';
       const size = 2 + Math.random()*4;
@@ -1436,155 +765,26 @@
       field.appendChild(p);
     }
   })();
-
-  // ---- about flow-list: staggered reveal ----
-  (function(){
-    const items = document.querySelectorAll('.flow-item');
-    if(!items.length) return;
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const el = entry.target;
-          const idx = Array.prototype.indexOf.call(items, el);
-          setTimeout(()=> el.classList.add('in'), idx * 110);
-          obs.unobserve(el);
-        }
-      });
-    }, { threshold: 0.3, rootMargin: '0px 0px -8% 0px' });
-    items.forEach(el=>obs.observe(el));
-  })();
-
-  // ---- about flow-list: connector line fill tied to scroll ----
-  (function(){
-    const list = document.getElementById('flowList');
-    const fill = document.getElementById('flowFill');
-    if(!list || !fill) return;
-    let ticking = false;
-    function update(){
-      const rect = list.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const total = rect.height;
-      const start = vh * 0.85;
-      const raw = (start - rect.top) / (total - (vh * 0.35) + start);
-      const progress = Math.min(1, Math.max(0, raw));
-      fill.style.height = (progress * 100) + '%';
-      ticking = false;
-    }
-    function onScroll(){
-      if(!ticking){
-        requestAnimationFrame(update);
-        ticking = true;
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', onScroll);
-    update();
-  })();
-
-  // ---- scroll reveal (generic sections) ----
   (function(){
     const items = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('in');
-          obs.unobserve(e.target);
-        }
+        if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
       });
     }, { threshold: 0.15 });
     items.forEach(el=>obs.observe(el));
   })();
-
-  // ---- timeline: staggered item reveal ----
-  (function(){
-    const items = document.querySelectorAll('.v-item');
-    if(!items.length) return;
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const el = entry.target;
-          const idx = Array.prototype.indexOf.call(items, el);
-          setTimeout(()=> el.classList.add('in'), idx * 90);
-          obs.unobserve(el);
-        }
-      });
-    }, { threshold: 0.35, rootMargin: '0px 0px -8% 0px' });
-    items.forEach(el=>obs.observe(el));
-  })();
-
-  // ---- timeline: progress line fill tied to scroll position ----
-  (function(){
-    const wrap = document.getElementById('tlWrap');
-    const fill = document.getElementById('tlFill');
-    if(!wrap || !fill) return;
-    let ticking = false;
-    function update(){
-      const rect = wrap.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const total = rect.height;
-      const start = vh * 0.8;
-      const raw = (start - rect.top) / (total - (vh * 0.35) + start);
-      const progress = Math.min(1, Math.max(0, raw));
-      fill.style.height = (progress * 100) + '%';
-      ticking = false;
-    }
-    function onScroll(){
-      if(!ticking){
-        requestAnimationFrame(update);
-        ticking = true;
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', onScroll);
-    update();
-  })();
-
-  // ---- cursor-reactive timeline glow ----
-  (function(){
-    const wrap = document.getElementById('tlWrap');
-    const glow = document.getElementById('tlGlow');
-    if(!wrap || !glow) return;
-    let ticking = false;
-    wrap.addEventListener('mousemove', (e) => {
-      const rect = wrap.getBoundingClientRect();
-      const mx = ((e.clientX - rect.left) / rect.width) * 100;
-      const my = ((e.clientY - rect.top) / rect.height) * 100;
-      if(!ticking){
-        requestAnimationFrame(() => {
-          glow.style.setProperty('--mx', mx + '%');
-          glow.style.setProperty('--my', my + '%');
-          ticking = false;
-        });
-        ticking = true;
+  window.addEventListener('load', function(){
+    document.querySelectorAll('.gallery-card img').forEach(function(img){
+      if(img.complete && img.naturalWidth === 0){
+        img.closest('.gallery-card').classList.add('is-empty');
       }
     });
-  })();
-
-  // ---- copy email to clipboard ----
-  (function(){
-    const btn = document.getElementById('copyEmailBtn');
-    const emailEl = document.getElementById('contactEmail');
-    if(!btn || !emailEl) return;
-    btn.addEventListener('click', async () => {
-      const text = emailEl.textContent.trim();
-      try{
-        await navigator.clipboard.writeText(text);
-      }catch(e){
-        const ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta); ta.select();
-        document.execCommand('copy'); document.body.removeChild(ta);
-      }
-      btn.classList.add('copied');
-      setTimeout(()=> btn.classList.remove('copied'), 1500);
-    });
-  })();
-
-  // ---- mobile navbar toggle ----
+  });
   (function(){
     const btn = document.querySelector('[data-nav-toggle]');
     const menu = document.getElementById('primary-nav');
     if(!btn || !menu) return;
-
     btn.addEventListener('click', () => {
       const open = menu.classList.toggle('is-open');
       btn.classList.toggle('is-open', open);
@@ -1598,8 +798,6 @@
       });
     });
   })();
-
-  // ---- theme-toggle icon (decorative on this page — HackFest is dark-only) ----
   (function(){
     const btn = document.querySelector('[data-theme-toggle]');
     if(!btn) return;
@@ -1608,18 +806,16 @@
       btn.setAttribute('aria-pressed', String(toggled));
     });
   })();
-
-  // ---- judges: cursor-following 3D tilt ----
   (function(){
     const cards = document.querySelectorAll('.judge-card');
     if(!cards.length) return;
-    const MAX_TILT = 7; // degrees
+    const MAX_TILT = 7;
     cards.forEach(card => {
       let raf = null;
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width;  // 0..1
-        const py = (e.clientY - rect.top) / rect.height;  // 0..1
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
         const rotateY = (px - 0.5) * (MAX_TILT * 2);
         const rotateX = (0.5 - py) * (MAX_TILT * 2);
         if(raf) cancelAnimationFrame(raf);
@@ -1633,68 +829,55 @@
       });
     });
   })();
-
-  // ---- countdown to HackFest kickoff ----
+  // ---- winners: 3D tilt + cursor spotlight ----
   (function(){
-    // Edit this to your actual kickoff time. Currently: 19 Sep 2026, 09:00 IST.
-    const TARGET = new Date('2026-09-19T09:00:00+05:30').getTime();
-
-    const els = {
-      days:   { val: document.getElementById('val-days'),    unit: document.getElementById('unit-days') },
-      hours:  { val: document.getElementById('val-hours'),   unit: document.getElementById('unit-hours') },
-      minutes:{ val: document.getElementById('val-minutes'), unit: document.getElementById('unit-minutes') },
-      seconds:{ val: document.getElementById('val-seconds'), unit: document.getElementById('unit-seconds') }
-    };
-    const grid = document.getElementById('countdownGrid');
-    const liveMsg = document.getElementById('countdownLive');
-    if(!grid || !liveMsg) return;
-
-    const prev = { days:null, hours:null, minutes:null, seconds:null };
-
-    function setUnit(key, num){
-      const str = String(num).padStart(2,'0');
-      if(prev[key] !== str){
-        els[key].val.textContent = str;
-        els[key].val.classList.remove('flip');
-        void els[key].val.offsetWidth; // restart animation
-        els[key].val.classList.add('flip');
-        els[key].unit.classList.remove('pulse');
-        void els[key].unit.offsetWidth;
-        els[key].unit.classList.add('pulse');
-        prev[key] = str;
+    if(!window.matchMedia('(hover:hover)').matches) return;
+    document.querySelectorAll('.winner-card').forEach(card => {
+      let raf = null;
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--mx', (px*100)+'%');
+        card.style.setProperty('--my', (py*100)+'%');
+        if(raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `perspective(900px) rotateX(${((0.5-py)*10).toFixed(2)}deg) rotateY(${((px-0.5)*10).toFixed(2)}deg) translateY(-6px)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => { if(raf) cancelAnimationFrame(raf); card.style.transform = ''; });
+    });
+  })();
+  // ---- winners: confetti burst when 1st prize scrolls into view ----
+  (function(){
+    const target = document.querySelector('.winner-feature');
+    if(!target || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const colors = ['#f0c14b','#fff6cf','#a98bff','#2dd4bf','#e08a52','#ffffff'];
+    function burst(){
+      for(let i=0;i<90;i++){
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random()*100 + 'vw';
+        c.style.background = colors[i % colors.length];
+        c.style.setProperty('--dx', (Math.random()*240-120) + 'px');
+        c.style.setProperty('--rot', (Math.random()*1080-540) + 'deg');
+        c.style.setProperty('--dur', (2.4 + Math.random()*2) + 's');
+        c.style.animationDelay = (Math.random()*0.9) + 's';
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 5500);
       }
     }
-
-    function tick(){
-      const now = Date.now();
-      const diff = TARGET - now;
-
-      if(diff <= 0){
-        grid.style.display = 'none';
-        liveMsg.classList.add('show');
-        clearInterval(countdownTimer);
-        return;
-      }
-
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-
-      setUnit('days', d);
-      setUnit('hours', h);
-      setUnit('minutes', m);
-      setUnit('seconds', s);
-
-      grid.classList.toggle('urgent', diff < 86400000); // < 24h left
-    }
-
-    tick();
-    const countdownTimer = setInterval(tick, 1000);
+    const io = new IntersectionObserver(es => {
+      if(es[0].isIntersecting){ setTimeout(burst, 500); io.disconnect(); }
+    }, { threshold: 0.35 });
+    io.observe(target);
+  })();
+  // ---- footer: keep the copyright year current ----
+  (function(){
+    document.querySelectorAll('[data-current-year]').forEach(function(el){
+      el.textContent = new Date().getFullYear();
+    });
   })();
 </script>
-
-
 
 </body>
 </html>
