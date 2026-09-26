@@ -403,9 +403,17 @@
   .chapter-card__lead-label{
     font-size:.82rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--violet-600);
   }
+  /* FIX: was word-break:break-word, which let the browser split names mid-word
+     (e.g. "Kanimozh" / "i Elumalai") when the card ran out of horizontal room.
+     keep-all + overflow-wrap:normal restrict wrapping to natural word
+     boundaries (spaces) only, so a long two-word name breaks cleanly between
+     the first and last name instead of inside a word. Font size trimmed
+     slightly so longer names have a better chance of fitting on one line. */
   .chapter-card__lead-name{
-    font-size:1.5rem; font-weight:800; color:var(--ink); margin-top:4px;
-    word-break:break-word;
+    font-size:1.3rem; font-weight:800; color:var(--ink); margin-top:4px;
+    overflow-wrap:normal;
+    word-break:keep-all;
+    hyphens:none;
   }
 
   .chapter-card__status{
@@ -752,10 +760,10 @@
               <p class="chapter-card__desc">Growing a strong AI and cybersecurity community through learning opportunities, industry connections, knowledge sharing, and engaging community events.</p>
 
               <div class="chapter-card__lead">
-                <img class="chapter-card__lead-photo" src="/Images/Chapters/Sathish Ashwin.jpg" alt="Photo of Sathish Ashwin, Chennai chapter lead" />
+                <img class="chapter-card__lead-photo" src="/Images/Chapters/Kani.jpeg" alt="Photo of Sathish Ashwin, Chennai chapter lead" />
                 <div class="chapter-card__lead-info">
                   <span class="chapter-card__lead-label">Chapter Lead</span>
-                  <span class="chapter-card__lead-name">Sathish Ashwin</span>
+                  <span class="chapter-card__lead-name">Kanimozhi Elumalai</span>
                 </div>
               </div>
 
