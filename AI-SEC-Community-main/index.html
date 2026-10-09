@@ -43,6 +43,22 @@
       color: #fff;
     }
     .wwd-icon svg{ width: 26px; height: 26px; }
+
+    /* Navbar: keep everything on one line */
+    .navbar__inner { flex-wrap: nowrap; gap: 16px; }
+    .navbar__logo,
+    .navbar__actions { flex-shrink: 0; }
+    .navbar__wordmark,
+    .navbar__links a,
+    .navbar__cta { white-space: nowrap; }
+    .navbar__links { gap: clamp(14px, 1.7vw, 26px); font-size: .92rem; }
+
+    /* Switch to the hamburger menu before the links run out of room */
+    @media (max-width: 1100px) {
+      .navbar__links { display: none; }
+      .navbar__toggle { display: flex; }
+      .navbar__cta { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -58,6 +74,7 @@
         <a href="index.html" class="is-active" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="Chapters.html">Chapters</a>
+       
         <a href="Hackathon.html">Hackathon</a>
         <a href="Community Partners.html">Community Partners</a>
       </nav>
@@ -225,11 +242,11 @@
         </div>
 
         <article class="card event-card" data-animate="fade-up">
-          <img class="card__image" src="/Images/TBA.png" alt="Event details to be announced" />
+          <img class="card__image" src="/Images/Chapters/Hyderabad/October/Web Page Content - Full.jpg" alt="Event details to be announced" />
           <div class="card__body">
-            <h3 class="card__title">AI-SEC COMMUNITY September Monthly Meetup</h3>
-            <p class="card__meta"><time datetime="2026-08-15">Date: TBA</time></p>
-            <p class="card__text">Venue : TBA</p>
+            <h3 class="card__title">AI-SEC COMMUNITY October Monthly Meetup</h3>
+            <p class="card__meta"><time datetime="2026-08-15">Date: October 10th,2026 ( Saturday )</time></p>
+            <p class="card__text">Venue : Sonatype</p>
             <a href="#" class="btn btn-primary" target="_blank" rel="noopener">Register Now on Luma</a>
           </div>
         </article>
@@ -274,6 +291,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="Chapters.html">Chapters</a>
+           
             <a href="Hackathon.html">Hackathon</a>
             <a href="Community Partners.html">Community Partners</a>
           </div>
