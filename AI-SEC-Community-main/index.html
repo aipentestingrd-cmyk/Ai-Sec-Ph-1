@@ -44,6 +44,101 @@
     }
     .wwd-icon svg{ width: 26px; height: 26px; }
 
+    /* Remove the side spaces: let "What We Do" use the full page width */
+    #what-we-do > .container {
+      max-width: none;
+      width: 100%;
+      padding-inline: clamp(16px, 3vw, 48px);
+    }
+
+    /* ---------- Animations ---------- */
+    @keyframes aisecFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes aisecFloat {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+    @keyframes aisecGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, .45); }
+      50%      { box-shadow: 0 0 0 10px rgba(168, 85, 247, 0); }
+    }
+    @keyframes aisecShine {
+      from { background-position: 0% 50%; }
+      to   { background-position: 200% 50%; }
+    }
+
+    /* Hero entrance */
+    .hero__content h1 .small-text,
+    .hero__content h1 .big-text,
+    .hero__subtitle,
+    .hero__cta-group {
+      opacity: 0;
+      animation: aisecFadeUp .8s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+    .hero__content h1 .small-text { animation-delay: .1s; }
+    .hero__content h1 .big-text   { animation-delay: .3s; display: inline-block; }
+    .hero__subtitle               { animation-delay: .55s; }
+    .hero__cta-group              { animation-delay: .75s; }
+
+    /* Scroll cue bounce */
+    .hero__scroll-cue svg { animation: aisecFloat 1.8s ease-in-out infinite; }
+
+    /* What We Do cards: staggered reveal + hover */
+    .js-reveal .grid-4 .card {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .js-reveal .grid-4 .card.is-in {
+      animation: aisecFadeUp .7s cubic-bezier(.2, .7, .2, 1) forwards;
+      animation-delay: calc(var(--i, 0) * 90ms);
+    }
+    #what-we-do .card {
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    #what-we-do .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(168, 85, 247, .6);
+      box-shadow: 0 18px 40px rgba(124, 58, 237, .28);
+    }
+    .wwd-icon { transition: transform .35s ease; }
+    #what-we-do .card:hover .wwd-icon {
+      transform: scale(1.12) rotate(-6deg);
+      animation: aisecGlow 1.4s ease-out infinite;
+    }
+
+    /* Event cards */
+    .event-card { transition: transform .3s ease, box-shadow .3s ease; }
+    .event-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(124, 58, 237, .25);
+    }
+
+    /* Buttons */
+    .btn { transition: transform .2s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary:hover { box-shadow: 0 8px 22px rgba(168, 85, 247, .45); }
+
+    /* Animated gradient on section titles */
+    #what-we-do-title {
+      background: linear-gradient(90deg, #fff, #C084FC, #fff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: aisecShine 5s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .js-reveal .grid-4 .card { opacity: 1; transform: none; }
+    }
+
     /* Navbar: keep everything on one line */
     .navbar__inner { flex-wrap: nowrap; gap: 16px; }
     .navbar__logo,
@@ -74,7 +169,7 @@
         <a href="index.html" class="is-active" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="Chapters.html">Chapters</a>
-       
+
         <a href="Hackathon.html">Hackathon</a>
         <a href="Community Partners.html">Community Partners</a>
       </nav>
@@ -137,7 +232,7 @@
     </section>
 
     <!-- What we do -->
-    <section class="section" aria-labelledby="what-we-do-title">
+    <section class="section" id="what-we-do" aria-labelledby="what-we-do-title">
       <div class="container">
         <div class="section__header" data-animate="fade-up">
           <h2 class="section__title" id="what-we-do-title">What We Do</h2>
@@ -242,11 +337,11 @@
         </div>
 
         <article class="card event-card" data-animate="fade-up">
-          <img class="card__image" src="/Images/Chapters/Hyderabad/October/Web Page Content - Full.jpg" alt="Event details to be announced" />
+          <img class="card__image" src="/Images/TBA.png" alt="Event details to be announced" />
           <div class="card__body">
             <h3 class="card__title">AI-SEC COMMUNITY October Monthly Meetup</h3>
-            <p class="card__meta"><time datetime="2026-08-15">Date: October 10th,2026 ( Saturday )</time></p>
-            <p class="card__text">Venue : Sonatype</p>
+            <p class="card__meta"><time datetime="2026-08-15">Date: TBA</time></p>
+            <p class="card__text">Venue : TBA</p>
             <a href="#" class="btn btn-primary" target="_blank" rel="noopener">Register Now on Luma</a>
           </div>
         </article>
@@ -291,7 +386,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="Chapters.html">Chapters</a>
-           
+
             <a href="Hackathon.html">Hackathon</a>
             <a href="Community Partners.html">Community Partners</a>
           </div>
@@ -308,6 +403,22 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Staggered scroll reveal for the "What We Do" cards
+    (function () {
+      var cards = document.querySelectorAll('#what-we-do .grid-4 .card');
+      if (!cards.length || !('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js-reveal');
+      cards.forEach(function (c, i) { c.style.setProperty('--i', i % 4); });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      cards.forEach(function (c) { io.observe(c); });
+    })();
+  </script>
 
   <script src="js/main.js" defer></script>
   <script src="js/navigation.js" defer></script>
