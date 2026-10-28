@@ -91,6 +91,22 @@
     @media (max-width: 640px) {
       .highlights-grid { column-count: 1; }
     }
+
+    /* Responsive 16:9 video embed */
+    .video-embed__frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+    .video-embed__frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-embed__link { margin-left: 0.5rem; }
   </style>
 </head>
 <body>
@@ -235,7 +251,6 @@
               <div class="card__body">
                 <h3 class="card__title">Bhramara Malleswar Bollapinni</h3>
                 <span class="badge">Panel Speaker 3</span>
-                <!-- TODO: replace # with Bhramara's real LinkedIn URL (the old link pointed to Rajalakshmi Balasundaram) -->
                 <p class="card__text"><a href="https://www.linkedin.com/in/bhramara-malleswar-bollapinni-5b833622/" target="_blank" rel="noopener" class="icon-link"><svg width="24" height="24" fill="currentColor" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></p>
               </div>
             </article>
@@ -283,6 +298,33 @@
               <div class="card__body"><p class="card__text">Highlight 4</p></div>
             </a>
           </div>
+        </div>
+
+        <!-- Recording -->
+        <div class="event-group" data-animate="fade-up">
+          <div class="event-group__header">
+            <h3 class="event-group__title">October 2026 Recordings</h3>
+          </div>
+          <figure class="card video-embed">
+            <div class="video-embed__frame">
+              <!--
+                FIX: YouTube blocks "youtube.com/playlist?list=..." inside iframes.
+                Playlists must use the embed form: https://www.youtube.com/embed/videoseries?list=PLAYLIST_ID
+                Replace the ID below with your FULL playlist ID (starts with "PL", ~34 characters).
+              -->
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLcuK6Znj3Lfg"
+                title="AI-SEC Community October 2026 recordings"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="card__body card__text">
+              AI-SEC Community - October 2026 Summit
+              <a class="video-embed__link" href="https://www.youtube.com/playlist?list=PLcuK6Znj3Lfg" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+            </figcaption>
+          </figure>
         </div>
 
       </div>
